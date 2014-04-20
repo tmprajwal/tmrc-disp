@@ -1,0 +1,3 @@
+(set (Opt LayoutFile) "full.nlay")
+(set (Opt enableInertia) 0)
+(set (Opt miniscab) 0)

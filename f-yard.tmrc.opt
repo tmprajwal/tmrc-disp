@@ -1,0 +1,5 @@
+(set (Opt LayoutFile) "FreightYard.nlay")
+(set (Opt displaytype) "bigyard")
+(set (Opt initialgeom) "800x600+0+0")
+(set (Opt miniSCab) 1)
+(set (Opt enableInertia) 0)

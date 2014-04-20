@@ -1,0 +1,5 @@
+(set (Opt LayoutFile) "Staging.nlay")
+(set (Opt displaytype) "bigyard")
+(set (Opt initialgeom) "800x640+0+0")
+(set (Opt miniSCab) 1)
+(set (Opt enableInertia) 0)

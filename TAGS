@@ -1,0 +1,609 @@
+
+BlockObj.py,1489
+class BlockObj(TrackObj.TrackObj):BlockObj10,182
+    def __init__(self, master, name):__init__15,365
+    def UpdateSignal(self, end, signal):UpdateSignal60,1514
+    def FindColor(self, connection=None):FindColor72,1994
+    def UpdateStatus(self, connect=None, callingobject=()):UpdateStatus94,2829
+    def OutOfService(self, event=None):OutOfService125,3963
+    def ConInfo(self, end, value, vsub):ConInfo138,4407
+    def ProcSexp(self, Psexp):ProcSexp159,5353
+    def SetNumcxn(self, numcxn):SetNumcxn235,9093
+    def SetLogicalDirection(self, logdir):SetLogicalDirection243,9377
+    def NewSCabWindow(self, event):NewSCabWindow247,9487
+    def IsEndAccessible(self, end):IsEndAccessible251,9610
+    def IsHeadBlock(self, ihb=None):IsHeadBlock254,9675
+    def IsEndHead(self, end):IsEndHead287,10572
+    def SetTrain(self, train):SetTrain306,11244
+    def DrawTrainID(self):DrawTrainID311,11367
+    def GState(self, ObjCon=None):GState337,12616
+class CompactBlockDisplay:CompactBlockDisplay345,12990
+    def __init__(self, block, frame):__init__346,13017
+    def Disconnect(self):Disconnect361,13593
+    def Clicked(self, event=None):Clicked364,13662
+    def OutOfService(self, event=None):OutOfService367,13736
+    def UpdateStatus(self):UpdateStatus370,13816
+class CompactBlockDisplayWindow:CompactBlockDisplayWindow393,14701
+    def __init__(self, master):__init__394,14734
+    def CloseWindow(self, event=None):CloseWindow420,15617
+
+Cards.py,556
+class CardEditor:CardEditor10,156
+    def __init__(self, master, type):__init__11,174
+    def DoneEditing(self, event=None):DoneEditing90,4334
+    def Update(self, event=None):Update93,4408
+    def AddCard(self, event=None):AddCard109,5165
+    def DeleteCard(self, event=None):DeleteCard115,5449
+class Card:Card124,5824
+    def __init__(self, master, number, type):__init__125,5836
+    def SetCards(self, addlist, index=0):SetCards146,6549
+    def SetInput(self, input):SetInput184,8903
+    def ProcSexp(self, Psexp):ProcSexp187,8965
+
+CrossingObj.py,638
+class CrossingObj(SwitchObj.SwitchObj):CrossingObj5,58
+    def __init__(self, master, name):__init__6,98
+    def SignalColor(self, end):SignalColor12,311
+    def UpdateSignal(self, end, signal):UpdateSignal18,488
+    def ConInfo(self, end, value, vsub):ConInfo24,721
+    def UpdateStatus(self, connect=None, callingobject=()):UpdateStatus41,1457
+    def FindColor(self, connection=None):FindColor70,3028
+    def IsEndAccessible(self, end):IsEndAccessible76,3282
+    def IsNotHead(self, block):IsNotHead86,3624
+    def IsOppEndHead(self, end, block):IsOppEndHead92,3785
+    def IsEndHead(self, end):IsEndHead103,4112
+
+DisplayManager.py,769
+class DualPane:DualPane14,250
+    def __init__(self, master, frame):__init__19,482
+    def LoadDisplay(self, filename):LoadDisplay54,1997
+    def FixTop(self, event=None):FixTop61,2206
+    def FixBottom(self, event=None):FixBottom71,2586
+    def KeyScroll(self, event=None):KeyScroll80,2927
+    def BotXScrollWrap(self, stuff=None, foo=None, morefoo=None):BotXScrollWrap104,3682
+    def ClickToScroll(self, event):ClickToScroll119,4433
+    def UpperBox(self, event=None):UpperBox146,5489
+class SinglePane:SinglePane170,6509
+    def __init__(self, master, frame):__init__175,6717
+    def LoadDisplay(self, filename):LoadDisplay193,7451
+    def FixScale(self, event=None):FixScale197,7560
+    def KeyScroll(self, event=None):KeyScroll205,7863
+
+HCab.py,212
+class HCab:HCab4,60
+    def __init__(self, master, name):__init__9,247
+    def SetOwner(self, owner=None):SetOwner18,521
+    def Delete(self):Delete35,1201
+    def ProcSexp(self, Psexp):ProcSexp43,1464
+
+Logger.py,407
+class Logger:Logger18,272
+    def __init__(self, master):__init__21,360
+    def LogAllMsg(self, message, source, level):LogAllMsg31,605
+    def LogServerMsg(self, message, level=MED):LogServerMsg44,1090
+    def LogSCabMsg(self, message, level=MED):LogSCabMsg57,1598
+    def LogWarnMsg(self, message, level=HIGH):LogWarnMsg70,2100
+    def LogFileMsg(self, message, level=LOW):LogFileMsg83,2587
+
+MiscTrack.py,254
+class ConObj:ConObj67,2303
+    def __init__(self):__init__68,2317
+    def SetGap(self, gap):SetGap76,2491
+class CanvasObj(Pmw.ScrolledCanvas):CanvasObj84,2716
+    def __init__(self, name, DB, frame,__init__90,2943
+class Struct:Struct117,3967
+
+Options.py,287
+class Options:Options5,109
+    def __init__(self, master):__init__11,295
+    def SetDefs(self):SetDefs18,444
+    def ProcSexp(self, Psexp):ProcSexp28,1049
+    def AddOpt(self, optname, defval, valtype='string',AddOpt36,1331
+    def SetOpt(self, optname, value):SetOpt44,1620
+
+PBlock.py,1060
+class PBlock:PBlock9,102
+    def __init__(self, master, owner):__init__10,116
+    def AddLine(self, line):AddLine24,512
+    def DeleteInstance(self, line):DeleteInstance30,668
+    def DeleteAllInstances(self):DeleteAllInstances36,851
+    def UpdateStatus(self):UpdateStatus42,1058
+    def SetMode(self, mode=None):SetMode80,2471
+    def SetDName(self, dname=None):SetDName85,2615
+    def OutOfService(self, event=None):OutOfService91,2804
+    def Clicked(self, event=None):Clicked94,2884
+    def DebugInfo(self, event=None):DebugInfo97,2960
+    def NextObject(self, end, line):NextObject100,3029
+    def IsGap(self, end, line):IsGap108,3238
+    def SignalColor(self, end, line=None):SignalColor112,3328
+    def TrueEnd(self, end, line):TrueEnd115,3415
+    def Connects(self, events=None):Connects118,3469
+    def Connection(self, connection):Connection125,3765
+    def TellPoints(self, connection):TellPoints130,3934
+    def TellLines(self):TellLines136,4116
+    def ShowDebugInfo(self, debugtext):ShowDebugInfo139,4175
+
+PCrossing.py,1019
+class PCrossing:PCrossing10,126
+    def __init__(self, master, owner):__init__11,143
+    def AddLine(self, line0, line1):AddLine26,587
+    def DeleteInstance(self, instline):DeleteInstance40,971
+    def DeleteAllInstances(self):DeleteAllInstances54,1556
+    def UpdateStatus(self):UpdateStatus63,1884
+    def SetMode(self):SetMode128,4397
+    def OutOfService(self, event=None):OutOfService131,4449
+    def Clicked(self, event):Clicked134,4532
+    def DebugInfo(self, event=None):DebugInfo137,4576
+    def NextObject(self, end, line=None):NextObject140,4653
+    def TrueEnd(self, end, line):TrueEnd156,5095
+    def IsGap(self, end, line):IsGap168,5369
+    def SignalColor(self, end, line=None):SignalColor173,5498
+    def Connects(self, event=None):Connects178,5659
+    def Connection(self, connection):Connection189,6195
+    def TellPoints(self, connection):TellPoints194,6370
+    def TellLines(self):TellLines210,6814
+    def ShowDebugInfo(self, debugtext):ShowDebugInfo213,6894
+
+PFunc.py,266
+def RandomColor():RandomColor9,101
+def RotateCoord(coord, angle):RotateCoord16,276
+def PointDistance(coord0, coord1):PointDistance21,455
+def LineDistance(coord0, coord1, coorde):LineDistance24,563
+def IsInBetween(coord0, coord1, coord2):IsInBetween76,1945
+
+PLine.py,1517
+class PLine:PLine4,44
+    def __init__(self, master, number):__init__5,57
+    def LineLength(self):LineLength27,611
+    def LinePos(self, frac):LinePos46,1169
+    def LineFrac(self, segment, coord):LineFrac66,1827
+    def LabelStatus(self, draw):LabelStatus80,2280
+    def Bind(self):Bind88,2529
+    def DrawLabel(self):DrawLabel92,2697
+    def UndrawLabel(self):UndrawLabel100,3088
+    def TellLabelPos(self):TellLabelPos104,3207
+    def TellLabelDCoord(self):TellLabelDCoord107,3265
+    def SetLabelPos(self, labelpos):SetLabelPos111,3408
+    def UpdateLabel(self):UpdateLabel115,3504
+    def SetLabelText(self, text):SetLabelText120,3714
+    def DragLabel(self, event):DragLabel127,3962
+    def UpdatePoints(self, point=None):UpdatePoints134,4263
+    def CorrectCoords(self, coords):CorrectCoords161,5287
+    def UpdateScale(self):UpdateScale195,6741
+    def SetArrowShape(self):SetArrowShape214,7575
+    def UpdateArrow(self, arrow=None):UpdateArrow217,7683
+    def InsertPoint(self, point, index=None, hold=False):InsertPoint223,7910
+    def NearestSegment(self, pointtype, coord):NearestSegment241,8622
+    def AddPoint(self, event):AddPoint259,9260
+    def TellPointList(self):TellPointList263,9462
+    def DeletePoint(self, point):DeletePoint266,9523
+    def IsPointEnd(self, point):IsPointEnd276,9885
+    def TellEndPoint(self, end):TellEndPoint285,10099
+    def TellPoints(self):TellPoints292,10274
+    def TellAngle(self, point):TellAngle295,10329
+
+PLineManager.py,2031
+class PLineManager:PLineManager10,131
+    def __init__(self, cv):__init__11,151
+    def AddLine(self):AddLine27,477
+    def AddPoint(self, coord):AddPoint32,626
+    def ChangeScale(self, ratio=0, scale=1):ChangeScale37,797
+    def TrueBBox(self):TrueBBox50,1169
+    def ScaleToFit(self, width=None, height=None):ScaleToFit73,1926
+    def AddPointToLine(self, coord, line, index=None):AddPointToLine93,2598
+    def DeletePoint(self, point):DeletePoint97,2728
+    def DeleteLine(self, line):DeleteLine112,3309
+    def TrueCoord(self, pointnum, type, coord):TrueCoord125,3668
+    def DrawCross(self, event=None):DrawCross137,4258
+    def BoxPoint(self, event=None):BoxPoint147,4589
+    def DrawBox(self, event=None):DrawBox173,5506
+    def UndrawBox(self):UndrawBox177,5650
+    def DragBox(self, event=None):DragBox180,5718
+    def SelectByBox(self, bbox):SelectByBox185,5911
+    def DragCross(self, event):DragCross197,6508
+    def UndrawCross(self, event=None):UndrawCross202,6687
+    def VerticalCoords(self, event):VerticalCoords206,6789
+    def DrawVertical(self, event=None):DrawVertical215,7055
+    def UndrawVertical(self, event=None):UndrawVertical223,7406
+    def DragVertical(self, event):DragVertical227,7517
+    def HorizontalCoords(self, event):HorizontalCoords232,7718
+    def DrawHorizontal(self, event=None):DrawHorizontal241,7983
+    def UndrawHorizontal(self, event=None):UndrawHorizontal249,8340
+    def DragHorizontal(self, event=None):DragHorizontal253,8453
+    def SelectDrag(self, point, delta):SelectDrag260,8704
+    def SelectBySplit(self, X=None, Y=None):SelectBySplit268,9007
+    def SelectX(self, event):SelectX289,10049
+    def SelectY(self, event):SelectY293,10158
+    def CancelSelect(self, event=None):CancelSelect297,10267
+    def SelectUnbind(self, event=None):SelectUnbind302,10388
+    def Unselect(self, event=None, points=None):Unselect307,10538
+    def Refresh(self):Refresh323,11202
+    def Restack(self):Restack326,11239
+
+PPoint.py,1105
+class PPoint:PPoint3,21
+    def __init__(self, master, coord, number, tokens=None):__init__4,35
+    def DrawPoint(self, coord):DrawPoint22,501
+    def ChangeStyle(self, newstyle):ChangeStyle29,719
+    def DefineBindings(self):DefineBindings35,853
+    def GetCoordsAsBox(self):GetCoordsAsBox40,1122
+    def DrawAsBox(self, where='end'):DrawAsBox43,1241
+    def SetBoxColors(self, fill='White', outline='Red'):SetBoxColors47,1450
+    def SetSelected(self, select=FALSE, fill='White', outline='Red'):SetSelected50,1580
+    def DragAsBox(self):DragAsBox58,1869
+    def UpdateBox(self):UpdateBox62,1980
+    def ScalePoint(self):ScalePoint65,2019
+    def DragPoint(self, event=None, delta=None):DragPoint69,2155
+    def Undraw(self):Undraw85,3000
+    def TellCoord(self):TellCoord89,3087
+    def TellDCoord(self):TellDCoord92,3139
+    def AddOwner(self, newowner):AddOwner95,3193
+    def DelOwner(self, oldowner):DelOwner98,3274
+    def TellOwners(self):TellOwners101,3350
+    def Pass(self, event=None):Pass104,3404
+    def SaveString(self, newnum):SaveString107,3450
+
+PSwitch.py,1012
+class PSwitch:PSwitch11,127
+    def __init__(self, master, owner):__init__12,142
+    def AddLine(self, line0, line1):AddLine26,544
+    def DeleteInstance(self, instline):DeleteInstance46,1095
+    def DeleteAllInstances(self):DeleteAllInstances59,1620
+    def UpdateStatus(self):UpdateStatus68,1946
+    def SetMode(self):SetMode133,4413
+    def OutOfService(self, event=None):OutOfService140,4631
+    def Clicked(self, event):Clicked143,4712
+    def DebugInfo(self, event=None):DebugInfo146,4782
+    def NextObject(self, end, line):NextObject149,4857
+    def TrueEnd(self, end, line):TrueEnd160,5158
+    def IsGap(self, end, line):IsGap166,5302
+    def SignalColor(self, end, line=None):SignalColor171,5429
+    def Connects(self, events=None):Connects176,5588
+    def Connection(self, connection):Connection185,5999
+    def TellPoints(self, connection):TellPoints190,6170
+    def TellLines(self):TellLines200,6444
+    def ShowDebugInfo(self, debugtext):ShowDebugInfo203,6524
+
+PTextPoint.py,896
+class PTextPoint(PPoint.PPoint):PTextPoint12,145
+    def __init__(self, master, coord, number, tokens=None):__init__13,178
+    def DrawTextPoint(self):DrawTextPoint30,767
+    def DragTextPoint(self):DragTextPoint42,1076
+    def UpdateTextPoint(self):UpdateTextPoint51,1365
+    def DrawAsText(self):DrawAsText54,1422
+    def DragAsText(self):DragAsText60,1745
+    def DragPoint(self, event=None, delta=None):DragPoint64,1929
+    def SetMode(self, mode=None):SetMode79,2705
+    def SetSelected(self, select=False, fill='White', outline='Red'):SetSelected82,2765
+    def TextClicked(self, event=None):TextClicked90,3055
+    def CreateTextEditWindow(self):CreateTextEditWindow97,3261
+    def ApplyChanges(self, event=None):ApplyChanges124,4594
+    def CloseTextEditWindow(self, event=None):CloseTextEditWindow131,4888
+    def SaveString(self, newnum):SaveString136,5027
+
+PTrack.py,812
+class PTrack(PLine):PTrack5,66
+    def __init__(self, master, number):__init__6,87
+    def SetOwner(self, owner):SetOwner12,251
+    def TellOwner(self):TellOwner18,384
+    def SetLineColor(self, color):SetLineColor21,436
+    def SetLineWidth(self, width):SetLineWidth29,698
+    def SetLabelColor(self, color):SetLabelColor35,855
+    def DrawLabel(self):DrawLabel39,1015
+    def UpdateLabel(self):UpdateLabel79,2815
+    def Bind(self):Bind106,4083
+    def AddPoint(self, event):AddPoint127,5376
+    def Clicked(self, event):Clicked131,5590
+    def OutOfService(self, event):OutOfService135,5689
+    def DebugInfo(self, event):DebugInfo139,5798
+    def IsGap(self, end):IsGap143,5901
+    def SignalColor(self, end):SignalColor149,6043
+    def TrueEnd(self, point):TrueEnd152,6125
+
+PTrackManager.py,1943
+class PTrackManager(PLineManager):PTrackManager16,247
+    def __init__(self, master, DM, cv):__init__17,282
+    def SetClickable(self, clickable=None):SetClickable35,725
+    def AddTrack(self):AddTrack43,1022
+    def AddTrackPoint(self, coord):AddTrackPoint48,1173
+    def AddTrackPointToLine(self, coord, line, index=None):AddTrackPointToLine53,1354
+    def AddTextPoint(self, event=None):AddTextPoint57,1506
+    def ExtendLayout(self, object, end, point, connect):ExtendLayout66,1877
+    def DeleteSelected(self, group):DeleteSelected76,2322
+    def DeleteObject(self, object):DeleteObject96,2957
+    def DeleteAll(self):DeleteAll100,3072
+    def AddCrossing(self, crossing, end, point, connect):AddCrossing109,3373
+    def AddBlock(self, block, end, point, connect):AddBlock177,6051
+    def AddSwitch(self, switch, end, point, connect):AddSwitch228,7869
+    def Refresh(self):Refresh351,12609
+    def ReMapLines(self):ReMapLines357,12780
+    def ReMapPoints(self):ReMapPoints362,12881
+    def LoadDisplay(self, filename=None):LoadDisplay367,12987
+    def LoadPoint(self, tokens, poffset):LoadPoint400,14011
+    def LoadTextPoint(self, tokens):LoadTextPoint412,14349
+    def LoadLine(self, tokens, poffset, loffset):LoadLine426,14720
+    def LoadObject(self, tokens, poffset, loffset):LoadObject447,15320
+    def SaveDisplay(self, file=None):SaveDisplay478,16585
+    def SavePoints(self, file):SavePoints486,16804
+    def SaveLines(self, file):SaveLines492,17036
+    def SaveObjects(self, file):SaveObjects506,17691
+    def SetMode(self, event=None, mode=None):SetMode531,18832
+    def Restack(self):Restack545,19262
+class PTrackEditor:PTrackEditor553,19504
+    def __init__(self, master, filename=None):__init__554,19524
+    def LoadDisplay(self):LoadDisplay606,22241
+    def SaveDisplay(self):SaveDisplay610,22387
+    def CloseEditor(self, event=None):CloseEditor615,22546
+
+PTrackPoint.py,1118
+class PTrackPoint(PPoint.PPoint):PTrackPoint10,112
+    def __init__(self, master, coord, number, tokens=None):__init__11,146
+    def IsStubEnd(self):IsStubEnd21,481
+    def DrawTrackPoint(self):DrawTrackPoint49,1649
+    def DragTrackPoint(self):DragTrackPoint73,2367
+    def UpdateTrackPoint(self):UpdateTrackPoint88,2851
+    def SetMode(self, mode=None):SetMode100,3166
+    def DragSignals(self):DragSignals103,3226
+    def UpdateSignals(self):UpdateSignals111,3510
+    def DrawSignals(self):DrawSignals123,4041
+    def IsGap(self):IsGap163,5903
+    def GetCoordsAsX(self):GetCoordsAsX172,6167
+    def SetSelected(self, select=False, fill='White', outline='Red'):SetSelected189,6801
+    def DrawAsX(self):DrawAsX201,7217
+    def DragAsX(self):DragAsX208,7597
+    def GetCoordsArrow(self):GetCoordsArrow215,7908
+    def DrawArrow(self):DrawArrow233,8495
+    def UndrawArrow(self):UndrawArrow241,9014
+    def DragArrow(self):DragArrow244,9084
+    def ArrowClick(self, event, connect):ArrowClick250,9372
+    def ExtendLayout(self, event=None, connect=True):ExtendLayout257,9591
+
+Picker.py,2479
+class Picker:Picker46,742
+    def __init__(self):__init__52,919
+    def StartDispatch(self):StartDispatch115,2766
+    def StartYard(self):StartYard151,4505
+    def StartBigYard(self):StartBigYard184,5813
+    def YardKeyBind(self):YardKeyBind217,7124
+    def SwapDisplay(self, event):SwapDisplay226,7509
+    def LoadSignals(self):LoadSignals234,7817
+    def EditSwitchCards(self, event=None):EditSwitchCards256,9050
+    def EditBlockCards(self, event=None):EditBlockCards259,9139
+    def EditWindow(self, event=None):EditWindow262,9226
+    def LoadFile(self, filename=None):LoadFile265,9324
+        def doit(s):doit276,9649
+    def makeOldSexp(self, newsexp):makeOldSexp287,10072
+        def to_old(sexp):to_old290,10171
+    def ProcSexp(self, newsexp):ProcSexp307,10662
+    def BuildDisplay(self):BuildDisplay316,10920
+    def Shutdown(self, event=None):Shutdown327,11434
+    def SCabFoo(self, event=None):SCabFoo339,11834
+    def SockWrite(self, message):SockWrite345,12053
+    def SockStart(self, event=None):SockStart358,12531
+    def socketopened(self, event=None):socketopened368,12881
+    def socketopenfailed(self, Psexp=None):socketopenfailed378,13328
+    def SockClose(self, event=None):SockClose388,13835
+    def socketclosed(self, event=None):socketclosed417,15137
+    def socketlost(self, Psexp=None):socketlost427,15559
+    def Disconnected(self):Disconnected439,16118
+    def QueueRead(self, event=None):QueueRead451,16612
+    def loginrequired(self, Psexp):loginrequired474,17634
+    def loginaccepted(self, Psexp):loginaccepted478,17735
+    def set(self, Psexp):set481,17803
+    def add(self, Psexp):add508,19236
+    def delete(self, Psexp):delete543,21265
+    def debuginfo(self, Psexp):debuginfo555,21863
+    def updatecompleted(self, Psexp):updatecompleted566,22403
+    def cxncomplete(self, Psexp):cxncomplete570,22505
+    def CheckSwing(self):CheckSwing575,22621
+    def displaylistcompleted(self, Psexp):displaylistcompleted594,23242
+    def warning(self, Psexp):warning597,23317
+    def fatalerror(self, Psexp):fatalerror600,23404
+    def GetConnects(self):GetConnects603,23486
+    def ListSCabs(self, event=None):ListSCabs618,24206
+    def ListHCabs(self, event=None):ListHCabs629,24669
+    def ListBlocks(self, event=None):ListBlocks640,25093
+    def ListSwitches(self, event=None):ListSwitches656,26004
+    def NewSCabWindow(self, block):NewSCabWindow671,26867
+
+Psexp.py,427
+class ParsedSexp:ParsedSexp7,232
+def makeToken(s):makeToken11,278
+class Symbol(str):Symbol27,551
+    def __new__(self, s):__new__30,588
+    def __repr__(self):__repr__33,659
+class _Notifier:_Notifier36,708
+    def __init__(self, fun):__init__37,725
+    def append(self, obj):append40,786
+class Parser:Parser47,904
+    def __init__(self, sexpFinished):__init__48,918
+    def parse(self, data):parse57,1225
+
+SCab.py,4165
+class LabelButton(Label):LabelButton14,333
+    def __init__(self, frame, Command1=None, Command2=None, Command3=None):__init__15,359
+    def SetActive(self):SetActive30,947
+    def SetInactive(self):SetInactive34,1027
+    def Action(self, event):Action38,1108
+class Train:Train62,2243
+    def __init__(self, master, name, owned):__init__63,2256
+    def TellInfo(self, info):TellInfo101,3472
+    def ProcSexp(self, Psexp):ProcSexp104,3538
+    def UpdateSCabs(self, update=None):UpdateSCabs115,3991
+    def SetSpeed(self, speed):SetSpeed120,4154
+    def SetReqSpeed(self, reqspeed):SetReqSpeed125,4312
+    def SetFeedback(self, feedback):SetFeedback130,4474
+    def SetDirection(self, direction=None):SetDirection134,4585
+    def SetHeading(self, heading=None):SetHeading138,4706
+    def SetSignal(self, signal):SetSignal166,5720
+    def SetTracks(self, tracks=None):SetTracks171,5839
+    def SetAdvance(self, advance=None):SetAdvance183,6313
+    def UpdateHeadBlock(self):UpdateHeadBlock187,6418
+    def UpdateStatus(self, update=None):UpdateStatus211,7357
+    def SetDName(self, dname):SetDName214,7430
+    def Command(self, command):Command218,7521
+    def Controls(self, event=None):Controls224,7700
+    def DropOut(self, event=None):DropOut227,7787
+    def Reverse(self, event=None):Reverse237,8079
+    def Stop(self, event=None):Stop246,8344
+    def CallOn(self, event=None):CallOn257,8629
+    def DropBehind(self, event=None):DropBehind267,8914
+    def StealAhead(self, event=None):StealAhead278,9290
+    def FindPath(self, event=None):FindPath290,9735
+    def SetDestination(self, block):SetDestination299,10047
+    def ReqSpeedChange(self, reqspeed):ReqSpeedChange310,10462
+    def NewHCab(self, newhcab):NewHCab314,10614
+    def SetHCab(self, newhcab):SetHCab321,10782
+    def AddSCab(self, scab):AddSCab331,11222
+    def DeleteSCab(self, scab):DeleteSCab334,11279
+    def Delete(self, event=None):Delete339,11418
+class SCab:SCab356,11997
+    def __init__(self, master, manager, train):__init__358,12076
+    def SetTrain(self, train):SetTrain372,12431
+    def Display(self):Display380,12651
+    def UpdateStatus(self, update=None):UpdateStatus383,12688
+    def Undisplay(self):Undisplay386,12743
+class SCabWindow(SCab):SCabWindow389,12782
+    def Display(self, frame):Display390,12806
+    def SpdKeyControl(self, event):SpdKeyControl494,17339
+    def UpdateStatus(self, update=None):UpdateStatus514,18127
+    def Undisplay(self, event=None):Undisplay577,20925
+    def Action(self, action):Action582,21060
+    def ReqSpeedChange(self, event=None):ReqSpeedChange586,21159
+    def NewHCab(self, event=None):NewHCab593,21452
+    def SetHCab(self, event=None):SetHCab610,22382
+class SCabWindowShort(SCabWindow):SCabWindowShort616,22546
+    def Display(self, frame):Display617,22581
+class SCabSummary(SCab):SCabSummary723,27130
+    def Display(self, frame):Display724,27155
+    def UpdateStatus(self, update=None):UpdateStatus761,29056
+    def Undisplay(self, event=None):Undisplay800,30606
+    def Action(self, action):Action805,30741
+class SCabSummarySmall(SCabSummary):SCabSummarySmall809,30840
+    def Display(self, frame):Display810,30877
+class SCabManager:SCabManager841,32270
+    def __init__(self, master, scabframe=None, summaryframe=None):__init__842,32289
+    def AddTrain(self, train, owned):AddTrain852,32601
+    def DeleteTrain(self, train):DeleteTrain857,32771
+    def AddSummary(self, train):AddSummary871,33322
+    def DeleteSummaryWindow(self, event=None):DeleteSummaryWindow898,34430
+    def SummaryHeadings(self, frame):SummaryHeadings903,34619
+    def AddControls(self, train):AddControls914,35159
+    def DeleteSCab(self, scab, train):DeleteSCab940,36312
+    def SpdKeyControl(self, event):SpdKeyControl954,36840
+class NewSCabPicker:NewSCabPicker958,36969
+    def __init__(self, master, block):__init__959,36990
+    def UpdateBlock(self, block):UpdateBlock1037,40787
+    def PickNewSCab(self, event=None):PickNewSCab1057,41639
+    def KillNSWindow(self, event=None):KillNSWindow1100,43835
+
+SockReader.py,313
+class SockReader(threading.Thread):SockReader16,199
+    def __init__(self, master):__init__23,499
+    def sexpFinished(self, sexp):sexpFinished34,847
+    def run(self):run37,923
+    def read(self):read73,2443
+    def OpenSock(self):OpenSock104,3902
+    def SockClose(self, reason):SockClose127,4938
+
+SplineBuster.py,2813
+class PLineManager:PLineManager5,49
+    def __init__(self, cv, mode='demo'):__init__6,69
+    def AddLine(self):AddLine24,472
+    def DeleteLine(self, linenum):DeleteLine28,579
+    def ChangeScale(self, ratio):ChangeScale31,628
+    def AddPointToLine(self, coord, line, index=None):AddPointToLine40,918
+    def DeletePoint(self, pointnum):DeletePoint46,1218
+    def TrueCoord(self, pointnum, type, coord):TrueCoord57,1684
+    def GetCoordsArrow(self):GetCoordsArrow69,2330
+    def DrawArrow(self, arrownum):DrawArrow88,3133
+    def DragArrows(self):DragArrows98,3928
+class PLine:PLine105,4304
+    def __init__(self, master, number):__init__106,4317
+    def LineLength(self):LineLength121,4681
+    def LinePos(self, frac):LinePos139,5275
+    def LineFrac(self, segment, coord):LineFrac159,6004
+    def DrawLabel(self):DrawLabel173,6508
+    def UpdateLabel(self):UpdateLabel178,6847
+    def DragLabel(self, event):DragLabel182,7020
+    def UpdatePoints(self, pointnum):UpdatePoints189,7287
+    def UpdateScale(self, scale):UpdateScale218,8568
+    def InsertPoint(self, point, pointnumber, index=None):InsertPoint228,9007
+    def NearestSegment(self, pointtype, coord):NearestSegment245,9733
+    def AddPoint(self, event):AddPoint263,10412
+    def TellPointList(self):TellPointList267,10601
+    def DeletePoint(self, pointnum):DeletePoint270,10662
+    def IsPointEnd(self, pointnum):IsPointEnd281,11113
+    def TellAngle(self, pointnum):TellAngle290,11340
+class PPoint:PPoint319,12860
+    def __init__(self, master, coord, number):__init__320,12874
+    def DrawPoint(self, coord):DrawPoint331,13132
+    def ChangeStyle(self, newstyle):ChangeStyle336,13303
+    def DefineBindings(self):DefineBindings342,13437
+    def GetCoordsAsX(self):GetCoordsAsX347,13714
+    def DrawAsX(self):DrawAsX363,14278
+    def DragAsX(self):DragAsX373,14718
+    def GetCoordsAsBox(self):GetCoordsAsBox378,14911
+    def DrawAsBox(self):DrawAsBox381,15030
+    def DragAsBox(self):DragAsBox390,15336
+    def UpdateBox(self):UpdateBox394,15448
+    def ScalePoint(self, scale):ScalePoint397,15487
+    def DragPoint(self, event=None):DragPoint401,15634
+    def Undraw(self):Undraw410,16022
+    def TellCoord(self):TellCoord413,16086
+    def TellDCoord(self):TellDCoord416,16138
+    def AddOwner(self, newowner):AddOwner419,16192
+    def DelOwner(self, name):DelOwner422,16273
+    def TellOwners(self):TellOwners425,16334
+    def Pass(self, event=None):Pass428,16388
+def RandomColor():RandomColor431,16434
+def RotateCoord(coord, angle):RotateCoord438,16609
+def PointDistance(coord0, coord1):PointDistance443,16788
+def LineDistance(coord0, coord1, coorde):LineDistance446,16896
+def IsInBetween(coord0, coord1, coord2):IsInBetween498,18278
+
+SwitchObj.py,1788
+class SwitchObj(TrackObj.TrackObj):SwitchObj11,204
+    def __init__(self, master, name):__init__12,240
+    def SignalColor(self, end):SignalColor36,874
+    def UnDisplay(self):UnDisplay41,1015
+    def UpdateSignal(self, end, signal):UpdateSignal44,1066
+    def CheckSwing(self, swing=None):CheckSwing50,1296
+    def IsSwing(self):IsSwing100,3608
+    def UpdateStatus(self, connect=None, callingobject=()):UpdateStatus103,3658
+    def IsEndAccessible(self, end):IsEndAccessible134,5204
+    def IsNotHead(self, block):IsNotHead149,5624
+    def IsOppEndHead(self, end, block):IsOppEndHead155,5785
+    def IsEndHead(self, end):IsEndHead169,6177
+    def OutOfService(self, event=None):OutOfService183,6644
+    def ThrowSwitch(self, event=None):ThrowSwitch196,7091
+    def ConInfo(self, end, value, vsub):ConInfo204,7325
+    def ProcSexp(self, Psexp):ProcSexp221,8098
+    def SetSwitchpos(self, switchpos):SetSwitchpos288,11596
+    def SetHand(self, hand):SetHand297,11840
+    def SetWidth(self, width):SetWidth303,11990
+    def SetNumcxn(self, numcxn):SetNumcxn307,12072
+    def GState(self, connection):GState310,12138
+    def FindColor(self, connection=None):FindColor318,12436
+    def FindLabelColor(self):FindLabelColor324,12645
+class CompactSwitchDisplay:CompactSwitchDisplay332,12861
+    def __init__(self, switch, frame):__init__333,12889
+    def Disconnect(self):Disconnect350,13776
+    def Clicked(self, event=None):Clicked353,13846
+    def OutOfService(self, event=None):OutOfService356,13921
+    def UpdateStatus(self):UpdateStatus359,14002
+class CompactSwitchDisplayWindow:CompactSwitchDisplayWindow369,14401
+    def __init__(self, master):__init__370,14435
+    def CloseWindow(self, event=None):CloseWindow396,15333
+
+TrackObj.py,546
+class TrackObj:TrackObj7,139
+    def __init__(self, master, name):__init__12,288
+    def AddDisplayObject(self, displayobject):AddDisplayObject18,441
+    def DelDisplayObject(self, displayobject):DelDisplayObject21,534
+    def UpdateDisplayObjects(self):UpdateDisplayObjects25,676
+    def SetDName(self, dname):SetDName29,804
+    def IsGap(self, end):IsGap34,958
+    def SignalColor(self, end):SignalColor37,1019
+    def DebugInfo(self, event=None):DebugInfo42,1157
+    def ShowDebugInfo(self, debugtext):ShowDebugInfo46,1279

@@ -1,0 +1,230 @@
+from PLine import *
+from PPoint import *
+from PTrack import *
+from PCircle import *
+from MiscTrack import *
+
+
+NONE='none'
+FIRST='first'
+LAST='last'
+
+UNSELECTED='White'
+SELECTED='Red'
+
+class PTurnTable:
+    def __init__(self, master, owner):
+        self.PM=master
+        self.cv=self.PM.cv
+        self.TurnTable=owner
+        self.Type='PTurnTable'
+        self.Name=self.TurnTable.name
+        self.DName=self.TurnTable.DName
+        self.Circles=[]
+        self.Lines=[]
+        self.selectedTrack=None
+        self.selectedEnd=None
+        self.TurnTable.AddDisplayObject(self)
+        self.SignalColors=['White' for _ in xrange(self.TurnTable.numTracks+2)]
+        self.UpdateStatus()
+    
+    def AddCircle(self, circle, lines):
+        self.Circles.append(circle)
+        self.Lines.append(lines)
+        circle.SetOwner(self)
+        for i in xrange(len(lines)):
+            lines[i].SetOwner(self)
+            if i == self.TurnTable.numTracks:
+                lines[i].SetLabelText('A')
+            elif i == self.TurnTable.numTracks+1:
+                lines[i].SetLabelText('B')
+            else:
+                lines[i].SetLabelText(str(i+1))
+        self.SetMode()
+        
+    def DeleteInstance(self, inst):
+        if isinstance(inst,PCircle):
+            try:
+                i=self.Circles.index(inst)
+            except ValueError:
+                return
+        elif isinstance(inst,PLine):
+            for j in xrange(len(self.Lines)):
+                if inst in self.Lines[j]:
+                    i=j
+                    break
+            else:
+                return
+        else:
+            print 'strange object', inst
+            return
+        self.PM.DeleteCircle(self.Circles[i])
+        for line in self.Lines[i]:
+            self.PM.DeleteLine(line)
+        del self.Circles[i]
+        del self.Lines[i]
+        if len(self.Circles)==0:
+            self.PM.DeleteObject(self)
+
+    def DeleteAllInstances(self):
+        self.TurnTable.DelDisplayObject(self)
+        for lines in self.Lines:
+            for line in lines:
+                self.PM.DeleteLine(line)
+        for i in reversed(xrange(len(self.Lines))):
+            del self.Lines[i]
+        for circle in self.Circles:
+            self.PM.DeleteCircle(circle)
+        for i in reversed(xrange(len(self.Circles))):
+            del self.Circles[i]
+
+    def UpdateStatus(self):
+        if self.PM.Mode=='Run':
+            color=self.TurnTable.FindRimColor()
+            for circle in self.Circles:
+                circle.SetCircleColor(color)
+
+            for lines in self.Lines:
+                for i in xrange(len(lines)):
+                    if i == self.TurnTable.HeadEnd:
+                        arrow=LAST
+                    else:
+                        arrow=NONE
+                    if i == self.TurnTable.currentTrack or\
+                           (i == self.TurnTable.numTracks + self.TurnTable.trackEnd and self.TurnTable.trackEnd >= 0):
+                        fill=self.TurnTable.FindColor()
+                        width=activewidth
+                    else:
+                        width=inactivewidth
+                        fill=blkcolor[INACC][UNOCC]
+                    if i == self.selectedTrack or i - self.TurnTable.numTracks == self.selectedEnd:
+                        textColor=SELECTED
+                    else:
+                        textColor=UNSELECTED
+
+                    lines[i].SetLineColor(fill)
+                    lines[i].SetLineWidth(width)
+                    lines[i].UpdateArrow(arrow)
+                    lines[i].SetLabelTextColor(textColor)
+
+            for i in xrange(self.TurnTable.numTracks+2):
+                color=self.SignalColor(i)
+                if self.SignalColors[i]!=color:
+                    self.SignalColors[i]=color
+                    self.cv.itemconfig(self.Name+'Signal' + str(i), fill=color)
+            
+        elif self.PM.Mode=='Edit':
+            for lines in self.Lines:
+                for line in lines:
+                    line.SetLineColor('White')
+            for circle in self.Circles:
+                circle.SetCircleColor('White')
+
+    def SetMode(self):
+        self.UpdateStatus()
+        for circle in self.Circles:
+            circle.Bind()
+        for lines in self.Lines:
+            for line in lines:
+                line.Bind()
+
+    def OutOfService(self, event=None):
+        self.TurnTable.OutOfService(event)
+
+    def Clicked(self, event, source):
+        if source in self.Circles:
+            if self.selectedTrack != None:
+                self.TurnTable.RotateToClosest(self.selectedTrack, event)
+                self.selectedTrack=None
+        else:
+            end=self.TrueEnd(1, source)
+            if end >= 0:
+                if end < self.TurnTable.numTracks:
+                    self.selectedTrack=end
+                else:
+                    self.selectedEnd=end - self.TurnTable.numTracks
+                if self.selectedTrack != None and self.selectedEnd != None:
+                    self.TurnTable.Rotate(self.selectedEnd, self.selectedTrack, event)
+                    self.selectedTrack=None
+                    self.selectedEnd=None
+            else:
+                print 'strange source', source
+        self.UpdateStatus()
+            
+
+    def DebugInfo(self, event=None):
+        self.TurnTable.DebugInfo(event)
+
+    def NextObject(self, end, line):
+        end=self.TrueEnd(end, line)
+        object=self.TurnTable.Cons[end].Object
+        if object!=None:
+            con=self.TurnTable.Cons[end].ObjCon
+        else:
+            con=0
+        return object, con
+
+    def TrueEnd(self, end, line):
+        if end == 1:
+            for lines in self.Lines:
+                try:
+                    return lines.index(line)
+                except ValueError:
+                    pass
+        else:
+            return -1
+
+    def IsGap(self, end, line):
+        end=self.TrueEnd(end, line)
+        isgap=self.TurnTable.IsGap(end)
+        return isgap
+
+    def SignalColor(self, end, line=None):
+        if line!=None:
+            end=self.TrueEnd(end, line)
+        return self.TurnTable.SignalColor(end)
+
+    def Connects(self, events=None):
+        outSt=self.TurnTable.name
+        for i in xrange(self.TurnTable.Cons):
+            objname=self.TurnTable.Cons[i].Object
+            objcon=self.TurnTable.Cons[i].ObjCon
+            outSt += ' ' + i + ': ' + objname0 + ' ' +  objcon0
+        print outSt
+
+    def Connection(self, connection):
+        object=self.TurnTable.Cons[connection].Object
+        objcon=self.TurnTable.Cons[connection].ObjCon
+        return object, objcon
+
+    def TellPoints(self, connection):
+        points=[]
+        for line in self.Lines.keys():
+            points+=[self.Lines[line].TellEndPoint(connection)]
+        return points
+
+    def TellLines(self):
+        return self.Lines[:]
+
+    def TellCircles(self):
+        return self.Circles[:]
+
+    def ShowDebugInfo(self, debugtext):
+        self.cv.delete('debug-info')
+        if self.Lines[0][0].LabelDrawn: #Yes, this is a Kludge
+            for circle in self.Circles:
+                dcoord=circle.TellCenter().TellDCoord()
+                self.cv.create_text(dcoord,
+                                    text=debugtext,
+                                    fill='White',
+                                    font=('Arial', 10),
+                                    tags=('debug-info', 'debug-text'))
+                tbbox=self.cv.bbox('debug-info')
+                bbox=(tbbox[0]-2, tbbox[1]-2, tbbox[2]+2, tbbox[3]+2)
+                self.cv.create_rectangle(bbox,
+                                         fill='Black',
+                                         outline='White',
+                                         width=1,
+                                         tags=('debug-info', 'debug-box'))
+                self.cv.lift('debug-text')
+                self.cv.tag_bind('debug-box', '<Leave>', lambda *args, **kw: self.cv.delete('debug-info'))

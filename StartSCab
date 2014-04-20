@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /home/tmrc/SCab2
+python /home/tmrc/SCab2/Picker.py
+

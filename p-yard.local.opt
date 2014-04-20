@@ -1,0 +1,5 @@
+(set (Opt LayoutFile) "PassengerYard.nlay")
+(set (Opt displaytype) "yard")
+(set (Opt initialgeom) "640x480+0+0")
+(set (Opt miniSCab) 1)
+(set (Opt enableInertia) 0)

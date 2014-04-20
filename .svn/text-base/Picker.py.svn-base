@@ -1,0 +1,714 @@
+#!/usr/bin/python2.2
+# TMRC System 3 Software Cab
+# Thomas O'Reilly, 9 February 2002
+
+hasTix=False
+try:
+    from Tix import *
+    hasTix=True
+except:
+    from Tkinter import *
+import tkFileDialog
+import sys
+import time
+import socket
+import Queue
+import getopt
+import os
+import socket
+
+import Pmw
+
+import Psexp
+import SockReader
+import SCab
+import HCab
+import BlockObj
+import SwitchObj
+import CrossingObj
+import TurnTableObj
+import DisplayManager
+import Logger
+import Options
+import Cards
+import PTrackManager
+from MiscTrack import *
+
+#HOST='localhost'
+HOST='tmrc.mit.edu'
+PORT=8888
+USER='tmrc'
+CVSIZE=600
+
+# Class defining SCab picker and associated functions.  Class includes
+# initializer function, and function to create new SCab.
+class Picker:
+    """Main class to start System 3 graphical display program
+
+    Create an instance of this class to start the program and display
+    windows and so forth."""
+
+    def __init__(self):
+        """Main SCab initialization function
+
+        Sets up display window and waits until the user connects to
+        the server through the menu bar command."""
+        # Read Command Line Options
+        optlist, args = getopt.getopt(sys.argv[1:], '-f:')
+##        optlist=[]
+##        args=[]
+        print optlist, args
+        optfile=None
+        for opt in optlist:
+            if opt[0]=='-f':
+                optfile=opt[1]
+
+        self.Sock=None
+        self.SockReader=None
+        self.SCabList={}
+        self.TrainList={}
+        self.HCabList={}
+        self.Blist={}
+        self.Slist={}
+        self.Clist={}
+        self.TTlist={}
+        self.SCList={}
+        self.BCList={}
+        self.Ddict={}
+        self.Updated=False
+        self.ReadQueue=Queue.Queue(0)
+        self.TrainQueue={}
+        self.TrainSummary=None
+        self.NewSCabPicker=None
+        self.SummScabs=0
+        self.Connects=False
+        self.logger=Logger.Logger(self)
+        self.opts=Options.Options(self)
+        self.LoadFile('defaults.opt')
+
+        self.filemenu=None
+
+        if optfile!=None:
+            self.LoadFile(optfile)
+        disphost = os.environ.get('DISPLAY',':0.0').split(':')[0]
+        dispoptfile = disphost+'.opt'
+        if dispoptfile and os.access(dispoptfile, os.R_OK):
+            self.LoadFile(dispoptfile)
+        else:
+            try:
+                disphost = socket.gethostbyaddr(disphost)[0]
+                dispoptfile = disphost+'.opt'
+                if dispoptfile and os.access(dispoptfile, os.R_OK):
+                    self.LoadFile(dispoptfile)
+            except:
+                pass
+        self.CurrentLayoutFile=None
+        
+#        self.root.maxsize(10000, 10000)
+        self.root=Tk(className=("SCAB"+self.opts.displaytype))
+        self.LoadSignals()
+
+        if self.opts.displaytype=='dispatch':
+            self.StartDispatch()
+        elif self.opts.displaytype=='yard':
+            self.StartYard()
+        elif self.opts.displaytype=='bigyard':
+            self.StartBigYard()
+        else:
+            print 'no valid displaytype set'
+
+        self.root.bind_all("<Escape>", self.SCabFoo)
+        self.SockStart()
+        self.QueueRead()
+
+    def StartDispatch(self):
+
+        self.root.protocol("WM_DELETE_WINDOW", self.Shutdown)
+        self.root.title('SCab Picker')
+        self.root.geometry(self.opts.initialgeom)
+        self.menubar=Menu(self.root)
+
+        # File Menu
+        self.filemenu=Menu(self.menubar, tearoff=0)
+        self.filemenu.add_command(label='Connect to server', command=self.SockStart)
+        self.filemenu.add_separator()
+        self.filemenu.add_command(label='Exit', command=self.Shutdown)
+        self.menubar.add_cascade(label="Commands", menu=self.filemenu)
+
+        # Edit Menu
+        self.editmenu=Menu(self.menubar, tearoff=0)
+        self.editmenu.add_command(label='List all blocks', command=self.ListBlocks)
+        self.editmenu.add_command(label='List all switches', command=self.ListSwitches)
+        self.editmenu.add_command(label='List all SCabs', command=self.ListSCabs)
+        self.editmenu.add_command(label='List all HCabs', command=self.ListHCabs)
+        self.editmenu.add_separator()
+        self.editmenu.add_command(label='Edit display properties', command=self.EditWindow)
+        self.editmenu.add_command(label='Edit SwitchCards', command=self.EditSwitchCards)
+        self.editmenu.add_command(label='Edit BlockCards', command=self.EditBlockCards)
+        self.editmenu.add_separator()
+        self.menubar.add_cascade(label="Edit", menu=self.editmenu)
+
+        self.root.config(menu=self.menubar)
+
+        self.DM=DisplayManager.DualPane(self, self.root)
+        
+        self.SCabFooButt=Button(self.root, text='SCab FOO!', bg='#ff4444', fg='#ffffff', font=('Arial',12, 'bold'), command=self.SCabFoo, width=15)
+        self.SCabFooButt.pack(side=BOTTOM)
+
+        self.SCabManager=SCab.SCabManager(self)
+        
+    def StartYard(self):
+        self.root.protocol("WM_DELETE_WINDOW", self.Shutdown)
+        self.root.title('SCab Picker')
+        self.root.geometry(self.opts.initialgeom)
+
+        if hasTix:
+            try:
+                self.root.tk.call('tixMwm', 'decoration', self.root._w, '-all', 0)
+                print "Set decoration to: " + str(self.root.tk.call('tixMwm', 'decoration', self.root._w))
+            except:
+                print 'No Tix after all'
+
+        layoutframe=Frame(self.root, height=240, width=640, relief=SUNKEN, borderwidth=1)
+        layoutframe.place(anchor=NW, x=0, y=0, width=640, height=320)
+
+        scabsframe=Frame(self.root, relief=RAISED, borderwidth=1, height=160, width=640)
+        scabsframe.place(anchor=NW, x=0, y=320, width=640, height=160)
+
+        scabframe=Frame(scabsframe, width=180, height=240, relief=SUNKEN, borderwidth=1)
+        scabframe.place(anchor=NW, x=0, y=0, width=320, height=160)
+
+        ssummframe=Pmw.ScrolledFrame(scabsframe, vscrollmode='static', hscrollmode='none')
+        ssummframe.place(anchor=NW, x=320, y=0, width=320, height=160)
+        summframe=ssummframe.interior()
+
+        self.root.bind("<q>", self.Shutdown)
+        self.root.overrideredirect()
+
+        self.DM=DisplayManager.SinglePane(self, layoutframe)
+
+        self.SCabManager=SCab.SCabManager(self, scabframe=scabframe, summaryframe=summframe)
+
+        self.YardKeyBind()
+
+    def StartBigYard(self):
+        self.root.protocol("WM_DELETE_WINDOW", self.Shutdown)
+        self.root.title('SCab Picker')
+        self.root.geometry(self.opts.initialgeom)
+
+        if hasTix:
+            try:
+                self.root.tk.call('tixMwm', 'decoration', self.root._w, '-all', 0)
+                print "Set decoration to: " + str(self.root.tk.call('tixMwm', 'decoration', self.root._w))
+            except:
+                print 'No Tix after all'
+
+        layoutframe=Frame(self.root, height=480, width=800, relief=SUNKEN, borderwidth=1)
+        layoutframe.place(anchor=NW, x=0, y=0, width=800, height=440)
+
+        scabsframe=Frame(self.root, relief=RAISED, borderwidth=1, height=160, width=640)
+        scabsframe.place(anchor=NW, x=0, y=440, width=800, height=160)
+
+        scabframe=Frame(scabsframe, width=180, height=240, relief=SUNKEN, borderwidth=1)
+        scabframe.place(anchor=NW, x=0, y=0, width=400, height=160)
+
+        ssummframe=Pmw.ScrolledFrame(scabsframe, vscrollmode='static', hscrollmode='none')
+        ssummframe.place(anchor=NW, x=400, y=0, width=400, height=160)
+        summframe=ssummframe.interior()
+
+        self.root.bind("<q>", self.Shutdown)
+        self.root.overrideredirect()
+
+        self.DM=DisplayManager.SinglePane(self, layoutframe)
+
+        self.SCabManager=SCab.SCabManager(self, scabframe=scabframe, summaryframe=summframe)
+
+        self.YardKeyBind()
+
+    def YardKeyBind(self):
+        self.root.bind("<Control-q>", self.Shutdown)
+        for key in ('Q', 'q', 'E', 'e', 'a', 'A', 'd', 'D', 's', 'S', 'c', 'C', 'r', 'R'):
+            self.root.bind(key, self.SCabManager.SpdKeyControl)
+        for key in ('.', ',', '<less>', '>'):
+            self.root.bind(key, self.DM.KeyScroll)
+        for key in ('<F1>',):
+            self.root.bind(key, self.SwapDisplay)
+
+    def SwapDisplay(self, event):
+        if self.CurrentLayoutFile==self.opts.layoutfile:
+            self.DM.LoadDisplay('full.nlay')
+            self.CurrentLayoutFile='full.nlay'
+        else:
+            self.DM.LoadDisplay(self.opts.layoutfile)
+            self.CurrentLayoutFile=self.opts.layoutfile
+
+    def LoadSignals(self):
+        bitmapdir='bitmaps'
+        smallyellow=PhotoImage(file=bitmapdir+'/sigyellow16.gif')
+        smallred=PhotoImage(file=bitmapdir+'/sigred16.gif')
+        smallgreen=PhotoImage(file=bitmapdir+'/siggreen16.gif')
+        smallwhite=PhotoImage(file=bitmapdir+'/sigwhite16.gif')
+        self.sigpicsmall={'stop':smallred, 'restrict':smallyellow, 'go':smallgreen,
+          'clear':smallgreen, 'app-med':smallgreen, 'app-slow':smallgreen,
+          'med-clear':smallgreen, 'med-app-med':smallgreen, 'med-app-slow':smallgreen,
+          'app':smallyellow, 'med-app':smallyellow, 'slow-clear':smallyellow,
+          'restrict':smallyellow, 'unknown':smallwhite}
+   
+        yellow=PhotoImage(file=bitmapdir+'/sigyellow32.gif')
+        red=PhotoImage(file=bitmapdir+'/sigred32.gif')
+        green=PhotoImage(file=bitmapdir+'/siggreen32.gif')
+        white=PhotoImage(file=bitmapdir+'/sigwhite32.gif')
+        self.sigpic={'stop':red, 'restrict':yellow, 'go':green,
+          'clear':green, 'app-med':green, 'app-slow':green,
+          'med-clear':green, 'med-app-med':green, 'med-app-slow':green,
+          'app':yellow, 'med-app':yellow, 'slow-clear':yellow,
+          'restrict':yellow, 'unknown':white}
+
+    def EditSwitchCards(self, event=None):
+        Cards.CardEditor(self, 'switchcard')
+
+    def EditBlockCards(self, event=None):
+        Cards.CardEditor(self, 'blockcard')
+
+    def EditWindow(self, event=None):
+        self.PTrackEditor=PTrackManager.PTrackEditor(self)
+
+    def LoadFile(self, filename=None):
+        if filename==None:
+            filename=tkFileDialog.askopenfilename()
+        try:
+            file=open(filename)
+        except IOError:
+            self.logger.LogWarnMsg('Unable to open file '+filename)
+            return
+        filedata=file.read()
+        file.close()
+
+        def doit(s):
+            try:
+                self.logger.LogFileMsg(str(s))
+                self.ProcSexp(s)
+            except KeyError, ObjectName:
+                self.logger.LogWarnMsg('Trouble loading from file'+str(filename), 3)
+                self.logger.LogWarnMsg('Error: Unknown object '+str(ObjectName)+' in message: '+s, 3)
+
+        parser = Psexp.Parser(doit)
+        parser.parse(filedata)
+        
+    def makeOldSexp(self, newsexp):
+        """Temporary compatibility function: convert new format
+        already-parsed sexp back into a simple list of strings that
+        the rest of the code wants. But, store the new format one on
+        .new_sexp, to aid in incremental conversion."""
+        
+        sexp=Psexp.ParsedSexp()
+        sexp.sexp=str(newsexp)
+        def to_old(sexp):
+            if sexp is True:
+                return '#t'
+            elif sexp is False:
+                return '#f'
+            elif sexp is None:
+                return 'nil'
+            elif isinstance(sexp, list):
+                return [to_old(sub) for sub in sexp]
+            else:
+                return str(sexp)
+            
+        sexp.tokens=to_old(newsexp)
+        sexp.command=str(newsexp[0])
+        sexp.new_sexp = newsexp
+        return sexp
+    
+    def ProcSexp(self, newsexp):
+        s = self.makeOldSexp(newsexp)
+        #if s.command=='del':
+        if newsexp[0] == 'del':
+            self.delete(s)
+        #elif s.command=='debug-info':
+        elif newsexp[0]=='debug-info':
+            self.debuginfo(s)
+        else:
+            #getattr(self, s.command)(s)
+            getattr(self, newsexp[0])(s)
+        
+    def BuildDisplay(self):
+        """Load and set block and canvas display properties
+
+        This function sets up the initial display upon connection to the server.
+        Block/switch display properties (length, width, etc.) are loaded from a
+        file whose name is currently hard-coded in the function."""
+        for thingname in self.Ddict.keys():
+            self.Ddict[thingname].UpdateStatus()
+        self.DM.LoadDisplay(self.opts.layoutfile)
+        self.CurrentLayoutFile=self.opts.layoutfile
+
+    def Shutdown(self, event=None):
+        """Used to gracefully stop the program and exit.
+
+        This method closes the connection to the server, waits
+        for the connection to actually close, kills the root
+        window and quits.
+
+        Can be used as a callback, but does not use the 'event' argument"""
+        self.SockClose()
+        self.root.destroy()
+        self.root.quit()
+
+    def SCabFoo(self, event=None):
+        """Sends server the foo command to stop all trains in the system.
+
+        Can be used as a callback, but does not use the 'event' argument"""
+        self.SockWrite('(foo)')
+
+    def SockWrite(self, message):
+        """Write messages to the server connection.
+
+        Function used to send all messages to the server.  Also sends
+        messages to the SCab message logger."""
+        if self.Sock:
+            try:
+                self.Sock.send(message)
+                self.logger.LogSCabMsg(message[1:-1])
+            except:
+                self.logger.LogWarnMsg("Can't write to socket connection, hanging up")
+                self.SockLost()
+
+    def SockStart(self, event=None):
+        """Initiates connection to sys3 server using socket interface
+        
+        Starts the Socket reader thread.
+        
+        Can be used as a callback, but does not use the 'event' argument"""
+        self.StopVar=1
+        self.SockReader=SockReader.SockReader(self)
+        self.SockReader.start()
+
+    def socketopened(self, event=None):
+        """Initiates connection to sys3 server using socket interface
+        
+        Called when the SocketReader thread first connects to the server.
+        
+        Can be used as a callback, but does not use the 'event' argument"""
+        if self.filemenu!=None:
+            self.filemenu.delete(0)
+            self.filemenu.insert_command(0, label='Disconnect from server', command=self.SockClose)
+
+    def socketopenfailed(self, Psexp=None):
+        """Called when a socket connection is not opened successfully
+        
+        Execcuted in response to a (socketOpenFailed) message passed in by
+        the socket reading thread."""
+        self.logger.LogWarnMsg('Failed to connect to server, attempt #'+Psexp.tokens[1], 3)
+        if self.filemenu!=None:
+            self.filemenu.delete(0)
+            self.filemenu.insert_command(0, label='Stop trying to connect to server', command=self.SockClose)
+
+    def SockClose(self, event=None):
+        """Stops socket reader thread and closes socket connection.
+
+        If the socket thread is running, this sets variable self.StopVar to
+        zero.  The socket reader thread checks this variable occasionally, and
+        when it is set to zero (it is normally equal to 1) the thread function
+        changes the variable to -1 and exits.  The socket is then closed and set
+        to None.
+
+        Generally used as a callback, but does not use the 'event' argument"""
+        if self.SockReader!=None:
+            try:
+                self.StopVar=0
+                while self.StopVar==0:
+                    time.sleep(0.1)
+                self.logger.LogWarnMsg('Socket reader thread stopped', 3)
+                self.SockReader=None
+                if self.filemenu!=None:
+                    self.filemenu.delete(0)
+                    self.filemenu.insert_command(0, label='Connect to server', command=self.SockStart)
+
+                trains=self.TrainList.keys()
+                for train in trains:
+                    self.TrainList[train].Delete()
+                for hcab in self.HCabList.keys():
+                    self.HCabList[hcab].Delete()
+            except:
+                self.logger.LogWarnMsg("Can't close socket connection", 3)
+
+    def socketclosed(self, event=None):
+        """Called when the socket is closed
+
+        This function is called in response to the (socketClosed) message
+        from the SocketReader thread or by the SockClose.  Changes """
+        if self.filemenu!=None:
+            self.filemenu.delete(0)
+            self.filemenu.insert_command(0, label='Connect to server', command=self.SockStart)
+        self.Disconnected()
+
+    def socketlost(self, Psexp=None):
+        """Caled when the socket closes unexpectedly
+
+        Reports that contact with the server has been lost if it was not closed
+        by the server.  Is called in response to (sockLost) message from
+        Socket Reader thread."""
+        self.logger.LogWarnMsg('Sever connection closed unexpectedly', 3)
+        if self.filemenu!=None:
+            self.filemenu.delete(0)
+            self.filemenu.insert_command(0, label='Stop trying to connect to server', command=self.SockClose)
+        self.Disconnected()
+
+    def Disconnected(self):
+        """Stuff to be done when the server connection is lost
+
+        This function is called when the server connection is lost or closed
+        intentionally.  It is supposed to delete trains, HCabs, and somehow
+        indicate that the display is not connected. """
+        trains=self.TrainList.keys()
+        hcabs=self.HCabList.keys()
+        for train in trains:
+            self.TrainList[train].Delete()
+        for hcab in hcabs:
+            self.HCabList[hcab].Delete()
+            del self.HCabList[hcab]
+
+    def QueueRead(self, event=None):
+        """Get parsed s-expressions from a queue.
+
+        The socket reading thread places parsed s-expressions on to a queue.
+        This function checks that queue for s-expressions, and pulls them off
+        one at a time and sends them to the ProcSexp function.  When it has
+        emptied the queue it sets up a time-delay callback to call itself in
+        50 ms.
+
+        Generally used as a callback, but does not use the 'event' argument"""
+        while True:
+            try:
+                s=self.ReadQueue.get_nowait()
+                self.logger.LogServerMsg(str(s))
+                self.ProcSexp(s)
+            except Queue.Empty:
+                break
+##            except KeyError, ObjectName:
+##                self.logger.LogWarnMsg(('Error: Unknown object',ObjectName,'in message:', s.sexp), 3)
+##            except AttributeError:
+##                self.logger.LogWarnMsg(('Error: Unknown command', s.command), 3)
+        self.root.after(50, self.QueueRead)
+
+    def loginrequired(self, Psexp):
+        print 'login required'
+        self.SockWrite('tmrc\n')
+
+    def loginaccepted(self, Psexp):
+        print 'login accepted'
+
+    def set(self, Psexp):
+        if Psexp.tokens[1][0] in ('Obj', 'obj', 'Cxn', 'cxn'):
+            if self.Ddict.has_key(Psexp.tokens[1][1]):
+                self.Ddict[Psexp.tokens[1][1]].ProcSexp(Psexp)
+            #if self.Blist.has_key(Psexp.tokens[1][1]):
+            #    self.Blist[Psexp.tokens[1][1]].ProcSexp(Psexp)
+            #elif self.Slist.has_key(Psexp.tokens[1][1]):
+            #    self.Slist[Psexp.tokens[1][1]].ProcSexp(Psexp)
+            #elif self.Clist.has_key(Psexp.tokens[1][1]):
+            #    self.Clist[Psexp.tokens[1][1]].ProcSexp(Psexp)
+            #elif self.TTlist.has_key(Psexp.tokens[1][1]):
+            #    self.TTlist[Psexp.tokens[1][1]].ProcSexp(Psexp)
+            elif self.TrainList.has_key(Psexp.tokens[1][1]):
+                self.TrainList[Psexp.tokens[1][1]].ProcSexp(Psexp)
+            elif self.HCabList.has_key(Psexp.tokens[1][1]):
+                self.HCabList[Psexp.tokens[1][1]].ProcSexp(Psexp)
+            else:
+                self.logger.LogWarnMsg(('Unknown object '+Psexp.tokens[1][1]), 2)
+        elif Psexp.tokens[1][0] in ('switchcard',):
+            if self.SCList.has_key(int(Psexp.tokens[1][1])):
+                self.SCList[int(Psexp.tokens[1][1])].ProcSexp(Psexp)
+        elif Psexp.tokens[1][0] in ('blockcard',):
+            if self.BCList.has_key(int(Psexp.tokens[1][1])):
+                self.BCList[int(Psexp.tokens[1][1])].ProcSexp(Psexp)
+        elif Psexp.tokens[1][0] in ('Dlist', 'dlist'):
+            self.DB.ProcSexp(Psexp)
+        elif Psexp.tokens[1][0] in ('options', 'opt'):
+            self.opts.ProcSexp(Psexp)
+        else:
+            self.logger.LogWarnMsg(('Unknown object '+Psexp.sexp), 2)
+
+    def add(self, Psexp):
+        if Psexp.tokens[2]=='train':
+            if not self.TrainList.has_key(Psexp.tokens[1]):
+                if self.TrainQueue.has_key(Psexp.tokens[1]):
+                    owned=1
+                    del self.TrainQueue[Psexp.tokens[1]]
+                else:
+                    owned=0
+                self.TrainList[Psexp.tokens[1]]=SCab.Train(self, Psexp.tokens[1], owned)
+                self.SCabManager.AddTrain(self.TrainList[Psexp.tokens[1]], owned)
+        elif Psexp.tokens[2]=='block':
+            if not self.Blist.has_key(Psexp.tokens[1]):
+                self.Blist[Psexp.tokens[1]]=BlockObj.BlockObj(self, Psexp.tokens[1])
+                self.Ddict[Psexp.tokens[1]]=self.Blist[Psexp.tokens[1]]
+        elif Psexp.tokens[2]=='switch':
+            if not self.Slist.has_key(Psexp.tokens[1]):
+                self.Slist[Psexp.tokens[1]]=SwitchObj.SwitchObj(self, Psexp.tokens[1])
+                self.Ddict[Psexp.tokens[1]]=self.Slist[Psexp.tokens[1]]
+        elif Psexp.tokens[2]=='crossing':
+            if not self.Clist.has_key(Psexp.tokens[1]):
+                self.Clist[Psexp.tokens[1]]=CrossingObj.CrossingObj(self, Psexp.tokens[1])
+                self.Ddict[Psexp.tokens[1]]=self.Clist[Psexp.tokens[1]]
+        elif Psexp.tokens[2]=='turntable':
+            if not self.TTlist.has_key(Psexp.tokens[1]):
+                self.TTlist[Psexp.tokens[1]]=TurnTableObj.TurnTableObj(self, Psexp.tokens[1])
+                self.Ddict[Psexp.tokens[1]]=self.TTlist[Psexp.tokens[1]]
+        elif Psexp.tokens[2]=='thing':
+            pass #no need to print error messages here
+        elif Psexp.tokens[2]=='cab':
+            if not self.HCabList.has_key(Psexp.tokens[1]):
+                self.HCabList[Psexp.tokens[1]]=HCab.HCab(self, Psexp.tokens[1])
+        elif Psexp.tokens[2] in ('switchcard',):
+            if not self.SCList.has_key(Psexp.tokens[1]):
+                self.SCList[int(Psexp.tokens[1])]=Cards.Card(self, Psexp.tokens[1], Psexp.tokens[2])
+        elif Psexp.tokens[2] in ('blockcard',):
+            if not self.BCList.has_key(Psexp.tokens[1]):
+                self.BCList[int(Psexp.tokens[1])]=Cards.Card(self, Psexp.tokens[1], Psexp.tokens[2])
+        else:
+            self.logger.LogWarnMsg(('Unparsed S-exp: '+Psexp.sexp))
+            self.logger.LogWarnMsg(('Don''t know how to create object of type: '+Psexp.tokens[2]))
+
+    def delete(self, Psexp):
+            if Psexp.tokens[2]=='train':
+                if self.TrainList.has_key(Psexp.tokens[1]):
+                    self.TrainList[Psexp.tokens[1]].Delete()
+            elif Psexp.tokens[2]=='cab':
+                if self.HCabList.has_key(Psexp.tokens[1]):
+                    self.HCabList[Psexp.tokens[1]].Delete()
+                    del self.HCabList[Psexp.tokens[1]]
+            else:
+                self.logger.LogWarnMsg(('Unparsed S-exp: '+Psexp.sexp))
+                self.logger.LogWarnMsg('Don''t know how to delete object of type: '+Psexp.tokens[2])
+
+    def debuginfo(self, Psexp):
+        if Psexp.tokens[1][0] in ('Obj', 'obj'):
+            if self.Ddict.has_key(Psexp.tokens[1][1]):
+                self.Ddict[Psexp.tokens[1][1]].ProcSexp(Psexp)
+            #if self.Blist.has_key(Psexp.tokens[1][1]):
+            #    self.Blist[Psexp.tokens[1][1]].ProcSexp(Psexp)
+            #elif self.Slist.has_key(Psexp.tokens[1][1]):
+            #    self.Slist[Psexp.tokens[1][1]].ProcSexp(Psexp)
+            #elif self.Clist.has_key(Psexp.tokens[1][1]):
+            #    self.Clist[Psexp.tokens[1][1]].ProcSexp(Psexp)
+            #elif self.TTlist.has_key(Psexp.tokens[1][1]):
+            #    self.TTlist[Psexp.tokens[1][1]].ProcSexp(Psexp)
+            else:
+                self.logger.LogWarnMsg(('Unknown object '+Psexp.tokens[1][1]), 2)
+
+    def updatecompleted(self, Psexp):
+        if self.Connects!=True:
+            self.GetConnects()
+
+    def cxncomplete(self, Psexp):
+        self.Connects=True
+        self.CheckSwing()
+        self.BuildDisplay()
+
+    def CheckSwing(self):
+        switchnames=self.Slist.keys()
+        for switchname in switchnames:
+            self.Slist[switchname].CheckSwing('unknown')
+
+        morefound=True
+        unswung=len(self.Slist)
+        while morefound==True:
+            unknown=0
+            for switchname in switchnames:
+                self.Slist[switchname].CheckSwing()
+            for switchname in switchnames:
+                if self.Slist[switchname].IsSwing()=='unknown':
+                    unknown+=1
+            if unknown<unswung:
+                unswung=unknown
+            else:
+                morefound=False
+    
+    def displaylistcompleted(self, Psexp):
+        self.DB.UpdatePoints()
+
+    def warning(self, Psexp):
+        self.logger.LogServerMsg(Psexp.sexp, 3)
+        
+    def fatalerror(self, Psexp):
+        self.logger.LogServerMsg(Psexp.sexp, 3)
+
+    def GetConnects(self):
+        """Used to process next step in initial data transfer process.
+
+        This function is called after the initial burst of data from the
+        server, which adds blocks, switches, trains, etc.  This function
+        sets a status variable to true and then requests block/switch
+        connectivity information.  The variable is used to ensure
+        that this information is not requested twice, as the information
+        it gets from the server can only change if the server restarts,
+        in which case the display program should probably be restarted as
+        well."""
+        if self.Updated==False:
+            self.Updated=True
+            self.SockWrite("(cxnInfo)")
+
+    def ListSCabs(self, event=None):
+        """Print a list of defined SCabs.
+
+        This function will cause a list of SCabs to be printed to the console.
+        This list will include all trains, whether created by the current instance
+        of the display program or not, and whether connected to a hardware cab or
+        not.
+
+        Generally used as a callback, but does not use the 'event' argument"""
+        print self.TrainList
+                
+    def ListHCabs(self, event=None):
+        """Print a list of defined hardware cabs.
+
+        This function will list all connected, functioning hardware cabs on the
+        console.  This list will list hardware cabs whether assigned to a train
+        or not.
+
+        Generally used as a callback, but does not use the 'event' argument"""
+        print self.HCabList
+        
+# Creates window fill of block information
+    def ListBlocks(self, event=None):
+        """Display a dialog box listing all the blocks defined in the system
+
+        This function first checks to see if a block list is already open.  If one
+        is, it is closed.  Then a new transient window is opened, and all blocks
+        in the system are listed in an 8 column format.  Each listing includes the
+        block name, and the end signals.  Clicking on the button with the name will
+        take a block out of service.  The name button background colors indicate
+        block occupancy atatus.  This display will include all blocks, even those
+        that could not be placed in the graphical layout view.
+
+        Generally used as a callback, but does not use the 'event' argument"""
+        if 'BlockWindow' not in dir(self):
+            self.BlockWindow=BlockObj.CompactBlockDisplayWindow(self)
+
+# Creates window full of switch information
+    def ListSwitches(self, event=None):
+        """Display a dialog box listing all the switches defined in the system
+
+        This function first checks to see if a switch list is already open.  If one
+        is, it is closed.  Then a new transient window is opened, and all switches
+        in the system are listed in an 8 column format.  Each listing includes the
+        switch name, and the end signals.  Clicking on the button with the name will
+        throw the switch.  The name button background color indicates
+        switch position.  This display will include all switches, even those
+        that could not be placed in the graphical layout view.
+
+        Generally used as a callback, but does not use the 'event' argument"""
+        if 'SwitchWindow' not in dir(self):
+            self.SwitchWindow=SwitchObj.CompactSwitchDisplayWindow(self)
+
+    def NewSCabWindow(self, block):
+        if self.NewSCabPicker==None:
+            self.NewSCabPicker=SCab.NewSCabPicker(self, block)
+        else:
+            self.NewSCabPicker.UpdateBlock(block)
+
+if __name__ == '__main__':
+    sp=Picker()
+    sp.root.mainloop()

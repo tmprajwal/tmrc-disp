@@ -1,0 +1,226 @@
+# TMRC System 3 Display Software
+# Display Managers
+# Thomas O'Reilly, 23 February 2002
+
+from Tkinter import *
+import Pmw
+from MiscTrack import *
+import PTrackManager
+
+UPPERHEIGHT=150
+canvasopts={'bg':'Black',
+            'relief':FLAT}
+            
+class DualPane:
+    """Class to define display windows.  Two of them.
+
+    This class is used to define functions related to keeping two separate and
+    unequal display windows happy.  Or unhappy, as the situation may call for."""
+    def __init__(self, master, frame):
+        """Initialization method.
+
+        The initialization method creates a pair of Python Mega-widget scrolled-
+        canvases in the root window of the master object and handles a few special
+        call-back bindings."""
+        self.master=master
+        self.scvtop=Pmw.ScrolledCanvas(frame, vscrollmode='none',
+                                       hscrollmode='none', scrollmargin=0)
+        self.scvtop.pack(side=TOP, fill='x')
+
+        self.cvtop=self.scvtop.interior()
+        self.cvtop.config(canvasopts)
+
+        self.cvtop.bind("<Button-1>", self.ClickToScroll)
+        self.cvtop.bind("<B1-Motion>", self.ClickToScroll)
+        self.cvtop.bind("<Configure>", self.FixTop)
+
+        self.scvbot=Pmw.ScrolledCanvas(frame, scrollmargin=0,
+                                       canvasmargin=20)
+        self.scvbot.pack(side=TOP, fill='both', expand='true')
+        self.scvbot.configure(hscrollmode='dynamic', vscrollmode='dynamic')
+        self.cvbot=self.scvbot.interior()
+
+        self.cvbot.config(canvasopts)
+        self.cvbot.bind("<Configure>", self.FixBottom)
+
+        self.scvbot.component('horizscrollbar').configure(command=self.BotXScrollWrap)
+        for key in (',', '.', '<less>', '>'):
+            self.master.root.bind(key, self.KeyScroll)
+
+        self.PMtop=PTrackManager.PTrackManager(self.master, self, self.scvtop)
+        self.PMtop.SetClickable(False)
+        self.PMbot=PTrackManager.PTrackManager(self.master, self, self.scvbot)
+
+    def LoadDisplay(self, filename):
+        self.PMtop.LoadDisplay(filename=filename)
+        self.PMbot.LoadDisplay(filename=filename)
+        self.FixTop()
+        self.FixBottom()
+        self.UpperBox()
+
+    def FixTop(self, event=None):
+        """Rescale upper window in response to configure event
+
+        This tells the top window to rescale itself when it is resized."""
+        width=self.cvtop.winfo_width()
+        objectsize=self.PMtop.ScaleToFit(width=width-10)
+        if objectsize!=None:
+            self.cvtop.configure(height=objectsize[1]+5)
+        self.UpperBox()
+
+    def FixBottom(self, event=None):
+        """Rescale lower window due to configuration change.
+
+        This fixes the vertical scale of the top window so that the
+        display fits with no vertical scrolling."""
+        height=int(self.cvbot.winfo_height()*0.875)
+        self.PMbot.ScaleToFit(height=height)
+        self.UpperBox()
+
+    def KeyScroll(self, event=None):
+        """Handle keyboard scrolling of the lower display
+
+        Basically, whenever the '.' or ',' keys are pressed, this will scroll the
+        view left or right by 10% of the scroll distance or 66% of the viewed
+        area, whichever is less."""
+        barpos=self.scvbot.xview()
+        barwidth=barpos[1]-barpos[0]
+
+        if event.keysym in ('greater', 'period'):
+            direct=1
+        elif event.keysym in ('less', 'comma'):
+            direct=-1
+        else:
+            direct=0
+
+        if barwidth<0.075:
+            newpos=barpos[0]+direct*barwidth*1/3
+        else:
+            newpos=barpos[0]+direct*0.05
+            
+        self.scvbot.xview('moveto', newpos)
+        self.UpperBox()
+
+    def BotXScrollWrap(self, stuff=None, foo=None, morefoo=None):
+        """Call-back wrapper.
+
+        This method serves as a call-back wrapper to simultaneously scroll the
+        lower window, and redraw the limit-bars in the upper window.  The default
+        call-back for scroll bars is the canvas xview method, which receives three
+        variables.  These variables are passed unmolested to the xview method for
+        the lower canvas, and then the UpperBox method is called to redraw the
+        lines in the upper canvas that show the region being viewed in the lower
+        canvas.
+
+        This method replaces the default call-back for the bottom scrollbar."""
+        self.cvbot.xview(stuff, foo, morefoo)
+        self.UpperBox()
+
+    def ClickToScroll(self, event):
+        """Scroll the lower display window based on mouse position in the upper window.
+
+        This method is used as a call-back.  It requires a single argument, which must
+        contain x position information.  This argument will generally be the event that
+        resulted in the function call.  This function is suitable as a call-back for
+        mouse-click and drag events.
+
+        The function is supposed to center the view in the lower window at the location
+        corresponding to the event.x value.  This will generally be a mouse-click
+        location."""
+        barpos=self.scvbot.xview()
+        barwidth=barpos[1]-barpos[0]
+        halfwidth=barwidth/2.0
+        topwidth=self.cvtop.winfo_width()
+
+        bbox=self.cvtop.bbox('all')
+        len=bbox[2]-bbox[0]
+
+        xfrac=event.x/float(len)
+        if xfrac<halfwidth:
+            xfrac=halfwidth
+        elif xfrac>(1-halfwidth):
+            xfrac=1-halfwidth
+        self.scvbot.xview('moveto', xfrac-halfwidth)
+        self.UpperBox()
+
+    def UpperBox(self, event=None):
+        """Show position of lower view in upper view.
+
+        This method draws vertical lines in the upper display to show the extents of
+        the larger bottom display.  The upper display generally shows the full layout
+        in a small size, while the lower view shows only a portion of the layout in a
+        larger scale."""
+        self.cvtop.delete('borderlines')
+        bbox=self.cvtop.bbox('all')
+        if bbox==None:
+            return
+        len=bbox[2]-bbox[0]
+        ytop=bbox[3]
+        ybot=bbox[1]
+        
+        barpos=self.scvbot.xview()
+
+        leftcoords=(bbox[0]+int(barpos[0]*len), ytop,
+                    bbox[0]+int(barpos[0]*len), ybot)
+        rightcoords=(bbox[0]+int(barpos[1]*len), ytop,
+                     bbox[0]+int(barpos[1]*len), ybot)
+        self.leftline=self.cvtop.create_line(leftcoords, tags='borderlines', fill='orange')
+        self.rightline=self.cvtop.create_line(rightcoords, tags='borderlines', fill='orange')
+        
+class SinglePane:
+    """Class to define display windows.  One of them.
+
+    This class is used to define functions related to keeping one display
+    window alive and well for the yard display computers."""
+    def __init__(self, master, frame):
+        """Initialization method.
+
+        The initialization method creates a pair of Python Mega-widget scrolled-
+        canvases in the root window of the master object and handles a few special
+        call-back bindings."""
+        self.master=master
+        self.scv=Pmw.ScrolledCanvas(frame, scrollmargin=0,
+                                       canvasmargin=20)
+        self.scv.pack(side=TOP, fill='both', expand=1)
+        self.scv.configure(hscrollmode='dynamic', vscrollmode='none')
+        self.cv=self.scv.interior()
+
+        self.cv.config(canvasopts)
+        self.cv.bind("<Configure>", self.FixScale)
+
+        self.PM=PTrackManager.PTrackManager(self.master, self, self.scv)
+
+    def LoadDisplay(self, filename):
+        self.PM.LoadDisplay(filename=filename)
+        self.FixScale()
+
+    def FixScale(self, event=None):
+        """Rescale upper window in response to configure event
+
+        This tells the top window to rescale itself when it is resized."""
+        width=self.cv.winfo_width()
+        height=self.cv.winfo_height()
+        objectsize=self.PM.ScaleToFit(height=height)
+
+    def KeyScroll(self, event=None):
+        """Handle keyboard scrolling of the lower display
+
+        Basically, whenever the '.' or ',' keys are pressed, this will scroll the
+        view left or right by 10% of the scroll distance or 66% of the viewed
+        area, whichever is less."""
+        barpos=self.scv.xview()
+        barwidth=barpos[1]-barpos[0]
+
+        if event.keysym in ('greater', 'period'):
+            direct=1
+        elif event.keysym in ('less', 'comma'):
+            direct=-1
+        else:
+            direct=0
+
+        if barwidth<0.075:
+            newpos=barpos[0]+direct*barwidth*1/3
+        else:
+            newpos=barpos[0]+direct*0.05
+            
+        self.scv.xview('moveto', newpos)

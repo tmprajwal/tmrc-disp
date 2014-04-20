@@ -1,0 +1,258 @@
+PTrackPoint||num|0||coord|(-4310, 160)
+PTrackPoint||num|1||coord|(-4310, 120)
+PTrackPoint||num|2||coord|(-4470, 160)
+PTrackPoint||num|3||coord|(-4470, 120)
+PTrackPoint||num|4||coord|(-4780, 120)
+PTrackPoint||num|5||coord|(-4700, 160)
+PTrackPoint||num|6||coord|(-4850, 120)
+PTrackPoint||num|7||coord|(-4610, 80)
+PTrackPoint||num|8||coord|(-4800, 80)
+PTrackPoint||num|9||coord|(-4880, 160)
+PTrackPoint||num|10||coord|(-4960, 200)
+PTrackPoint||num|11||coord|(-4760, 200)
+PTrackPoint||num|12||coord|(-4920, 160)
+PTrackPoint||num|13||coord|(-4900, 140)
+PTrackPoint||num|14||coord|(-4920, 120)
+PTrackPoint||num|15||coord|(-5200, 120)
+PTrackPoint||num|16||coord|(-5200, 160)
+PTrackPoint||num|17||coord|(-5240, 160)
+PTrackPoint||num|18||coord|(-5220, 140)
+PTrackPoint||num|19||coord|(-5240, 120)
+PTrackPoint||num|20||coord|(-5620, 160)
+PTrackPoint||num|21||coord|(-5620, 120)
+PTrackPoint||num|22||coord|(-5660, 120)
+PTrackPoint||num|23||coord|(-5640, 140)
+PTrackPoint||num|24||coord|(-5660, 160)
+PTrackPoint||num|25||coord|(-5900, 120)
+PTrackPoint||num|26||coord|(-6270, 160)
+PTrackPoint||num|27||coord|(-6090, 120)
+PTrackPoint||num|28||coord|(-5940, 80)
+PTrackPoint||num|29||coord|(-6270, 120)
+PTrackPoint||num|30||coord|(-6300, 120)
+PTrackPoint||num|31||coord|(-6290, 140)
+PTrackPoint||num|32||coord|(-6310, 160)
+PTrackPoint||num|33||coord|(-6500, 160)
+PTrackPoint||num|34||coord|(-6500, 120)
+PTrackPoint||num|35||coord|(-6540, 120)
+PTrackPoint||num|36||coord|(-6780, 50)
+PTrackPoint||num|37||coord|(-6540, 160)
+PTrackPoint||num|38||coord|(-6560, 220)
+PTrackPoint||num|39||coord|(-6700, 220)
+PTrackPoint||num|40||coord|(-6850, 220)
+PTrackPoint||num|41||coord|(-6590, 270)
+PTrackPoint||num|42||coord|(-7080, 220)
+PTrackPoint||num|43||coord|(-7050, 190)
+PTrackPoint||num|44||coord|(-7020, 160)
+PTrackPoint||num|45||coord|(-7060, 160)
+PTrackPoint||num|46||coord|(-6880, 160)
+PTrackPoint||num|47||coord|(-6840, 160)
+PTrackPoint||num|48||coord|(-6860, 140)
+PTrackPoint||num|49||coord|(-6840, 120)
+PTrackPoint||num|50||coord|(-7000, 120)
+PTrackPoint||num|51||coord|(-7320, 240)
+PTrackPoint||num|52||coord|(-7360, 240)
+PTrackPoint||num|53||coord|(-7240, 200)
+PTrackPoint||num|54||coord|(-7320, 200)
+PTrackPoint||num|55||coord|(-7100, 160)
+PTrackPoint||num|56||coord|(-7090, 140)
+PTrackPoint||num|57||coord|(-7400, 80)
+PTrackPoint||num|58||coord|(-7140, 120)
+PTrackPoint||num|59||coord|(-7440, 80)
+PTrackPoint||num|60||coord|(-7440, 20)
+PTrackPoint||num|61||coord|(-7400, -20)
+PTrackPoint||num|62||coord|(-7320, -20)
+PTrackPoint||num|63||coord|(-7400, 40)
+PTrackPoint||num|64||coord|(-7380, 20)
+PTrackPoint||num|65||coord|(-7340, 20)
+PTrackPoint||num|66||coord|(-7160, 160)
+PTrackPoint||num|67||coord|(-7100, 240)
+PTrackPoint||num|68||coord|(-7520, 80)
+PTrackPoint||num|69||coord|(-7520, 200)
+PTrackPoint||num|70||coord|(-7480, 240)
+PTextPoint||num|71||coord|(-4710, 310)||Text|"Middle Heights"||TextSize|48
+PTextPoint||num|72||coord|(-6800, -130)||Text|"Berkmannville"||TextSize|72
+PTextPoint||num|73||coord|(-7360, -40)||Text|"JP Cutoff"||TextSize|20
+PTextPoint||num|74||coord|(-7460, 260)||Text|"Alvar Cutoff"||TextSize|20
+PTrackPoint||num|75||coord|(-5060, 160)
+PTrackPoint||num|76||coord|(-5060, 120)
+PTrackPoint||num|77||coord|(-5370, 160)
+PTrackPoint||num|78||coord|(-5370, 120)
+PTrackPoint||num|79||coord|(-6580, 50)
+PTrackPoint||num|80||coord|(-6790, 270)
+PTextPoint||num|81||coord|(-4620, 60)||Text|"Barnacle's Recycling"||TextSize|16
+PTextPoint||num|82||coord|(-4850, 220)||Text|"Saurian Skin Care"||TextSize|16
+PTextPoint||num|83||coord|(-4830, 60)||Text|"Burns Coke & Oil"||TextSize|16
+PTextPoint||num|84||coord|(-4520, 140)||Text|"(Middle Heights)"||TextSize|16
+PTextPoint||num|85||coord|(-6560, 20)||Text|"Eastern Lucubrator"||TextSize|16
+PTextPoint||num|86||coord|(-6680, 300)||Text|"Berkmannville Bulk Transfer"||TextSize|16
+PTextPoint||num|87||coord|(-7280, 180)||Text|"Berk-Mills Furniture"||TextSize|16
+PTextPoint||num|88||coord|(-6690, 140)||Text|"(Berkmannville)"||TextSize|16
+PTextPoint||num|89||coord|(-6010, 220)||Text|"Anderson Lumber"||TextSize|16
+PTextPoint||num|90||coord|(-5590, 260)||Text|"Standard Hydrocarbon & Petrochemical"||TextSize|16
+PTrackPoint||num|91||coord|(-5830, 200)
+PTrackPoint||num|92||coord|(-5910, 200)
+PTrackPoint||num|93||coord|(-6070, 200)
+PTrackPoint||num|94||coord|(-5900, 220)
+PTrackPoint||num|95||coord|(-5870, 200)
+PTrackPoint||num|96||coord|(-5970, 270)
+PTrackPoint||num|97||coord|(-6030, 320)
+PTrackPoint||num|98||coord|(-6070, 270)
+PTrackPoint||num|99||coord|(-6180, 200)
+PTrackPoint||num|100||coord|(-6100, 180)
+PTrackPoint||num|101||coord|(-6130, 160)
+PTrackPoint||num|102||coord|(-6090, 160)
+PTrackPoint||num|103||coord|(-5830, 160)
+PTrackPoint||num|104||coord|(-5790, 160)
+PTrackPoint||num|105||coord|(-5810, 180)
+PTrackPoint||num|106||coord|(-5770, 230)
+PTrackPoint||num|107||coord|(-6290, 80)
+PTrackPoint||num|108||coord|(-6350, 80)
+PTrackPoint||num|109||coord|(-6310, 100)
+PTrackPoint||num|110||coord|(-6330, 120)
+PTrack||num|0||labelpos|0.5||points|[2, 0]
+PTrack||num|1||labelpos|0.5||points|[3, 1]
+PTrack||num|2||labelpos|0.5||points|[4, 3]
+PTrack||num|3||labelpos|0.5||points|[5, 2]
+PTrack||num|4||labelpos|0.02||points|[6, 4]
+PTrack||num|5||labelpos|0.5||points|[6, 8, 7]
+PTrack||num|6||labelpos|0.0175||points|[5, 9]
+PTrack||num|7||labelpos|0.5||points|[5, 11, 10]
+PTrack||num|8||labelpos|0.5||points|[9, 12]
+PTrack||num|9||labelpos|0.5||points|[9, 13]
+PTrack||num|10||labelpos|0.0025||points|[14, 6]
+PTrack||num|11||labelpos|0.5||points|[14, 13]
+PTrack||num|12||labelpos|0.01||points|[17, 16]
+PTrack||num|13||labelpos|0.5||points|[17, 18]
+PTrack||num|14||labelpos|0.5||points|[15, 19]
+PTrack||num|15||labelpos|0.5||points|[15, 18]
+PTrack||num|16||labelpos|0.0175||points|[22, 21]
+PTrack||num|17||labelpos|0.5||points|[22, 23]
+PTrack||num|18||labelpos|0.5||points|[20, 24]
+PTrack||num|19||labelpos|0.5||points|[20, 23]
+PTrack||num|20||labelpos|0.411111111111||points|[25, 22]
+PTrack||num|21||labelpos|0.0075||points|[25, 27]
+PTrack||num|22||labelpos|0.5||points|[25, 28]
+PTrack||num|23||labelpos|0.383333333333||points|[29, 27]
+PTrack||num|24||labelpos|0.5||points|[29, 30]
+PTrack||num|25||labelpos|0.5||points|[29, 31]
+PTrack||num|26||labelpos|0.015||points|[32, 26]
+PTrack||num|27||labelpos|0.5||points|[32, 31]
+PTrack||num|28||labelpos|0.5||points|[33, 32]
+PTrack||num|29||labelpos|0.5||points|[34, 110]
+PTrack||num|30||labelpos|0.02||points|[34, 35]
+PTrack||num|31||labelpos|0.5||points|[34, 79, 36]
+PTrack||num|32||labelpos|0.0||points|[33, 37]
+PTrack||num|33||labelpos|0.5||points|[33, 38]
+PTrack||num|34||labelpos|0.631428571429||points|[39, 38]
+PTrack||num|35||labelpos|0.0175||points|[40, 39]
+PTrack||num|36||labelpos|0.5||points|[40, 80, 41]
+PTrack||num|37||labelpos|0.0||points|[42, 40]
+PTrack||num|38||labelpos|0.5||points|[42, 43]
+PTrack||num|39||labelpos|0.5||points|[44, 45]
+PTrack||num|40||labelpos|0.5||points|[44, 43]
+PTrack||num|41||labelpos|0.46||points|[44, 46]
+PTrack||num|42||labelpos|0.0025||points|[46, 47]
+PTrack||num|43||labelpos|0.5||points|[46, 48]
+PTrack||num|44||labelpos|0.5||points|[49, 35]
+PTrack||num|45||labelpos|0.5||points|[49, 50]
+PTrack||num|46||labelpos|0.5||points|[49, 48]
+PTrack||num|47||labelpos|0.433789797816||points|[51, 67, 42]
+PTrack||num|48||labelpos|0.0||points|[52, 51]
+PTrack||num|49||labelpos|0.5||points|[52, 54, 53]
+PTrack||num|50||labelpos|0.05||points|[45, 55]
+PTrack||num|51||labelpos|0.5||points|[45, 56]
+PTrack||num|52||labelpos|0.594331149356||points|[57, 63, 64, 65, 66, 55]
+PTrack||num|53||labelpos|0.5||points|[58, 50]
+PTrack||num|54||labelpos|0.5||points|[58, 56]
+PTrack||num|55||labelpos|0.756984848098||points|[59, 60, 61, 62, 58]
+PTrack||num|56||labelpos|0.5||points|[47, 37]
+PTrack||num|57||labelpos|0.5||points|[68, 69, 70, 52]
+PTrack||num|58||labelpos|0.5||points|[16, 75]
+PTrack||num|59||labelpos|0.5||points|[75, 12]
+PTrack||num|60||labelpos|0.5||points|[15, 76]
+PTrack||num|61||labelpos|0.5||points|[76, 14]
+PTrack||num|62||labelpos|0.5||points|[20, 77]
+PTrack||num|63||labelpos|0.5||points|[77, 17]
+PTrack||num|64||labelpos|0.5||points|[21, 78]
+PTrack||num|65||labelpos|0.5||points|[78, 19]
+PTrack||num|66||labelpos|0.5||points|[93, 92]
+PTrack||num|67||labelpos|0.525||points|[91, 92]
+PTrack||num|68||labelpos|0.5||points|[91, 95, 94]
+PTrack||num|69||labelpos|0.608108108108||points|[96, 94]
+PTrack||num|70||labelpos|0.025||points|[96, 97]
+PTrack||num|71||labelpos|0.5||points|[96, 98]
+PTrack||num|72||labelpos|0.5||points|[93, 99]
+PTrack||num|73||labelpos|0.5||points|[93, 100]
+PTrack||num|74||labelpos|0.05||points|[101, 102]
+PTrack||num|75||labelpos|0.5||points|[101, 100]
+PTrack||num|76||labelpos|0.5||points|[26, 101]
+PTrack||num|77||labelpos|0.5||points|[102, 103]
+PTrack||num|78||labelpos|0.5||points|[104, 24]
+PTrack||num|79||labelpos|0.0||points|[104, 103]
+PTrack||num|80||labelpos|0.5||points|[104, 105]
+PTrack||num|81||labelpos|0.5||points|[91, 106]
+PTrack||num|82||labelpos|0.5||points|[91, 105]
+PTrack||num|83||labelpos|0.5||points|[107, 28]
+PTrack||num|84||labelpos|0.5||points|[107, 108]
+PTrack||num|85||labelpos|0.5||points|[107, 109]
+PTrack||num|86||labelpos|0.0||points|[110, 30]
+PTrack||num|87||labelpos|0.5||points|[110, 109]
+PBlock||name|"B107"||lines|[77]
+PBlock||name|"B108"||lines|[83]
+PBlock||name|"B111"||lines|[57]
+PBlock||name|"B112"||lines|[47]
+PBlock||name|"B113"||lines|[52]
+PBlock||name|"B114"||lines|[55]
+PBlock||name|"B115"||lines|[41]
+PBlock||name|"B116"||lines|[44]
+PBlock||name|"B117"||lines|[56]
+PBlock||name|"B118"||lines|[34]
+PBlock||name|"B121"||lines|[69]
+PBlock||name|"B122"||lines|[29]
+PBlock||name|"B123"||lines|[28]
+PBlock||name|"B124"||lines|[23]
+PBlock||name|"B125"||lines|[76]
+PBlock||name|"B126"||lines|[20]
+PBlock||name|"B127"||lines|[78]
+PBlock||name|"B128"||lines|[66]
+PBlock||name|"B131"||lines|[64]
+PBlock||name|"B132"||lines|[62]
+PBlock||name|"B134"||lines|[61]
+PBlock||name|"B135"||lines|[59]
+PBlock||name|"B136"||lines|[2]
+PBlock||name|"B137"||lines|[3]
+PBlock||name|"B138"||lines|[1]
+PBlock||name|"B144"||lines|[0]
+PBlock||name|"B191"||lines|[60]
+PBlock||name|"B192"||lines|[58]
+PBlock||name|"B193"||lines|[65]
+PBlock||name|"B194"||lines|[63]
+PSwitch||name|"S101"||lines0|[48]||lines1|[49]
+PSwitch||name|"S102"||lines0|[37]||lines1|[38]
+PSwitch||name|"S102-1"||lines0|[39]||lines1|[40]
+PSwitch||name|"S103"||lines0|[42]||lines1|[43]
+PSwitch||name|"S103-1"||lines0|[45]||lines1|[46]
+PSwitch||name|"S104"||lines0|[50]||lines1|[51]
+PSwitch||name|"S104-1"||lines0|[53]||lines1|[54]
+PSwitch||name|"S105"||lines0|[35]||lines1|[36]
+PSwitch||name|"S111"||lines0|[30]||lines1|[31]
+PSwitch||name|"S112"||lines0|[32]||lines1|[33]
+PSwitch||name|"S113"||lines0|[26]||lines1|[27]
+PSwitch||name|"S113-1"||lines0|[24]||lines1|[25]
+PSwitch||name|"S114"||lines0|[21]||lines1|[22]
+PSwitch||name|"S116"||lines0|[74]||lines1|[75]
+PSwitch||name|"S116-1"||lines0|[72]||lines1|[73]
+PSwitch||name|"S117"||lines0|[86]||lines1|[87]
+PSwitch||name|"S117-1"||lines0|[84]||lines1|[85]
+PSwitch||name|"S121"||lines0|[79]||lines1|[80]
+PSwitch||name|"S121-1"||lines0|[81]||lines1|[82]
+PSwitch||name|"S122"||lines0|[16]||lines1|[17]
+PSwitch||name|"S122-1"||lines0|[18]||lines1|[19]
+PSwitch||name|"S123"||lines0|[67]||lines1|[68]
+PSwitch||name|"S124"||lines0|[70]||lines1|[71]
+PSwitch||name|"S131"||lines0|[12]||lines1|[13]
+PSwitch||name|"S131-1"||lines0|[14]||lines1|[15]
+PSwitch||name|"S135"||lines0|[10]||lines1|[11]
+PSwitch||name|"S135-1"||lines0|[8]||lines1|[9]
+PSwitch||name|"S136"||lines0|[6]||lines1|[7]
+PSwitch||name|"S138"||lines0|[4]||lines1|[5]

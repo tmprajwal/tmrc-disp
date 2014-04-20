@@ -1,0 +1,336 @@
+PTrackPoint||num|0||coord|(-320, 160)
+PTrackPoint||num|1||coord|(-320, 120)
+PTrackPoint||num|2||coord|(-400, 160)
+PTrackPoint||num|3||coord|(-400, 120)
+PTrackPoint||num|4||coord|(-530, 120)
+PTrackPoint||num|5||coord|(-530, 160)
+PTrackPoint||num|6||coord|(-610, 160)
+PTrackPoint||num|7||coord|(-550, 140)
+PTrackPoint||num|8||coord|(-750, -100)
+PTrackPoint||num|9||coord|(-550, 120)
+PTrackPoint||num|10||coord|(-1050, 160)
+PTrackPoint||num|11||coord|(-590, 120)
+PTrackPoint||num|12||coord|(-650, 60)
+PTrackPoint||num|13||coord|(-670, 120)
+PTrackPoint||num|14||coord|(-770, -60)
+PTrackPoint||num|15||coord|(-710, 60)
+PTrackPoint||num|16||coord|(-790, -140)
+PTrackPoint||num|17||coord|(-770, -100)
+PTrackPoint||num|18||coord|(-770, 0)
+PTrackPoint||num|19||coord|(-750, 60)
+PTrackPoint||num|20||coord|(-730, 120)
+PTrackPoint||num|21||coord|(-650, 140)
+PTrackPoint||num|22||coord|(-1050, 120)
+PTrackPoint||num|23||coord|(-710, 140)
+PTrackPoint||num|24||coord|(-1150, 60)
+PTrackPoint||num|25||coord|(-810, -40)
+PTrackPoint||num|26||coord|(-810, 0)
+PTrackPoint||num|27||coord|(-1130, 0)
+PTrackPoint||num|28||coord|(-1130, -40)
+PTrackPoint||num|29||coord|(-810, -100)
+PTrackPoint||num|30||coord|(-1090, -100)
+PTrackPoint||num|31||coord|(-1050, -140)
+PTrackPoint||num|32||coord|(-1090, -140)
+PTrackPoint||num|33||coord|(-1030, -200)
+PTrackPoint||num|34||coord|(-990, -200)
+PTrackPoint||num|35||coord|(-990, -240)
+PTrackPoint||num|36||coord|(-850, -240)
+PTrackPoint||num|37||coord|(-850, -200)
+PTrackPoint||num|38||coord|(-1130, -100)
+PTrackPoint||num|39||coord|(-1170, 0)
+PTrackPoint||num|40||coord|(-1190, 60)
+PTrackPoint||num|41||coord|(-1160, 90)
+PTrackPoint||num|42||coord|(-1230, 60)
+PTrackPoint||num|43||coord|(-1310, 60)
+PTrackPoint||num|44||coord|(-1330, 60)
+PTrackPoint||num|45||coord|(-1340, 90)
+PTrackPoint||num|46||coord|(-1350, 60)
+PTrackPoint||num|47||coord|(-1250, 20)
+PTrackPoint||num|48||coord|(-1310, 20)
+PTrackPoint||num|49||coord|(-1370, 120)
+PTrackPoint||num|50||coord|(-1290, 120)
+PTrackPoint||num|51||coord|(-1250, 120)
+PTrackPoint||num|52||coord|(-1270, 140)
+PTrackPoint||num|53||coord|(-1170, 120)
+PTrackPoint||num|54||coord|(-1130, 120)
+PTrackPoint||num|55||coord|(-1070, 140)
+PTrackPoint||num|56||coord|(-1090, 160)
+PTrackPoint||num|57||coord|(-1190, 160)
+PTrackPoint||num|58||coord|(-1250, 160)
+PTrackPoint||num|59||coord|(-1250, 220)
+PTrackPoint||num|60||coord|(-1270, 160)
+PTrackPoint||num|61||coord|(-1310, 220)
+PTrackPoint||num|62||coord|(-1570, 220)
+PTrackPoint||num|63||coord|(-1290, 160)
+PTrackPoint||num|64||coord|(-1510, 160)
+PTrackPoint||num|65||coord|(-1510, 120)
+PTrackPoint||num|66||coord|(-1480, 90)
+PTrackPoint||num|67||coord|(-1450, 60)
+PTrackPoint||num|68||coord|(-1490, 60)
+PTrackPoint||num|69||coord|(-1550, 160)
+PTrackPoint||num|70||coord|(-1530, 140)
+PTrackPoint||num|71||coord|(-1550, 120)
+PTrackPoint||num|72||coord|(-1670, 120)
+PTrackPoint||num|73||coord|(-1690, 160)
+PTrackPoint||num|74||coord|(-1710, 160)
+PTrackPoint||num|75||coord|(-1690, 140)
+PTrackPoint||num|76||coord|(-1690, 120)
+PTrackPoint||num|77||coord|(-1650, 60)
+PTrackPoint||num|78||coord|(-1690, 60)
+PTrackPoint||num|79||coord|(-1680, 90)
+PTrackPoint||num|80||coord|(-1710, 120)
+PTrackPoint||num|81||coord|(-1830, 160)
+PTrackPoint||num|82||coord|(-1830, 120)
+PTrackPoint||num|83||coord|(-1890, 160)
+PTrackPoint||num|84||coord|(-1850, 140)
+PTrackPoint||num|85||coord|(-1910, 120)
+PTrackPoint||num|86||coord|(-1930, 120)
+PTrackPoint||num|87||coord|(-1930, 140)
+PTrackPoint||num|88||coord|(-1950, 160)
+PTrackPoint||num|89||coord|(-2110, 160)
+PTrackPoint||num|90||coord|(-1950, 120)
+PTrackPoint||num|91||coord|(-1930, 100)
+PTrackPoint||num|92||coord|(-1770, 60)
+PTrackPoint||num|93||coord|(-1730, 20)
+PTrackPoint||num|94||coord|(-1690, 20)
+PTrackPoint||num|95||coord|(-1610, -100)
+PTrackPoint||num|96||coord|(-1530, 20)
+PTrackPoint||num|97||coord|(-1570, -20)
+PTrackPoint||num|98||coord|(-1650, -20)
+PTrackPoint||num|99||coord|(-1890, 60)
+PTrackPoint||num|100||coord|(-2050, -20)
+PTrackPoint||num|101||coord|(-1970, 60)
+PTrackPoint||num|102||coord|(-2110, 120)
+PTrackPoint||num|103||coord|(-1870, 120)
+PTrackPoint||num|104||coord|(-570, 120)
+PTrackPoint||num|105||coord|(-1090, 120)
+PTrackPoint||num|106||coord|(-360, 160)
+PTrackPoint||num|107||coord|(-340, 150)
+PTrackPoint||num|108||coord|(-380, 150)
+PTrackPoint||num|109||coord|(-340, 130)
+PTrackPoint||num|110||coord|(-380, 130)
+PTrackPoint||num|111||coord|(-360, 140)
+PTrackPoint||num|112||coord|(-360, 120)
+PTrackPoint||num|113||coord|(-220, 120)
+PTrackPoint||num|114||coord|(-220, 160)
+PTrackPoint||num|115||coord|(-1360, 250)
+PTrackPoint||num|116||coord|(-1200, 250)
+PTrackPoint||num|117||coord|(-910, 250)
+PTrackPoint||num|118||coord|(-610, 250)
+PTrackPoint||num|119||coord|(-560, 250)
+PTrackPoint||num|120||coord|(-400, 250)
+PTrackPoint||num|121||coord|(-350, 250)
+PTrackPoint||num|122||coord|(-1430, 250)
+PTrack||num|0||labelpos|0.49||points|[3, 4]
+PTrack||num|1||labelpos|0.0175||points|[5, 6]
+PTrack||num|2||labelpos|0.5||points|[5, 7]
+PTrack||num|3||labelpos|0.00383012993464||points|[4, 8]
+PTrack||num|4||labelpos|1.0||points|[4, 9]
+PTrack||num|5||labelpos|0.631818181818||points|[6, 10]
+PTrack||num|6||labelpos|0.5||points|[11, 104, 7]
+PTrack||num|7||labelpos|0.5||points|[11, 9]
+PTrack||num|8||labelpos|0.0108333333333||points|[11, 12]
+PTrack||num|9||labelpos|0.5||points|[11, 13]
+PTrack||num|10||labelpos|0.005||points|[12, 14]
+PTrack||num|11||labelpos|0.5||points|[12, 15]
+PTrack||num|12||labelpos|0.5||points|[8, 16]
+PTrack||num|13||labelpos|1.0||points|[8, 17]
+PTrack||num|14||labelpos|0.0266666666667||points|[15, 18]
+PTrack||num|15||labelpos|1.0||points|[15, 19]
+PTrack||num|16||labelpos|0.015||points|[20, 13]
+PTrack||num|17||labelpos|0.829411764706||points|[20, 23, 21]
+PTrack||num|18||labelpos|0.5||points|[20, 22]
+PTrack||num|19||labelpos|0.51875||points|[19, 24]
+PTrack||num|20||labelpos|0.01125||points|[18, 25]
+PTrack||num|21||labelpos|0.525||points|[18, 26]
+PTrack||num|22||labelpos|0.464375||points|[26, 27]
+PTrack||num|23||labelpos|0.4678125||points|[25, 28]
+PTrack||num|24||labelpos|0.00250000000002||points|[29, 14]
+PTrack||num|25||labelpos|0.5||points|[29, 17]
+PTrack||num|26||labelpos|0.5||points|[29, 30]
+PTrack||num|27||labelpos|0.62375||points|[16, 31]
+PTrack||num|28||labelpos|0.00250000000002||points|[32, 31]
+PTrack||num|29||labelpos|0.5||points|[32, 33]
+PTrack||num|30||labelpos|0.0425||points|[33, 34]
+PTrack||num|31||labelpos|0.5||points|[33, 35]
+PTrack||num|32||labelpos|0.5||points|[36, 35]
+PTrack||num|33||labelpos|0.5||points|[37, 34]
+PTrack||num|34||labelpos|0.0125||points|[38, 30]
+PTrack||num|35||labelpos|0.5||points|[38, 32]
+PTrack||num|36||labelpos|0.01125||points|[39, 28]
+PTrack||num|37||labelpos|0.5||points|[39, 27]
+PTrack||num|38||labelpos|0.5||points|[40, 24]
+PTrack||num|39||labelpos|0.5||points|[40, 41]
+PTrack||num|40||labelpos|0.01||points|[42, 40]
+PTrack||num|41||labelpos|0.5||points|[42, 39]
+PTrack||num|42||labelpos|0.6375||points|[42, 43]
+PTrack||num|43||labelpos|0.5||points|[43, 44]
+PTrack||num|44||labelpos|0.5||points|[43, 45]
+PTrack||num|45||labelpos|0.002717036816||points|[46, 48, 47, 38]
+PTrack||num|46||labelpos|0.5||points|[46, 44]
+PTrack||num|47||labelpos|0.00750000000003||points|[49, 50]
+PTrack||num|48||labelpos|0.5||points|[49, 45]
+PTrack||num|49||labelpos|0.5||points|[51, 50]
+PTrack||num|50||labelpos|0.5||points|[51, 52]
+PTrack||num|51||labelpos|0.5||points|[53, 51]
+PTrack||num|52||labelpos|0.015||points|[54, 53]
+PTrack||num|53||labelpos|0.5||points|[54, 41]
+PTrack||num|54||labelpos|0.025||points|[10, 56]
+PTrack||num|55||labelpos|0.5||points|[10, 55]
+PTrack||num|56||labelpos|0.46||points|[56, 57]
+PTrack||num|57||labelpos|0.0183333333333||points|[57, 58]
+PTrack||num|58||labelpos|0.5||points|[57, 59]
+PTrack||num|59||labelpos|0.025||points|[58, 60]
+PTrack||num|60||labelpos|0.5||points|[58, 61]
+PTrack||num|61||labelpos|0.5||points|[62, 59]
+PTrack||num|62||labelpos|0.5||points|[62, 61]
+PTrack||num|63||labelpos|0.105||points|[63, 60]
+PTrack||num|64||labelpos|0.5||points|[63, 52]
+PTrack||num|65||labelpos|0.5||points|[64, 63]
+PTrack||num|66||labelpos|0.5||points|[65, 49]
+PTrack||num|67||labelpos|0.5||points|[65, 66]
+PTrack||num|68||labelpos|0.5||points|[67, 46]
+PTrack||num|69||labelpos|0.0175||points|[67, 68]
+PTrack||num|70||labelpos|0.5||points|[67, 66]
+PTrack||num|71||labelpos|0.00249999999997||points|[64, 69]
+PTrack||num|72||labelpos|0.5||points|[64, 70]
+PTrack||num|73||labelpos|0.5||points|[71, 65]
+PTrack||num|74||labelpos|0.5||points|[71, 70]
+PTrack||num|75||labelpos|0.525||points|[72, 71]
+PTrack||num|76||labelpos|0.585714285714||points|[73, 69]
+PTrack||num|77||labelpos|0.065||points|[74, 73]
+PTrack||num|78||labelpos|0.5||points|[74, 75]
+PTrack||num|79||labelpos|0.5||points|[72, 76]
+PTrack||num|80||labelpos|0.5||points|[72, 75]
+PTrack||num|81||labelpos|0.29375||points|[77, 68]
+PTrack||num|82||labelpos|0.5||points|[77, 78]
+PTrack||num|83||labelpos|0.5||points|[77, 79]
+PTrack||num|84||labelpos|0.0475||points|[80, 76]
+PTrack||num|85||labelpos|0.5||points|[80, 79]
+PTrack||num|86||labelpos|0.491666666667||points|[81, 74]
+PTrack||num|87||labelpos|0.5||points|[82, 80]
+PTrack||num|88||labelpos|0.01875||points|[81, 83]
+PTrack||num|89||labelpos|0.5||points|[81, 84]
+PTrack||num|90||labelpos|0.5||points|[85, 82]
+PTrack||num|91||labelpos|0.5||points|[85, 103, 84]
+PTrack||num|92||labelpos|0.5||points|[85, 86]
+PTrack||num|93||labelpos|0.5||points|[85, 87]
+PTrack||num|94||labelpos|0.0475||points|[88, 83]
+PTrack||num|95||labelpos|0.5||points|[88, 87]
+PTrack||num|96||labelpos|0.520555555556||points|[89, 88]
+PTrack||num|97||labelpos|0.03||points|[90, 86]
+PTrack||num|98||labelpos|0.5||points|[90, 91]
+PTrack||num|99||labelpos|0.0175||points|[92, 78]
+PTrack||num|100||labelpos|0.5||points|[92, 93]
+PTrack||num|101||labelpos|0.0||points|[93, 94]
+PTrack||num|102||labelpos|0.5||points|[93, 95]
+PTrack||num|103||labelpos|0.0||points|[94, 96]
+PTrack||num|104||labelpos|0.5||points|[94, 98, 97]
+PTrack||num|105||labelpos|0.5||points|[99, 92]
+PTrack||num|106||labelpos|0.5||points|[99, 101, 100]
+PTrack||num|107||labelpos|0.5||points|[99, 91]
+PTrack||num|108||labelpos|0.492352941176||points|[102, 90]
+PTrack||num|109||labelpos|0.5||points|[54, 22]
+PTrack||num|110||labelpos|0.5||points|[54, 105, 55]
+PTrack||num|111||labelpos|0.5||points|[2, 5]
+PTrack||num|112||labelpos|0.0||points|[0, 106]
+PTrack||num|113||labelpos|0.5||points|[0, 107]
+PTrack||num|114||labelpos|0.0||points|[2, 106]
+PTrack||num|115||labelpos|0.5||points|[2, 108]
+PTrack||num|116||labelpos|0.5||points|[108, 111, 109]
+PTrack||num|117||labelpos|0.5||points|[107, 111, 110]
+PTrack||num|118||labelpos|0.5||points|[1, 112]
+PTrack||num|119||labelpos|0.5||points|[1, 109]
+PTrack||num|120||labelpos|0.5||points|[3, 112]
+PTrack||num|121||labelpos|0.5||points|[3, 110]
+PTrack||num|122||labelpos|0.43||points|[113, 1]
+PTrack||num|123||labelpos|0.43||points|[114, 0]
+PTrack||num|124||labelpos|0.43||points|[115, 116]
+PTrack||num|125||labelpos|0.5||points|[116, 117]
+PTrack||num|126||labelpos|0.5||points|[117, 118]
+PTrack||num|127||labelpos|0.5||points|[118, 119]
+PTrack||num|128||labelpos|0.5||points|[119, 120]
+PTrack||num|129||labelpos|0.5||points|[120, 121]
+PTrack||num|130||labelpos|0.5||points|[122, 115]
+PBlock||name|"B10"||lines|[96]
+PBlock||name|"B11"||lines|[86]
+PBlock||name|"B12"||lines|[76]
+PBlock||name|"B13"||lines|[56]
+PBlock||name|"B14"||lines|[5]
+PBlock||name|"B15"||lines|[111]
+PBlock||name|"B16"||lines|[123]
+PBlock||name|"B20"||lines|[108]
+PBlock||name|"B21"||lines|[87]
+PBlock||name|"B22"||lines|[75]
+PBlock||name|"B23"||lines|[51]
+PBlock||name|"B24"||lines|[18]
+PBlock||name|"B26"||lines|[33]
+PBlock||name|"B27"||lines|[32]
+PBlock||name|"B31"||lines|[105]
+PBlock||name|"B32"||lines|[81]
+PBlock||name|"B34"||lines|[26]
+PBlock||name|"B35"||lines|[27]
+PBlock||name|"B36"||lines|[0]
+PBlock||name|"B43"||lines|[42]
+PBlock||name|"B44"||lines|[19]
+PBlock||name|"B45"||lines|[22]
+PBlock||name|"B46"||lines|[23]
+PBlock||name|"BS34"||lines|[130]
+PBlock||name|"BS35"||lines|[129]
+PBlock||name|"BS46"||lines|[124]
+PBlock||name|"BS47"||lines|[125]
+PBlock||name|"BS48"||lines|[126]
+PBlock||name|"BS57"||lines|[127]
+PBlock||name|"BS58"||lines|[128]
+PBlock||name|"BX2"||lines|[122]
+PBlock||name|"BX5"||lines|[68]
+PBlock||name|"BX6"||lines|[65]
+PSwitch||name|"S16"||lines0|[1]||lines1|[2]
+PSwitch||name|"S17"||lines0|[114]||lines1|[115]
+PSwitch||name|"S17-1"||lines0|[118]||lines1|[119]
+PSwitch||name|"S18"||lines0|[112]||lines1|[113]
+PSwitch||name|"S18-1"||lines0|[120]||lines1|[121]
+PCrossing||name|"S19"||lines0|[116]||lines1|[117]
+PSwitch||name|"S20"||lines0|[8]||lines1|[9]
+PSwitch||name|"S21"||lines0|[10]||lines1|[11]
+PSwitch||name|"S22"||lines0|[14]||lines1|[15]
+PSwitch||name|"S23"||lines0|[24]||lines1|[25]
+PSwitch||name|"S23-1"||lines0|[12]||lines1|[13]
+PSwitch||name|"S24"||lines0|[20]||lines1|[21]
+PSwitch||name|"S25"||lines0|[54]||lines1|[55]
+PSwitch||name|"S25-1"||lines0|[109]||lines1|[110]
+PSwitch||name|"S26"||lines0|[52]||lines1|[53]
+PSwitch||name|"S26-1"||lines0|[38]||lines1|[39]
+PSwitch||name|"S27"||lines0|[36]||lines1|[37]
+PSwitch||name|"S28"||lines0|[47]||lines1|[48]
+PSwitch||name|"S28-1"||lines0|[43]||lines1|[44]
+PSwitch||name|"S29"||lines0|[63]||lines1|[64]
+PSwitch||name|"S29-1"||lines0|[49]||lines1|[50]
+PSwitch||name|"S30"||lines0|[45]||lines1|[46]
+PSwitch||name|"S31"||lines0|[69]||lines1|[70]
+PSwitch||name|"S31-1"||lines0|[66]||lines1|[67]
+PSwitch||name|"S32"||lines0|[71]||lines1|[72]
+PSwitch||name|"S32-1"||lines0|[73]||lines1|[74]
+PSwitch||name|"S33"||lines0|[77]||lines1|[78]
+PSwitch||name|"S33-1"||lines0|[79]||lines1|[80]
+PSwitch||name|"S34"||lines0|[84]||lines1|[85]
+PSwitch||name|"S34-1"||lines0|[82]||lines1|[83]
+PSwitch||name|"S35"||lines0|[88]||lines1|[89]
+PSwitch||name|"S35-1"||lines0|[90]||lines1|[91]
+PSwitch||name|"S36"||lines0|[94]||lines1|[95]
+PSwitch||name|"S36-1"||lines0|[92]||lines1|[93]
+PSwitch||name|"S37"||lines0|[97]||lines1|[98]
+PSwitch||name|"S37-1"||lines0|[106]||lines1|[107]
+PSwitch||name|"S38"||lines0|[3]||lines1|[4]
+PSwitch||name|"S38-1"||lines0|[6]||lines1|[7]
+PSwitch||name|"S39"||lines0|[34]||lines1|[35]
+PSwitch||name|"S49"||lines0|[40]||lines1|[41]
+PSwitch||name|"S51"||lines0|[59]||lines1|[60]
+PSwitch||name|"S51-1"||lines0|[61]||lines1|[62]
+PSwitch||name|"S52"||lines0|[28]||lines1|[29]
+PSwitch||name|"S53"||lines0|[57]||lines1|[58]
+PSwitch||name|"S54"||lines0|[16]||lines1|[17]
+PSwitch||name|"S55"||lines0|[99]||lines1|[100]
+PSwitch||name|"S71"||lines0|[101]||lines1|[102]
+PSwitch||name|"S72"||lines0|[103]||lines1|[104]
+PSwitch||name|"S73"||lines0|[30]||lines1|[31]

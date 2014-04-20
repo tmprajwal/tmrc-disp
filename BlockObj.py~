@@ -1,0 +1,408 @@
+# Thomas O'Reilly, 2 March 2002
+# TMRC system 3 display software block object definitions
+
+from MiscTrack import *
+from Tkinter import *
+import TrackObj
+
+pad=0
+HORIZ=0; FREE=1 # Type of point definition
+
+class BlockObj(TrackObj.TrackObj):
+    """Functions and data for Blocks.
+
+    This class defines functions and other stuff needed to keep
+    track of and display blocks properly."""
+    def __init__(self, master, name):
+        """Initilize block variables.
+
+        This function initializes assorted variables needed for the
+        proper care and feeding of blocks."""        
+# Initialize base class
+        TrackObj.TrackObj.__init__(self, master, name)
+
+# Basic block properties
+        self.type='block'
+        self.HeadBlock=False
+        self.HeadEnd=None
+        self.HeadObj=None
+        self.Train=None
+
+# Block status variables
+        self.speed=0
+        self.feedback=0
+        self.direction=0
+        self.LogicalDirection=None
+        self.occupied=0
+        self.overflow=0
+        self.outofservice=0
+        self.offline=0
+        self.owner=None
+        self.trainfront=0
+        
+# Block connections
+        self.Cons=[ConObj(), ConObj()]
+
+# These items are related to the graphical display of blocks
+        self.card=None
+        self.orient=EAST
+        
+        self.occstatus=UNOCC
+        self.actstatus=ONLINE
+        self.trainidstatus=""
+        self.directionstatus=0
+        
+        self.ptxs=()
+        self.pttracks=()
+        self.x=[0, 0]
+        self.t=[0, 0]
+        self.editing=False
+
+    def ObjType(self):
+        return 'block'
+
+    def UpdateSignal(self, end, signal):
+        """Update block end signals.
+
+        If a block summary window is active, this will update the signal
+        colors in the small labels.  If the block is displayed in a
+        graphical form, this will update the signals displayed at the
+        end of the block."""
+        if end==0 or end==1:
+            self.Cons[end].Signal=signal
+        else:
+            self.master.logger.LogWarnMsg('Unknown block connection: '+end)
+
+    def FindColor(self, connection=None):
+        """Determines appropriate display color for blocks
+
+        Returns block display color based on occupancy and activity status."""
+        if self.offline:
+            bgcolor=blkcolor[OFFLINE][self.occstatus]
+        elif self.outofservice:
+            bgcolor=blkcolor[OUTOFSERVICE][self.occstatus]
+        elif self.owner!=None:
+            if self.occupied in (OCC, LOCO):
+                bgcolor=blkcolor[ONLINE][OWNED]
+            else:
+                bgcolor=blkcolor[ONLINE][ADVBLOCK]
+        else:
+            if self.occupied==OCC:
+                bgcolor=blkcolor[ONLINE][OCC]
+            elif self.occupied==LOCO:
+                bgcolor=blkcolor[ONLINE][LOCO]
+            elif self.occupied==UNOCC:
+                bgcolor=blkcolor[ONLINE][UNOCC]
+        return bgcolor
+
+    def UpdateStatus(self, connect=None, callingobject=()):
+        """Recheck assorted things to update display status.
+
+        Updates the button color in the block summary window if any,
+        tells owning SCab if the block is owned and occupied.  Also
+        calls UpdateStyle to fix graphical display properties."""
+
+        if self.offline:
+            act=OFFLINE
+        elif self.outofservice:
+            act=OUTOFSERVICE
+        else:
+            act=ONLINE
+        if self.owner is not None:
+            if self.occupied in (OCC, LOCO):
+                occ=OWNED
+            else:
+                occ=ADVBLOCK
+        else:
+            occ=self.occupied
+
+        if not (occ==self.occstatus and act==self.actstatus):
+            self.occstatus=occ
+            self.actstatus=act
+
+            for connum in range(len(self.Cons)):
+                if self.Cons[connum].Object not in callingobject and self.Cons[connum].Object != None and self.Cons[connum].gap==False:
+                    self.Cons[connum].Object.UpdateStatus(self.Cons[connum].ObjCon, callingobject+(self,))
+
+        self.UpdateDisplayObjects()
+        
+    def OutOfService(self, event=None):
+        """Toggles block service status.
+
+        If block is in service, sends signal to take it out of
+        service.  If block is out of service, sends signal to put it
+        back in service."""
+        if self.outofservice==0:
+            newoos='#t'
+        else:
+            newoos='#f'
+        OutStr='(setOutOfService (Obj "'+self.name+'") '+newoos+')'
+        self.master.SockWrite(OutStr)
+
+    def ProcSexp(self, Psexp):
+        """Process s-expressions.
+
+        Determines the appropriate way to handle s-expressions
+        passed to the block by the ProcSexp method in Picker.py."""
+        if Psexp.tokens[0]=='debug-info':
+            self.ShowDebugInfo(Psexp.tokens[2])
+        elif Psexp.tokens[0]=='set':
+            if Psexp.tokens[1][0]=='obj':
+                if Psexp.tokens[2]=='speed':
+                    self.speed=int(Psexp.tokens[3])
+                elif Psexp.tokens[2]=='direction':
+                    #if Psexp.tokens[3] in ('west', '#f'):
+                    if Psexp.tokens[3]=='#f':
+                        self.direction=0
+                    else:
+                        self.direction=1
+                    self.IsHeadBlock()
+                elif Psexp.tokens[2]=='occupied':
+                    if Psexp.tokens[3]=='loco':
+                        self.occupied=LOCO
+                    elif Psexp.tokens[3]=='no':
+                        self.occupied=UNOCC
+                    elif Psexp.tokens[3] in ('#t', 'car'):
+                        self.occupied=OCC
+                    else:
+                        self.occupied=UNOCC
+                elif Psexp.tokens[2]=='overflow':
+                    if Psexp.tokens[3]=='#t':
+                        self.overflow=1
+                    else:
+                        self.overflow=0
+                elif Psexp.tokens[2]=='outofservice':
+                    if Psexp.tokens[3]=='#f':
+                        self.outofservice=0
+                    else:
+                        self.outofservice=1
+                elif Psexp.tokens[2]=='hardwarepresent':
+                    if Psexp.tokens[3]=='#f':
+                        self.offline=1
+                    else:
+                        self.offline=0
+                elif Psexp.tokens[2]=='owner':
+                    if Psexp.tokens[3]=='nil':
+                        self.owner=None
+                    else:
+                        self.owner=Psexp.tokens[3][1]
+                elif Psexp.tokens[2]=='numcxn':
+                    self.SetNumcxn(Psexp.tokens[3])
+                elif Psexp.tokens[2]=='dname':
+                    self.SetDName(Psexp.tokens[3])
+                elif Psexp.tokens[2]=='logicaldirection':
+                    self.SetLogicalDirection(Psexp.tokens[3])
+                else:
+                    self.master.logger.LogWarnMsg('S-exp "'+Psexp.sexp+'" unparsed by block '+self.name)
+                    self.master.logger.LogWarnMsg('Block object variable type "'+Psexp.tokens[2]+'" unknown and ignored')
+                self.UpdateStatus()
+            elif Psexp.tokens[1][0]=='cxn':
+                if Psexp.tokens[2]=='signal':
+                    self.UpdateSignal(int(Psexp.tokens[1][2]), Psexp.tokens[3])
+                elif Psexp.tokens[2]=='object':
+                    if Psexp.tokens[3]!='nil':
+                        self.ConInfo(int(Psexp.tokens[1][2]), Psexp.tokens[3][1], int(Psexp.tokens[3][2]))
+                elif Psexp.tokens[2]=='magic':
+                    self.Cons[int(Psexp.tokens[1][2])].magic=Psexp.tokens[3] in ('#t', True)
+                elif Psexp.tokens[2]=='gap':
+                    self.Cons[int(Psexp.tokens[1][2])].SetGap(Psexp.tokens[3])
+                else:
+                    self.master.logger.LogWarnMsg('S-exp "'+Psexp.sexp+'" unparsed by block '+self.name)
+                    self.master.logger.LogWarnMsg('Unknown connection '+str(Psexp.tokens[3][2])+' for block element')
+                self.UpdateStatus()
+        else:
+            self.master.logger.LogWarnMsg('S-exp "'+Psexp.sexp+'" unparsed by block '+self.name)
+            self.master.logger.LogWarnMsg('Unknown object type: '+str(Psexp.tokens[1][0]))
+        
+## Stuff related to graphical display functions
+
+    def SetNumcxn(self, numcxn):
+        """Set numcxn.
+
+        Set the number of connections for the block based on the argument.
+        Argument may be any type for which conversion to an integer through
+        the int() function makes sense."""
+        self.numcxn=int(numcxn)
+
+    def SetLogicalDirection(self, logdir):
+        self.LogicalDirection=logdir
+#        self.UpdateStatus()
+
+    def NewSCabWindow(self, event):
+        if self.occstatus in (OCC, LOCO):
+            self.master.NewSCabWindow(self)
+
+    def IsEndAccessible(self, end):
+        return True
+        
+    def IsHeadBlock(self, ihb=None):
+        if ihb!=None:
+            self.HeadBlock=ihb
+
+        if self.direction==1:
+            end=0
+        else:
+            end=1
+
+        if self.HeadBlock==True:
+            if self.IsEndHead(end)==True:
+                if self.direction:
+                    self.HeadEnd=0
+                else:
+                    self.HeadEnd=1
+                headobj=None
+            else:
+                if self.Cons[end].Object!=None:
+                    headobj=self.Cons[end].Object.IsOppEndHead(self.Cons[end].ObjCon, self)
+                else:
+                    headobj=None
+                self.HeadEnd=None
+        else:
+            self.HeadEnd=None
+            headobj=None
+
+        if headobj!=self.HeadObj:
+            if self.HeadObj!=None:
+                self.HeadObj.IsNotHead(self)
+            self.HeadObj=headobj
+
+        self.UpdateStatus()
+
+    def IsEndHead(self, end):
+        if self.Cons[end].gap==True:
+            return True
+        if self.Cons[end].Object!=None:
+            if self.Cons[end].Object.IsEndAccessible(self.Cons[end].ObjCon):
+                if self.Cons[end].Object.type=='switch':
+                    if self.Cons[end].ObjCon==0:
+                        return False
+                    elif self.Cons[end].ObjCon==self.Cons[end].Object.switchpos+1:
+                        return False
+                    else:
+                        return True
+                else:
+                    return True
+            else:
+                return True
+        else:
+            return True
+
+    def SetTrain(self, train):
+        if train!=self.Train:
+            self.Train=train
+            self.UpdateStatus()
+
+    def DrawTrainID(self):
+        cvs=self.CVList.keys()
+        for cv in cvs:
+            if not self.CVList[cv].labeled:
+                continue
+            
+            self.CVList[cv].canvas.delete(self.name+"-trainID")
+            vscale=self.CVList[cv].scale
+            hscale=vscale*self.CVList[cv].aspectratio
+
+            if self.trainfront and self.owner != None:
+                if self.direction:
+                    end = 0
+                else:
+                    end = 1
+
+                coords = ((self.x[end]*hscale,-self.t[end]*vscale),(self.x[end]*hscale, -2*vscale))
+                self.CVList[cv].canvas.create_line(coords, width=1, fill="white", tags=(self.name,self.name+"-trainID"))
+                textcoord = (self.x[end]*hscale, -2*vscale)
+                self.CVList[cv].canvas.create_text(textcoord,
+                                                   text=self.owner,
+                                                   fill=blabelcolor['text'],
+                                                   state=DISABLED,
+                                                   font=('Arial', self.CVList[cv].sizes['labelsize'], 'bold'),
+                                                   tags=(self.name,self.name+"-trainID"))
+
+    def GState(self, ObjCon=None):
+        """Return block status.
+        
+        This function returns the status of the block.  This is used so that switches
+        may determine the appropriate display color, etc.  ObjCon is only accepted
+        so the interface matches that of the equivalent function for switches."""
+        return self.occstatus, self.actstatus
+
+class CompactBlockDisplay:
+    def __init__(self, block, frame):
+
+        self.Block=block
+        self.Frame=frame
+
+        self.LeftLabel=Label(self.Frame, text='<-')
+        self.LeftLabel.pack(side=LEFT, padx=pad, pady=pad)
+        self.NameButton=Button(self.Frame, command=self.OutOfService, text=self.Block.name[1:], padx=0, pady=0, bd=0)
+        self.NameButton.pack(side=LEFT, padx=pad, pady=pad)
+        self.RightLabel=Label(self.Frame, text='->')
+        self.RightLabel.pack(side=LEFT, padx=pad, pady=pad)
+
+        self.Number=self.Block.AddDisplayObject(self)
+        self.UpdateStatus()
+
+    def Disconnect(self):
+        self.Block.DelDisplayObject(self)
+
+    def Clicked(self, event=None):
+        self.Block.ThrowSwitch(event)
+
+    def OutOfService(self, event=None):
+        self.Block.OutOfService(event)
+
+    def UpdateStatus(self):
+        if self.Block.offline:
+            bgcolor=blkcolor[OFFLINE][self.Block.occstatus]
+        elif self.Block.outofservice:
+            bgcolor=blkcolor[OUTOFSERVICE][self.Block.occstatus]
+        elif self.Block.owner!=None:
+            if self.Block.occupied==LOCO:
+                bgcolor=blkcolor[ONLINE][OWNED]
+            else:
+                bgcolor=blkcolor[ONLINE][ADVBLOCK]
+        else:
+            if self.Block.occupied==OCC:
+                bgcolor=blkcolor[ONLINE][OCC]
+            elif self.Block.occupied==LOCO:
+                bgcolor=blkcolor[ONLINE][LOCO]
+            else:
+                bgcolor=blkcolor[ONLINE][UNOCC]
+        self.NameButton.config(bg=bgcolor)
+        color0=self.Block.SignalColor(0)
+        color1=self.Block.SignalColor(1)
+        self.LeftLabel.config(bg=color0)
+        self.RightLabel.config(bg=color1)
+
+class CompactBlockDisplayWindow:
+    def __init__(self, master):
+        self.Master=master
+
+        self.BlockWindow=Toplevel(self.Master.root)
+        self.BlockWindow.title('Block List')
+        self.BlockWindow.protocol("WM_DELETE_WINDOW", self.CloseWindow)
+        self.BlockWindow.resizable(0,0)
+        self.BlockWindow.transient(self.Master.root)
+
+        self.BlockDisplays=[]
+        
+        BlistKeys=self.Master.Blist.keys()
+        BlistKeys.sort()
+        block=0
+        row=0
+        column=0
+        while block<len(BlistKeys):
+            fm=Frame(self.BlockWindow, relief='raised', borderwidth=2, bg='White')
+            self.BlockDisplays+=[CompactBlockDisplay(self.Master.Blist[BlistKeys[block]], fm)]
+            fm.grid(row=row, column=column)
+            block=block+1
+            column=column+1
+            if column==8:
+                column=0
+                row=row+1
+                
+    def CloseWindow(self, event=None):
+        for BlockDisplay in self.BlockDisplays:
+            BlockDisplay.Disconnect()
+        self.BlockWindow.destroy()
+        del self.Master.BlockWindow

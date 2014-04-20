@@ -1,0 +1,231 @@
+from PLine import *
+from PPoint import *
+from PTrack import *
+from MiscTrack import *
+
+NONE='none'
+FIRST='first'
+LAST='last'
+
+class PCrossing:
+    def __init__(self, master, owner):
+        self.PM=master
+        self.cv=self.PM.cv
+        self.Crossing=owner
+        self.Lines0={}
+        self.Lines1={}
+        self.Type='PCrossing'
+        self.Name=self.Crossing.name
+        self.Crossing.AddDisplayObject(self)
+        self.SignalColor0='White'
+        self.SignalColor1='White'
+        self.SignalColor2='White'
+        self.SignalColor3='White'
+        self.UpdateStatus()
+    
+    def AddLine(self, line0, line1):
+        labeltext=self.Crossing.name[1:]
+
+        self.Lines0[line0.Number]=line0
+        line0.SetOwner(self)
+        line0.SetLabelText(labeltext)
+        line0.LabelStatus(False)
+
+        self.Lines1[line1.Number]=line1
+        line1.SetOwner(self)
+        line1.SetLabelText(labeltext)
+        line1.LabelStatus(False)
+        self.SetMode()
+
+    def DeleteInstance(self, instline):
+        for point in instline.TellPoints()[1:-1]:
+            if len(point.TellOwners())!=1:
+                lines=point.TellOwners()
+        for line in lines.keys():
+            linenum=lines[line].Number
+            if self.Lines0.has_key(linenum):
+                self.PM.DeleteLine(self.Lines0[linenum])
+                del self.Lines0[linenum]
+            elif self.Lines1.has_key(linenum):
+                self.PM.DeleteLine(self.Lines1[linenum])
+                del self.Lines1[linenum]
+        if len(self.Lines0.keys())==0:
+            self.PM.DeleteObject(self)
+
+    def DeleteAllInstances(self):
+        self.Crossing.DelDisplayObject(self)
+        for line in self.Lines0.keys():
+            self.PM.DeleteLine(self.Lines0[line])
+            del self.Lines0[line]
+        for line in self.Lines1.keys():
+            self.PM.DeleteLine(self.Lines1[line])
+            del self.Lines1[line]
+
+    def UpdateStatus(self):
+        if self.PM.Mode=='Run':
+            
+            if self.Crossing.HeadEnd in (0, 1):
+                arrow=FIRST
+            elif self.Crossing.HeadEnd in (2, 3):
+                arrow=LAST
+            else:
+                arrow=NONE
+
+            if self.Crossing.switchpos==0:
+                width0=activewidth
+                fill0=self.Crossing.FindColor()
+                arrow0=arrow
+                width1=inactivewidth
+                fill1=blkcolor[INACC][UNOCC]
+                arrow1=NONE
+            else:
+                width0=inactivewidth
+                fill0=blkcolor[INACC][UNOCC]
+                arrow0=NONE
+                width1=activewidth
+                fill1=self.Crossing.FindColor()
+                arrow1=arrow
+
+            for linenum in self.Lines0.keys():
+                self.Lines0[linenum].SetLineColor(fill0)
+                self.Lines0[linenum].SetLineWidth(width0)
+                self.Lines0[linenum].UpdateArrow(arrow0)
+            for linenum in self.Lines1.keys():
+                self.Lines1[linenum].SetLineColor(fill1)
+                self.Lines1[linenum].SetLineWidth(width1)
+                self.Lines1[linenum].UpdateArrow(arrow1)
+
+            color0=self.SignalColor(0)
+            if color0!=self.SignalColor0:
+                self.SignalColor0=color0
+                self.cv.itemconfig(self.Name+'Signal0', fill=color0)
+            color1=self.SignalColor(1)
+            if color1!=self.SignalColor1:
+                self.SignalColor1=color1
+                self.cv.itemconfig(self.Name+'Signal1', fill=color1)
+            color2=self.SignalColor(2)
+            if color2!=self.SignalColor2:
+                self.SignalColor2=color2
+                self.cv.itemconfig(self.Name+'Signal2', fill=color2)
+            color3=self.SignalColor(3)
+            if color3!=self.SignalColor3:
+                self.SignalColor3=color3
+                self.cv.itemconfig(self.Name+'Signal3', fill=color3)
+
+        elif self.PM.Mode=='Edit':
+            color0='Blue'
+            color1='Yellow'
+
+            for linenum in self.Lines0.keys():
+                self.Lines0[linenum].SetLineColor(color0)
+                self.Lines0[linenum].SetLineWidth(activewidth)
+                self.Lines0[linenum].UpdateArrow(NONE)
+            for linenum in self.Lines1.keys():
+                self.Lines1[linenum].SetLineColor(color1)
+                self.Lines1[linenum].SetLineWidth(activewidth)
+                self.Lines1[linenum].UpdateArrow(NONE)
+
+
+    def SetMode(self):
+        self.UpdateStatus()
+
+    def OutOfService(self, event=None):
+        self.Crossing.OutOfService(event)
+
+    def Clicked(self, event, source=None):
+        pass
+
+    def DebugInfo(self, event=None):
+        self.Crossing.DebugInfo(event)
+
+    def NextObject(self, end, line=None):
+        if self.Lines0.has_key(line.Number):
+            if end==1:
+                end=2
+        elif self.Lines1.has_key(line.Number):
+            if end==0:
+                end=1
+            else:
+                end=3
+        object=self.Crossing.Cons[end].Object
+        if object!=None:
+            con=self.Crossing.Cons[end].ObjCon
+        else:
+            con=0
+        return object, con
+
+    def TrueEnd(self, end, line):
+        if end==1:
+            if self.Lines0.has_key(line.Number):
+                end=2
+            else:
+                end=3
+        else:
+            if self.Lines1.has_key(line.Number):
+                end=1
+    
+        return end
+
+    def IsGap(self, end, line):
+        end=self.TrueEnd(end, line)
+        isgap=self.Crossing.IsGap(end)
+        return isgap
+
+    def SignalColor(self, end, line=None):
+        if line!=None:
+            end=self.TrueEnd(end, line)
+        return self.Crossing.SignalColor(end)        
+
+    def Connects(self, event=None):
+        objname0=self.Crossing.Cons[0].Object
+        objcon0=self.Crossing.Cons[0].ObjCon
+        objname1=self.Crossing.Cons[1].Object
+        objcon1=self.Crossing.Cons[1].ObjCon
+        objname2=self.Crossing.Cons[2].Object
+        objcon2=self.Crossing.Cons[2].ObjCon
+        objname3=self.Crossing.Cons[3].Object
+        objcon3=self.Crossing.Cons[3].ObjCon
+        print self.Crossing.name, '0:', objname0, objcon0, '1:', objname1, objcon1, '2:', objname2, objcon2, '3:', objname3, objcon3  
+
+    def Connection(self, connection):
+        object=self.Crossing.Cons[connection].Object
+        objcon=self.Crossing.Cons[connection].ObjCon
+        return object, objcon
+
+    def TellPoints(self, connection):
+        points=[]
+        if connection in (1, 3):
+            Lines=self.Lines1
+            if connection==1:
+                connection=0
+            else:
+                connection=1
+        else:
+            Lines=self.Lines0
+            if connection==2:
+                connection=1
+        for line in Lines.keys():
+            points+=[Lines[line].TellEndPoint(connection)]
+        return points
+
+    def TellLines(self):
+        return self.Lines0.keys(), self.Lines1.keys()
+
+    def ShowDebugInfo(self, debugtext):
+        self.cv.delete('debug-info')
+        for line in self.Lines0.values():
+            if self.PM.Scale>self.PM.MinLabelScale:
+                dcoord=line.TellLabelDCoord()
+                self.cv.create_text(dcoord,
+                              text=debugtext,
+                              font=('Arial', 10),
+                              tags=('debug-info', 'debug-text'))
+                tbbox=self.cv.bbox('debug-info')
+                bbox=(tbbox[0]-2, tbbox[1]-2, tbbox[2]+2, tbbox[3]+2)
+                self.cv.create_rectangle(bbox,
+                                           fill='Black',
+                                           outline='White',
+                                           width=1,
+                                           tags=('debug-info', 'debug-box'))
+                self.cv.lift('debug-text')
+                self.cv.tag_bind('debug-info', '<Leave>', lambda *args, **kw: self.cv.delete('debug-info'))

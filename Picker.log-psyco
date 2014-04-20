@@ -1,0 +1,1046 @@
+21:17:18.31  Logging started, 05/23/09                  %%%%%%%%%%%%%%%%%%%%
+21:17:18.31  ActivePassiveProfiler: starting                           %%%%%
+21:17:18.38   ______
+        #1   |98.4 %|  active_start              ...psyco/profiler.py:273
+        #2   | 0.3 %|  parse                     ...s3/SCab2/Psexp.py:57
+        #3   | 0.1 %|  _register                 .../SCab2/Tkinter.py:1092
+21:17:18.40  tag function: Psexp.Parser.parse                              %
+21:17:18.58  tag function: __main__.to_old                                 %
+21:17:18.58  unsupported opcode 136 at to_old:99                         % %
+21:17:18.59  tag function: psyco.profiler.buildfncache                     %
+21:17:18.59   ______
+        #1   |21.7 %|  active_start              ...psyco/profiler.py:273
+        #2   | 4.6 %|  QueueRead                            Picker.py:491
+        #3   | 4.5 %|  add                                  Picker.py:552
+        #4   | 3.9 %|  __new__                   ...s3/SCab2/Psexp.py:30
+        #5   | 3.9 %|  makeOldSexp                          Picker.py:317
+        #6   | 3.6 %|  ProcSexp                             Picker.py:342
+        #7   | 2.7 %|  LogServerMsg              ...3/SCab2/Logger.py:43
+        #8   | 2.5 %|  get                       ...ython2.5/Queue.py:147
+        #9   | 2.3 %|  __init__                  ...Cab2/MiscTrack.py:65
+        #10  | 2.1 %|  __init__                  ...Cab2/SwitchObj.py:13
+21:17:18.61  tag function: __main__.to_old                                 %
+21:17:18.76  tag function: __main__.to_old                                 %
+21:17:18.77  tag function: __main__.to_old                                 %
+21:17:18.78   ______
+        #1   | 9.8 %|  active_start              ...psyco/profiler.py:273
+        #2   | 5.0 %|  __new__                   ...s3/SCab2/Psexp.py:30
+        #3   | 4.4 %|  QueueRead                            Picker.py:491
+21:17:18.80  tag function: __main__.to_old                                 %
+21:17:18.91  tag function: __main__.to_old                                 %
+21:17:18.99   ______
+        #1   | 8.1 %|  to_old                               Picker.py:325
+        #2   | 6.1 %|  __new__                   ...s3/SCab2/Psexp.py:30
+        #3   | 5.4 %|  active_start              ...psyco/profiler.py:273
+        #4   | 5.0 %|  QueueRead                            Picker.py:491
+21:17:19.02  tag function: __main__.to_old                                 %
+21:17:19.12  tag function: __main__.to_old                                 %
+21:17:19.20   ______
+        #1   | 5.4 %|  QueueRead                            Picker.py:491
+21:17:19.41   ______
+        #1   | 8.8 %|  to_old                               Picker.py:325
+        #2   | 6.1 %|  QueueRead                            Picker.py:491
+21:17:19.43  tag function: __main__.to_old                                 %
+21:17:19.59   ______
+        #1   | 7.9 %|  to_old                               Picker.py:325
+        #2   | 6.1 %|  QueueRead                            Picker.py:491
+21:17:19.66  tag function: __main__.to_old                                 %
+21:17:19.81   ______
+        #1   | 7.7 %|  to_old                               Picker.py:325
+        #2   | 6.1 %|  QueueRead                            Picker.py:491
+21:17:19.87  tag function: __main__.to_old                                 %
+21:17:19.97  tag function: __main__.to_old                                 %
+21:17:20.01   ______
+        #1   | 7.2 %|  makeOldSexp                          Picker.py:317
+        #2   | 6.0 %|  QueueRead                            Picker.py:491
+21:17:20.22   ______
+        #1   | 6.5 %|  to_old                               Picker.py:325
+        #2   | 6.3 %|  makeOldSexp                          Picker.py:317
+        #3   | 5.4 %|  QueueRead                            Picker.py:491
+        #4   | 4.8 %|  set                                  Picker.py:521
+        #5   | 4.3 %|  ProcSexp                             Picker.py:342
+        #6   | 3.7 %|  LogServerMsg              ...3/SCab2/Logger.py:43
+        #7   | 3.7 %|  get                       ...ython2.5/Queue.py:147
+        #8   | 3.5 %|  UpdateStatus              ...Cab2/SwitchObj.py:105
+        #9   | 3.3 %|  ProcSexp                  ...Cab2/SwitchObj.py:195
+        #10  | 3.0 %|  __new__                   ...s3/SCab2/Psexp.py:30
+21:17:20.43   ______
+        #1   | 5.6 %|  to_old                               Picker.py:325
+        #2   | 5.4 %|  makeOldSexp                          Picker.py:317
+        #3   | 4.7 %|  QueueRead                            Picker.py:491
+        #4   | 4.2 %|  set                                  Picker.py:521
+        #5   | 3.8 %|  ProcSexp                             Picker.py:342
+        #6   | 3.3 %|  LogServerMsg              ...3/SCab2/Logger.py:43
+        #7   | 3.2 %|  get                       ...ython2.5/Queue.py:147
+        #8   | 3.1 %|  UpdateStatus              ...Cab2/SwitchObj.py:105
+        #9   | 2.9 %|  ProcSexp                  ...Cab2/SwitchObj.py:195
+        #10  | 2.8 %|  _options                  .../SCab2/Tkinter.py:1049
+21:17:20.59   ______
+        #1   | 5.0 %|  to_old                               Picker.py:325
+        #2   | 4.9 %|  makeOldSexp                          Picker.py:317
+        #3   | 4.2 %|  QueueRead                            Picker.py:491
+        #4   | 4.1 %|  _options                  .../SCab2/Tkinter.py:1049
+        #5   | 3.7 %|  set                                  Picker.py:521
+        #6   | 3.4 %|  ProcSexp                             Picker.py:342
+        #7   | 2.9 %|  LogServerMsg              ...3/SCab2/Logger.py:43
+        #8   | 2.9 %|  get                       ...ython2.5/Queue.py:147
+        #9   | 2.7 %|  UpdateStatus              ...Cab2/SwitchObj.py:105
+        #10  | 2.7 %|  _register                 .../SCab2/Tkinter.py:1092
+21:17:20.79   ______
+        #1   | 5.9 %|  _options                  .../SCab2/Tkinter.py:1049
+        #2   | 4.4 %|  to_old                               Picker.py:325
+        #3   | 4.3 %|  makeOldSexp                          Picker.py:317
+        #4   | 3.7 %|  QueueRead                            Picker.py:491
+        #5   | 3.5 %|  _register                 .../SCab2/Tkinter.py:1092
+        #6   | 3.3 %|  _bind                     .../SCab2/Tkinter.py:938
+        #7   | 3.3 %|  set                                  Picker.py:521
+        #8   | 3.0 %|  ProcSexp                             Picker.py:342
+        #9   | 2.6 %|  LogServerMsg              ...3/SCab2/Logger.py:43
+        #10  | 2.5 %|  get                       ...ython2.5/Queue.py:147
+21:17:20.94  tag function: Tkinter.Misc._options                           %
+21:17:21.00   ______
+        #1   | 3.4 %|  _create                   .../SCab2/Tkinter.py:2148
+        #2   | 3.4 %|  to_old                               Picker.py:325
+        #3   | 3.3 %|  makeOldSexp                          Picker.py:317
+        #4   | 2.9 %|  _register                 .../SCab2/Tkinter.py:1092
+        #5   | 2.8 %|  QueueRead                            Picker.py:491
+        #6   | 2.8 %|  _bind                     .../SCab2/Tkinter.py:938
+        #7   | 2.5 %|  set                                  Picker.py:521
+        #8   | 2.3 %|  ProcSexp                             Picker.py:342
+        #9   | 2.0 %|  _cnfmerge                 .../SCab2/Tkinter.py:80
+        #10  | 2.0 %|  LogServerMsg              ...3/SCab2/Logger.py:43
+21:17:21.21   ______
+        #1   | 3.5 %|  _create                   .../SCab2/Tkinter.py:2148
+        #2   | 2.8 %|  to_old                               Picker.py:325
+        #3   | 2.7 %|  makeOldSexp                          Picker.py:317
+        #4   | 2.6 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #5   | 2.4 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #6   | 2.3 %|  _register                 .../SCab2/Tkinter.py:1092
+        #7   | 2.3 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #8   | 2.3 %|  QueueRead                            Picker.py:491
+        #9   | 2.3 %|  LoadLine                  .../PTrackManager.py:442
+        #10  | 2.2 %|  _bind                     .../SCab2/Tkinter.py:938
+21:17:21.42   ______
+        #1   | 3.8 %|  _create                   .../SCab2/Tkinter.py:2148
+        #2   | 3.6 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #3   | 3.2 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #4   | 3.2 %|  LoadLine                  .../PTrackManager.py:442
+        #5   | 3.1 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #6   | 2.4 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #7   | 2.3 %|  to_old                               Picker.py:325
+        #8   | 2.2 %|  makeOldSexp                          Picker.py:317
+        #9   | 2.1 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #10  | 2.1 %|  coords                    .../SCab2/Tkinter.py:2142
+21:17:21.63   ______
+        #1   | 4.3 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #2   | 4.1 %|  LoadLine                  .../PTrackManager.py:442
+        #3   | 4.0 %|  _create                   .../SCab2/Tkinter.py:2148
+        #4   | 3.9 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #5   | 3.7 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #6   | 3.0 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #7   | 2.6 %|  coords                    .../SCab2/Tkinter.py:2142
+        #8   | 2.6 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #9   | 2.4 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #10  | 1.9 %|  to_old                               Picker.py:325
+21:17:21.78   ______
+        #1   | 4.8 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #2   | 4.7 %|  LoadLine                  .../PTrackManager.py:442
+        #3   | 4.3 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #4   | 4.2 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #5   | 4.1 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 3.3 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #7   | 2.8 %|  coords                    .../SCab2/Tkinter.py:2142
+        #8   | 2.7 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #9   | 2.7 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #10  | 1.9 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+21:17:21.99   ______
+        #1   | 5.5 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #2   | 5.1 %|  LoadLine                  .../PTrackManager.py:442
+        #3   | 4.9 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #4   | 4.6 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #5   | 4.3 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 3.6 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #7   | 3.0 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #8   | 3.0 %|  coords                    .../SCab2/Tkinter.py:2142
+        #9   | 2.9 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #10  | 2.1 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+21:17:22.20   ______
+        #1   | 6.0 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #2   | 5.5 %|  LoadLine                  .../PTrackManager.py:442
+        #3   | 5.5 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #4   | 5.3 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #5   | 3.9 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 3.7 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #7   | 3.4 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #8   | 3.3 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #9   | 3.2 %|  coords                    .../SCab2/Tkinter.py:2142
+        #10  | 2.2 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+21:17:22.41   ______
+        #1   | 6.4 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #2   | 5.9 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #3   | 5.6 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #4   | 5.5 %|  LoadLine                  .../PTrackManager.py:442
+        #5   | 4.3 %|  coords                    .../SCab2/Tkinter.py:2142
+        #6   | 3.8 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #7   | 3.8 %|  _create                   .../SCab2/Tkinter.py:2148
+        #8   | 3.5 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #9   | 3.1 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #10  | 2.2 %|  LineLength                ...s3/SCab2/PLine.py:27
+21:17:22.61   ______
+        #1   | 6.2 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #2   | 5.6 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #3   | 4.9 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #4   | 4.8 %|  coords                    .../SCab2/Tkinter.py:2142
+        #5   | 4.4 %|  LoadLine                  .../PTrackManager.py:442
+        #6   | 3.8 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #7   | 3.8 %|  _create                   .../SCab2/Tkinter.py:2148
+        #8   | 3.0 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #9   | 2.5 %|  _configure                .../SCab2/Tkinter.py:1186
+        #10  | 2.5 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+21:17:22.82   ______
+        #1   | 6.4 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 6.1 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #3   | 4.3 %|  coords                    .../SCab2/Tkinter.py:2142
+        #4   | 4.0 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #5   | 3.9 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #6   | 3.8 %|  _configure                .../SCab2/Tkinter.py:1186
+        #7   | 3.6 %|  _create                   .../SCab2/Tkinter.py:2148
+        #8   | 3.6 %|  UpdateStatus              ...3/SCab2/PBlock.py:42
+        #9   | 3.5 %|  LoadLine                  .../PTrackManager.py:442
+        #10  | 3.3 %|  _cnfmerge                 .../SCab2/Tkinter.py:80
+21:17:23.03   ______
+        #1   | 6.6 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 6.3 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #3   | 4.9 %|  UpdateStatus              ...3/SCab2/PBlock.py:42
+        #4   | 4.8 %|  _configure                .../SCab2/Tkinter.py:1186
+        #5   | 4.1 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #6   | 3.9 %|  coords                    .../SCab2/Tkinter.py:2142
+        #7   | 3.9 %|  _cnfmerge                 .../SCab2/Tkinter.py:80
+        #8   | 3.6 %|  _create                   .../SCab2/Tkinter.py:2148
+        #9   | 3.1 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #10  | 2.8 %|  LoadLine                  .../PTrackManager.py:442
+21:17:23.19   ______
+        #1   | 6.4 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 6.3 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #3   | 5.8 %|  _configure                .../SCab2/Tkinter.py:1186
+        #4   | 5.0 %|  _cnfmerge                 .../SCab2/Tkinter.py:80
+        #5   | 4.1 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #6   | 4.0 %|  coords                    .../SCab2/Tkinter.py:2142
+        #7   | 4.0 %|  UpdateStatus              ...3/SCab2/PBlock.py:42
+        #8   | 3.5 %|  _create                   .../SCab2/Tkinter.py:2148
+        #9   | 2.8 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #10  | 2.6 %|  LoadObject                .../PTrackManager.py:477
+21:17:23.39   ______
+        #1   | 6.9 %|  _configure                .../SCab2/Tkinter.py:1186
+        #2   | 6.7 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #3   | 6.4 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #4   | 6.2 %|  _cnfmerge                 .../SCab2/Tkinter.py:80
+        #5   | 4.3 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #6   | 4.0 %|  coords                    .../SCab2/Tkinter.py:2142
+        #7   | 3.8 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #8   | 3.4 %|  _create                   .../SCab2/Tkinter.py:2148
+        #9   | 3.1 %|  UpdateStatus              ...3/SCab2/PBlock.py:42
+        #10  | 3.0 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+21:17:23.60   ______
+        #1   | 8.0 %|  _configure                .../SCab2/Tkinter.py:1186
+        #2   | 7.5 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #3   | 6.4 %|  _cnfmerge                 .../SCab2/Tkinter.py:80
+        #4   | 6.1 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #5   | 4.4 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #6   | 4.2 %|  coords                    .../SCab2/Tkinter.py:2142
+        #7   | 4.2 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #8   | 3.4 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+        #9   | 3.2 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #10  | 3.2 %|  _create                   .../SCab2/Tkinter.py:2148
+21:17:23.81   ______
+        #1   | 8.5 %|  _configure                .../SCab2/Tkinter.py:1186
+        #2   | 7.7 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #3   | 6.9 %|  _cnfmerge                 .../SCab2/Tkinter.py:80
+        #4   | 6.0 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #5   | 4.8 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #6   | 4.2 %|  coords                    .../SCab2/Tkinter.py:2142
+        #7   | 4.2 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #8   | 3.8 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #9   | 3.7 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+        #10  | 3.1 %|  _create                   .../SCab2/Tkinter.py:2148
+21:17:24.02   ______
+        #1   | 8.7 %|  _configure                .../SCab2/Tkinter.py:1186
+        #2   | 7.8 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #3   | 7.2 %|  _cnfmerge                 .../SCab2/Tkinter.py:80
+        #4   | 6.1 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #5   | 5.1 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #6   | 4.6 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #7   | 4.1 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #8   | 4.0 %|  coords                    .../SCab2/Tkinter.py:2142
+        #9   | 3.8 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+        #10  | 3.0 %|  _create                   .../SCab2/Tkinter.py:2148
+21:17:24.19  tag function: Tkinter.Misc._configure                         %
+21:17:24.23   ______
+        #1   | 7.8 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #2   | 7.5 %|  _cnfmerge                 .../SCab2/Tkinter.py:80
+        #3   | 6.1 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #4   | 5.8 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #5   | 5.2 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #6   | 4.4 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #7   | 4.0 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+        #8   | 3.9 %|  coords                    .../SCab2/Tkinter.py:2142
+        #9   | 2.9 %|  _create                   .../SCab2/Tkinter.py:2148
+        #10  | 2.8 %|  LoadObject                .../PTrackManager.py:477
+21:17:24.39   ______
+        #1   | 8.5 %|  UpdateLabel               ...3/SCab2/PTrack.py:82
+        #2   | 6.8 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #3   | 6.4 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #4   | 6.3 %|  _cnfmerge                 .../SCab2/Tkinter.py:80
+        #5   | 5.4 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #6   | 4.7 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #7   | 4.1 %|  coords                    .../SCab2/Tkinter.py:2142
+        #8   | 3.5 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+        #9   | 2.8 %|  LoadObject                .../PTrackManager.py:477
+        #10  | 2.7 %|  _create                   .../SCab2/Tkinter.py:2148
+21:17:24.47  tag function: PTrack.PTrack.UpdateLabel                       %
+21:17:24.60   ______
+        #1   | 7.3 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 6.8 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #3   | 6.3 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #4   | 5.1 %|  _cnfmerge                 .../SCab2/Tkinter.py:80
+        #5   | 4.6 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #6   | 4.4 %|  coords                    .../SCab2/Tkinter.py:2142
+        #7   | 3.4 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+        #8   | 3.2 %|  LoadObject                .../PTrackManager.py:477
+        #9   | 2.9 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+        #10  | 2.7 %|  _create                   .../SCab2/Tkinter.py:2148
+21:17:24.81   ______
+        #1   | 7.6 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 7.3 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #3   | 7.3 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #4   | 4.4 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #5   | 4.1 %|  coords                    .../SCab2/Tkinter.py:2142
+        #6   | 4.1 %|  _cnfmerge                 .../SCab2/Tkinter.py:80
+        #7   | 3.7 %|  LoadObject                .../PTrackManager.py:477
+        #8   | 3.6 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+        #9   | 3.5 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+        #10  | 2.9 %|  _create                   .../SCab2/Tkinter.py:2148
+21:17:25.02   ______
+        #1   | 6.9 %|  coords                    .../SCab2/Tkinter.py:2142
+        #2   | 5.9 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #3   | 5.9 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #4   | 5.1 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #5   | 3.8 %|  DragSignals               ...b2/PTrackPoint.py:100
+        #6   | 3.2 %|  LinePos                   ...s3/SCab2/PLine.py:46
+        #7   | 3.2 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #8   | 2.9 %|  _cnfmerge                 .../SCab2/Tkinter.py:80
+        #9   | 2.8 %|  LoadObject                .../PTrackManager.py:477
+        #10  | 2.7 %|  _create                   .../SCab2/Tkinter.py:2148
+21:17:25.23   ______
+        #1   | 5.6 %|  DrawSignals               ...b2/PTrackPoint.py:120
+        #2   | 4.8 %|  coords                    .../SCab2/Tkinter.py:2142
+        #3   | 4.7 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #4   | 3.8 %|  _create                   .../SCab2/Tkinter.py:2148
+        #5   | 3.7 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #6   | 3.7 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #7   | 3.5 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #8   | 3.2 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #9   | 3.1 %|  TellAngle                 ...s3/SCab2/PLine.py:295
+        #10  | 3.0 %|  DragSignals               ...b2/PTrackPoint.py:100
+21:17:25.38   ______
+        #1   | 6.7 %|  DrawSignals               ...b2/PTrackPoint.py:120
+        #2   | 5.4 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #3   | 4.3 %|  coords                    .../SCab2/Tkinter.py:2142
+        #4   | 4.0 %|  _create                   .../SCab2/Tkinter.py:2148
+        #5   | 3.7 %|  TellAngle                 ...s3/SCab2/PLine.py:295
+        #6   | 3.6 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #7   | 3.3 %|  IsPointEnd                ...s3/SCab2/PLine.py:276
+        #8   | 3.3 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #9   | 3.2 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #10  | 2.8 %|  GetCoordsAsX              ...b2/PTrackPoint.py:172
+21:17:25.59   ______
+        #1   | 5.6 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #2   | 5.6 %|  DrawSignals               ...b2/PTrackPoint.py:120
+        #3   | 4.7 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #4   | 4.5 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #5   | 3.8 %|  coords                    .../SCab2/Tkinter.py:2142
+        #6   | 3.5 %|  _create                   .../SCab2/Tkinter.py:2148
+        #7   | 3.1 %|  TellAngle                 ...s3/SCab2/PLine.py:295
+        #8   | 3.0 %|  GetCoordsAsX              ...b2/PTrackPoint.py:172
+        #9   | 2.9 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #10  | 2.8 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+21:17:25.80   ______
+        #1   | 8.2 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #2   | 6.3 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #3   | 4.5 %|  DrawSignals               ...b2/PTrackPoint.py:120
+        #4   | 4.3 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+        #5   | 3.8 %|  coords                    .../SCab2/Tkinter.py:2142
+        #6   | 3.7 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #7   | 3.0 %|  SetLineWidth              ...3/SCab2/PTrack.py:29
+        #8   | 2.8 %|  _create                   .../SCab2/Tkinter.py:2148
+        #9   | 2.6 %|  SetMode                   .../SCab2/PSwitch.py:134
+        #10  | 2.5 %|  TellAngle                 ...s3/SCab2/PLine.py:295
+21:17:26.01   ______
+        #1   | 5.8 %|  _register                 .../SCab2/Tkinter.py:1092
+        #2   | 5.5 %|  _bind                     .../SCab2/Tkinter.py:938
+        #3   | 4.5 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #4   | 4.0 %|  TrueCoord                 ...2/PLineManager.py:169
+        #5   | 3.7 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #6   | 3.5 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #7   | 3.5 %|  DrawPoint                 ...3/SCab2/PPoint.py:23
+        #8   | 3.4 %|  LoadPoint                 .../PTrackManager.py:416
+        #9   | 3.0 %|  DefineBindings            ...3/SCab2/PPoint.py:36
+        #10  | 3.0 %|  _create                   .../SCab2/Tkinter.py:2148
+21:17:26.22   ______
+        #1   | 7.0 %|  _register                 .../SCab2/Tkinter.py:1092
+        #2   | 6.5 %|  _bind                     .../SCab2/Tkinter.py:938
+        #3   | 4.3 %|  TrueCoord                 ...2/PLineManager.py:169
+        #4   | 4.2 %|  LoadPoint                 .../PTrackManager.py:416
+        #5   | 3.9 %|  DrawPoint                 ...3/SCab2/PPoint.py:23
+        #6   | 3.5 %|  _create                   .../SCab2/Tkinter.py:2148
+        #7   | 3.5 %|  DefineBindings            ...3/SCab2/PPoint.py:36
+        #8   | 3.4 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #9   | 3.4 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #10  | 3.2 %|  __init__                  ...3/SCab2/PPoint.py:4
+21:17:26.40   ______
+        #1   | 6.1 %|  _register                 .../SCab2/Tkinter.py:1092
+        #2   | 5.6 %|  _bind                     .../SCab2/Tkinter.py:938
+        #3   | 4.0 %|  TrueCoord                 ...2/PLineManager.py:169
+        #4   | 3.7 %|  LoadPoint                 .../PTrackManager.py:416
+        #5   | 3.6 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 3.4 %|  DrawPoint                 ...3/SCab2/PPoint.py:23
+        #7   | 3.4 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #8   | 3.3 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #9   | 3.0 %|  DefineBindings            ...3/SCab2/PPoint.py:36
+        #10  | 2.8 %|  __init__                  ...3/SCab2/PPoint.py:4
+21:17:26.61   ______
+        #1   | 4.8 %|  _register                 .../SCab2/Tkinter.py:1092
+        #2   | 4.4 %|  _bind                     .../SCab2/Tkinter.py:938
+        #3   | 4.1 %|  _create                   .../SCab2/Tkinter.py:2148
+        #4   | 3.9 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #5   | 3.5 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #6   | 3.5 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #7   | 3.4 %|  TrueCoord                 ...2/PLineManager.py:169
+        #8   | 3.3 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #9   | 3.2 %|  LoadLine                  .../PTrackManager.py:442
+        #10  | 3.2 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+21:17:26.82   ______
+        #1   | 4.9 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 4.6 %|  _create                   .../SCab2/Tkinter.py:2148
+        #3   | 4.5 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #4   | 4.5 %|  LoadLine                  .../PTrackManager.py:442
+        #5   | 3.7 %|  _register                 .../SCab2/Tkinter.py:1092
+        #6   | 3.6 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #7   | 3.5 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #8   | 3.4 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #9   | 3.4 %|  _bind                     .../SCab2/Tkinter.py:938
+        #10  | 3.3 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+21:17:27.02   ______
+        #1   | 5.5 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 5.3 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #3   | 5.1 %|  LoadLine                  .../PTrackManager.py:442
+        #4   | 4.9 %|  _create                   .../SCab2/Tkinter.py:2148
+        #5   | 4.1 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #6   | 3.8 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #7   | 3.5 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #8   | 3.2 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #9   | 3.0 %|  _register                 .../SCab2/Tkinter.py:1092
+        #10  | 2.9 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+21:17:27.23   ______
+        #1   | 6.3 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 6.2 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #3   | 5.7 %|  LoadLine                  .../PTrackManager.py:442
+        #4   | 5.2 %|  _create                   .../SCab2/Tkinter.py:2148
+        #5   | 4.6 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #6   | 4.1 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #7   | 3.7 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #8   | 3.3 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #9   | 3.1 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #10  | 2.6 %|  LineLength                ...s3/SCab2/PLine.py:27
+21:17:27.39   ______
+        #1   | 6.8 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #2   | 6.8 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #3   | 6.1 %|  LoadLine                  .../PTrackManager.py:442
+        #4   | 5.1 %|  _create                   .../SCab2/Tkinter.py:2148
+        #5   | 5.0 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #6   | 4.3 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #7   | 3.8 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #8   | 3.5 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #9   | 3.1 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #10  | 2.9 %|  LineLength                ...s3/SCab2/PLine.py:27
+21:17:27.59   ______
+        #1   | 7.4 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #2   | 7.3 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #3   | 6.5 %|  LoadLine                  .../PTrackManager.py:442
+        #4   | 5.4 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #5   | 5.0 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 4.2 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #7   | 3.8 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #8   | 3.5 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #9   | 3.0 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #10  | 3.0 %|  LineLength                ...s3/SCab2/PLine.py:27
+21:17:27.81   ______
+        #1   | 7.5 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 7.4 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #3   | 6.7 %|  LoadLine                  .../PTrackManager.py:442
+        #4   | 5.5 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #5   | 5.1 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 4.3 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #7   | 3.7 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #8   | 3.6 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #9   | 3.1 %|  LineLength                ...s3/SCab2/PLine.py:27
+        #10  | 3.1 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+21:17:28.02   ______
+        #1   | 7.0 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 7.0 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #3   | 6.2 %|  LoadLine                  .../PTrackManager.py:442
+        #4   | 5.3 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #5   | 4.6 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 3.6 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #7   | 3.6 %|  coords                    .../SCab2/Tkinter.py:2142
+        #8   | 3.6 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #9   | 3.3 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #10  | 3.2 %|  DragSignals               ...b2/PTrackPoint.py:100
+21:17:28.23   ______
+        #1   | 7.5 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #2   | 6.5 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #3   | 6.1 %|  _register                 .../SCab2/Tkinter.py:1092
+        #4   | 5.5 %|  _bind                     .../SCab2/Tkinter.py:938
+        #5   | 5.0 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #6   | 4.5 %|  LoadLine                  .../PTrackManager.py:442
+        #7   | 4.0 %|  _create                   .../SCab2/Tkinter.py:2148
+        #8   | 3.1 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #9   | 2.6 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #10  | 2.6 %|  coords                    .../SCab2/Tkinter.py:2142
+21:17:28.39   ______
+        #1   | 8.8 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #2   | 8.4 %|  _register                 .../SCab2/Tkinter.py:1092
+        #3   | 7.6 %|  _bind                     .../SCab2/Tkinter.py:938
+        #4   | 6.2 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #5   | 3.9 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #6   | 3.6 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #7   | 3.5 %|  LoadLine                  .../PTrackManager.py:442
+        #8   | 3.5 %|  _create                   .../SCab2/Tkinter.py:2148
+        #9   | 3.1 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #10  | 2.9 %|  UpdateStatus              ...3/SCab2/PBlock.py:42
+21:17:28.42  tag function: PTrack.PTrack.Bind                              %
+21:17:28.42  unsupported opcode 136 at Bind:0                            % %
+21:17:28.46  tag function: Tkinter.Misc._register                          %
+21:17:28.56  tag function: Tkinter.Misc._bind                              %
+21:17:28.59   ______
+        #1   | 6.4 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 4.5 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #3   | 4.2 %|  UpdateStatus              ...3/SCab2/PBlock.py:42
+        #4   | 3.1 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #5   | 3.0 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #6   | 2.9 %|  _create                   .../SCab2/Tkinter.py:2148
+        #7   | 2.7 %|  LoadLine                  .../PTrackManager.py:442
+        #8   | 2.5 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #9   | 2.1 %|  LoadObject                .../PTrackManager.py:477
+        #10  | 2.0 %|  SetOwner                  ...3/SCab2/PTrack.py:12
+21:17:28.80   ______
+        #1   | 6.8 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 5.8 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #3   | 5.0 %|  UpdateStatus              ...3/SCab2/PBlock.py:42
+        #4   | 4.8 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #5   | 3.6 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #6   | 3.3 %|  _create                   .../SCab2/Tkinter.py:2148
+        #7   | 2.6 %|  LoadObject                .../PTrackManager.py:477
+        #8   | 2.4 %|  SetOwner                  ...3/SCab2/PTrack.py:12
+        #9   | 2.4 %|  UpdatePoints              ...s3/SCab2/PLine.py:134
+        #10  | 2.2 %|  __init__                  .../SCab2/Tkinter.py:1407
+21:17:29.01   ______
+        #1   | 8.3 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #2   | 7.1 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #3   | 4.7 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #4   | 4.0 %|  UpdateStatus              ...3/SCab2/PBlock.py:42
+        #5   | 3.7 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #6   | 3.3 %|  _create                   .../SCab2/Tkinter.py:2148
+        #7   | 2.8 %|  SetOwner                  ...3/SCab2/PTrack.py:12
+        #8   | 2.6 %|  LoadObject                .../PTrackManager.py:477
+        #9   | 2.5 %|  __init__                  .../SCab2/Tkinter.py:1407
+        #10  | 2.4 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+21:17:29.10  tag function: PTrack.PTrack.Bind                              %
+21:17:29.22   ______
+        #1   | 6.8 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 4.8 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #3   | 3.9 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #4   | 3.2 %|  UpdateStatus              ...3/SCab2/PBlock.py:42
+        #5   | 3.2 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 3.0 %|  SetOwner                  ...3/SCab2/PTrack.py:12
+        #7   | 3.0 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #8   | 2.8 %|  LoadObject                .../PTrackManager.py:477
+        #9   | 2.8 %|  __init__                  .../SCab2/Tkinter.py:1407
+        #10  | 2.7 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+21:17:29.43   ______
+        #1   | 7.0 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 5.2 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #3   | 4.8 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #4   | 3.8 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #5   | 3.8 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #6   | 3.4 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #7   | 3.2 %|  SetOwner                  ...3/SCab2/PTrack.py:12
+        #8   | 3.1 %|  LoadObject                .../PTrackManager.py:477
+        #9   | 3.0 %|  __init__                  .../SCab2/Tkinter.py:1407
+        #10  | 3.0 %|  _create                   .../SCab2/Tkinter.py:2148
+21:17:29.58   ______
+        #1   | 7.3 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #2   | 6.9 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #3   | 5.1 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #4   | 4.2 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #5   | 4.2 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #6   | 4.1 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #7   | 3.3 %|  SetOwner                  ...3/SCab2/PTrack.py:12
+        #8   | 3.2 %|  _create                   .../SCab2/Tkinter.py:2148
+        #9   | 3.2 %|  LoadObject                .../PTrackManager.py:477
+        #10  | 3.0 %|  __init__                  .../SCab2/Tkinter.py:1407
+21:17:29.73  tag function: PTrack.PTrack.Bind                              %
+21:17:29.79   ______
+        #1   | 6.9 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 5.0 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #3   | 4.9 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #4   | 4.7 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #5   | 4.5 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #6   | 3.6 %|  LoadObject                .../PTrackManager.py:477
+        #7   | 3.5 %|  _create                   .../SCab2/Tkinter.py:2148
+        #8   | 3.2 %|  SetOwner                  ...3/SCab2/PTrack.py:12
+        #9   | 3.2 %|  __init__                  .../SCab2/Tkinter.py:1407
+        #10  | 2.5 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+21:17:30.00   ______
+        #1   | 6.9 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 5.6 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #3   | 5.3 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #4   | 5.2 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #5   | 5.0 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #6   | 4.1 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #7   | 3.4 %|  __init__                  .../SCab2/Tkinter.py:1407
+        #8   | 3.3 %|  SetOwner                  ...3/SCab2/PTrack.py:12
+        #9   | 3.2 %|  LoadObject                .../PTrackManager.py:477
+        #10  | 3.2 %|  _create                   .../SCab2/Tkinter.py:2148
+21:17:30.21   ______
+        #1   | 8.4 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #2   | 6.7 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #3   | 5.6 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #4   | 5.2 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #5   | 5.1 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #6   | 4.4 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #7   | 3.5 %|  __init__                  .../SCab2/Tkinter.py:1407
+        #8   | 3.4 %|  LoadObject                .../PTrackManager.py:477
+        #9   | 3.4 %|  _create                   .../SCab2/Tkinter.py:2148
+        #10  | 3.3 %|  SetOwner                  ...3/SCab2/PTrack.py:12
+21:17:30.24  tag function: PTrack.PTrack.Bind                              %
+21:17:30.41   ______
+        #1   | 7.1 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 6.2 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #3   | 5.7 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #4   | 4.9 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #5   | 4.6 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #6   | 4.0 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #7   | 3.6 %|  __init__                  .../SCab2/Tkinter.py:1407
+        #8   | 3.5 %|  SetOwner                  ...3/SCab2/PTrack.py:12
+        #9   | 3.3 %|  LoadObject                .../PTrackManager.py:477
+        #10  | 3.3 %|  _create                   .../SCab2/Tkinter.py:2148
+21:17:30.62   ______
+        #1   | 7.5 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 7.3 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #3   | 6.5 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #4   | 5.6 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #5   | 5.4 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #6   | 4.1 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #7   | 3.7 %|  __init__                  .../SCab2/Tkinter.py:1407
+        #8   | 3.5 %|  SetOwner                  ...3/SCab2/PTrack.py:12
+        #9   | 3.5 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+        #10  | 3.1 %|  LoadObject                .../PTrackManager.py:477
+21:17:30.75  tag function: PTrack.PTrack.Bind                              %
+21:17:30.83   ______
+        #1   | 7.3 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 5.9 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #3   | 5.5 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #4   | 5.4 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #5   | 4.1 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #6   | 3.7 %|  __init__                  .../SCab2/Tkinter.py:1407
+        #7   | 3.5 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+        #8   | 3.4 %|  SetOwner                  ...3/SCab2/PTrack.py:12
+        #9   | 2.9 %|  LoadObject                .../PTrackManager.py:477
+        #10  | 2.8 %|  _create                   .../SCab2/Tkinter.py:2148
+21:17:30.99   ______
+        #1   | 5.7 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #2   | 4.6 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #3   | 4.4 %|  coords                    .../SCab2/Tkinter.py:2142
+        #4   | 4.3 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #5   | 4.2 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #6   | 4.2 %|  DragSignals               ...b2/PTrackPoint.py:100
+21:17:31.19   ______
+        #1   | 6.7 %|  DrawSignals               ...b2/PTrackPoint.py:120
+        #2   | 4.4 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #3   | 3.6 %|  _create                   .../SCab2/Tkinter.py:2148
+        #4   | 3.5 %|  DrawLabel                 ...3/SCab2/PTrack.py:42
+        #5   | 3.3 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #6   | 3.2 %|  IsPointEnd                ...s3/SCab2/PLine.py:276
+        #7   | 3.2 %|  coords                    .../SCab2/Tkinter.py:2142
+        #8   | 3.0 %|  TellAngle                 ...s3/SCab2/PLine.py:295
+        #9   | 2.9 %|  GetCoordsAsX              ...b2/PTrackPoint.py:172
+        #10  | 2.8 %|  DragSignals               ...b2/PTrackPoint.py:100
+21:17:31.40   ______
+        #1   | 6.1 %|  DrawSignals               ...b2/PTrackPoint.py:120
+        #2   | 4.2 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #3   | 4.1 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #4   | 3.5 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #5   | 3.2 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 3.1 %|  GetCoordsAsX              ...b2/PTrackPoint.py:172
+        #7   | 3.0 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #8   | 3.0 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #9   | 2.8 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #10  | 2.8 %|  TellAngle                 ...s3/SCab2/PLine.py:295
+21:17:31.61   ______
+        #1   | 8.2 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #2   | 4.6 %|  DrawSignals               ...b2/PTrackPoint.py:120
+        #3   | 4.5 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #4   | 4.2 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #5   | 3.8 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #6   | 3.2 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+        #7   | 3.1 %|  SetMode                   .../SCab2/PSwitch.py:134
+        #8   | 2.9 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #9   | 2.7 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+        #10  | 2.6 %|  coords                    .../SCab2/Tkinter.py:2142
+21:17:31.67  tag function: PTrack.PTrack.Bind                              %
+21:17:31.82   ______
+        #1   | 5.8 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #2   | 4.8 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #3   | 4.6 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #4   | 4.4 %|  SetMode                   .../SCab2/PSwitch.py:134
+        #5   | 3.7 %|  DrawSignals               ...b2/PTrackPoint.py:120
+        #6   | 3.4 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #7   | 3.3 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #8   | 3.2 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+        #9   | 2.9 %|  __init__                  .../SCab2/Tkinter.py:1407
+        #10  | 2.6 %|  DrawTrackPoint            ...b2/PTrackPoint.py:49
+21:17:31.98  tag function: PLine.PLine.UpdateScale                         %
+21:17:32.03   ______
+        #1   | 5.5 %|  TrueCoord                 ...2/PLineManager.py:169
+        #2   | 4.4 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+        #3   | 3.6 %|  coords                    .../SCab2/Tkinter.py:2142
+        #4   | 3.4 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #5   | 3.3 %|  ChangeScale               ...2/PLineManager.py:45
+        #6   | 3.1 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+        #7   | 3.0 %|  SetMode                   .../SCab2/PSwitch.py:134
+        #8   | 2.9 %|  ScalePoint                ...3/SCab2/PPoint.py:66
+        #9   | 2.7 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #10  | 2.6 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+21:17:32.18   ______
+        #1   | 8.6 %|  TrueCoord                 ...2/PLineManager.py:169
+        #2   | 5.6 %|  coords                    .../SCab2/Tkinter.py:2142
+        #3   | 5.1 %|  ScalePoint                ...3/SCab2/PPoint.py:66
+        #4   | 4.2 %|  ChangeScale               ...2/PLineManager.py:45
+        #5   | 4.0 %|  DragSignals               ...b2/PTrackPoint.py:100
+        #6   | 3.2 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+        #7   | 2.6 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #8   | 2.5 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #9   | 2.5 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #10  | 2.3 %|  UpdateStatus              .../SCab2/PSwitch.py:69
+21:17:32.39   ______
+        #1   | 8.6 %|  coords                    .../SCab2/Tkinter.py:2142
+        #2   | 7.2 %|  DragSignals               ...b2/PTrackPoint.py:100
+        #3   | 7.1 %|  TrueCoord                 ...2/PLineManager.py:169
+        #4   | 4.7 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #5   | 4.2 %|  ChangeScale               ...2/PLineManager.py:45
+        #6   | 4.2 %|  ScalePoint                ...3/SCab2/PPoint.py:66
+        #7   | 3.6 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #8   | 2.6 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+        #9   | 2.4 %|  Refresh                   .../PTrackManager.py:355
+        #10  | 2.0 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+21:17:32.44  tag function: Tkinter.Canvas.coords                           %
+21:17:32.52  tag function: PLineManager.PLineManager.TrueCoord             %
+21:17:32.52  tag function: PPoint.PPoint.ScalePoint                        %
+21:17:32.60   ______
+        #1   | 7.4 %|  DragSignals               ...b2/PTrackPoint.py:100
+        #2   | 4.6 %|  ChangeScale               ...2/PLineManager.py:45
+        #3   | 3.7 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #4   | 3.2 %|  DragTrackPoint            ...b2/PTrackPoint.py:73
+        #5   | 2.8 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #6   | 2.3 %|  TrueBBox                  ...2/PLineManager.py:61
+        #7   | 2.0 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+        #8   | 1.9 %|  Refresh                   .../PTrackManager.py:355
+        #9   | 1.6 %|  ScaleToFit                ...2/PLineManager.py:96
+        #10  | 1.6 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+21:17:32.73  tag function: PTrackPoint.PTrackPoint.DragSignals             %
+21:17:32.80  unsupported free or cell vars in DrawArrow                  % %
+21:17:32.81   ______
+        #1   | 5.3 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #2   | 4.9 %|  ChangeScale               ...2/PLineManager.py:45
+        #3   | 4.2 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #4   | 3.4 %|  TrueBBox                  ...2/PLineManager.py:61
+        #5   | 3.1 %|  Refresh                   .../PTrackManager.py:355
+        #6   | 2.7 %|  DragTrackPoint            ...b2/PTrackPoint.py:73
+        #7   | 2.0 %|  ScaleToFit                ...2/PLineManager.py:96
+        #8   | 1.9 %|  IsPointEnd                ...s3/SCab2/PLine.py:276
+        #9   | 1.7 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+        #10  | 1.6 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+21:17:33.01   ______
+        #1   | 5.3 %|  ChangeScale               ...2/PLineManager.py:45
+        #2   | 5.0 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #3   | 4.0 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #4   | 3.5 %|  _create                   .../SCab2/Tkinter.py:2148
+        #5   | 3.2 %|  TrueBBox                  ...2/PLineManager.py:61
+        #6   | 2.9 %|  Refresh                   .../PTrackManager.py:355
+        #7   | 2.6 %|  DragTrackPoint            ...b2/PTrackPoint.py:73
+        #8   | 2.1 %|  ScaleToFit                ...2/PLineManager.py:96
+        #9   | 1.8 %|  IsPointEnd                ...s3/SCab2/PLine.py:276
+        #10  | 1.6 %|  CorrectCoords             ...s3/SCab2/PLine.py:161
+21:17:33.02  unsupported free or cell vars in Bind                       % %
+21:17:33.02  unsupported free or cell vars in Bind                       % %
+21:17:33.23   ______
+        #1   | 5.5 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #2   | 5.3 %|  _create                   .../SCab2/Tkinter.py:2148
+        #3   | 5.3 %|  ChangeScale               ...2/PLineManager.py:45
+        #4   | 4.3 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #5   | 3.4 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #6   | 2.7 %|  TrueBBox                  ...2/PLineManager.py:61
+        #7   | 2.5 %|  Refresh                   .../PTrackManager.py:355
+        #8   | 2.2 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #9   | 2.2 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #10  | 2.2 %|  DragTrackPoint            ...b2/PTrackPoint.py:73
+21:17:33.38   ______
+        #1   | 8.7 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #2   | 6.3 %|  _create                   .../SCab2/Tkinter.py:2148
+        #3   | 5.2 %|  ChangeScale               ...2/PLineManager.py:45
+        #4   | 3.8 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #5   | 3.2 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #6   | 3.0 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #7   | 2.9 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #8   | 2.8 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #9   | 2.4 %|  TrueBBox                  ...2/PLineManager.py:61
+        #10  | 2.2 %|  Refresh                   .../PTrackManager.py:355
+21:17:33.41  tag function: PTrack.PTrack.Bind                              %
+21:17:33.59   ______
+        #1   | 7.8 %|  _create                   .../SCab2/Tkinter.py:2148
+        #2   | 5.1 %|  ChangeScale               ...2/PLineManager.py:45
+        #3   | 4.4 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #4   | 3.7 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #5   | 3.6 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #6   | 3.4 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #7   | 3.3 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #8   | 3.0 %|  __init__                  .../SCab2/Tkinter.py:1407
+        #9   | 2.6 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #10  | 2.1 %|  TrueBBox                  ...2/PLineManager.py:61
+21:17:33.80   ______
+        #1   | 6.7 %|  _create                   .../SCab2/Tkinter.py:2148
+        #2   | 6.3 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #3   | 6.0 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #4   | 4.9 %|  ChangeScale               ...2/PLineManager.py:45
+        #5   | 3.8 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #6   | 3.7 %|  Refresh                   .../PTrackManager.py:355
+        #7   | 3.3 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #8   | 3.1 %|  tag_unbind                .../SCab2/Tkinter.py:2118
+        #9   | 2.9 %|  tag_bind                  .../SCab2/Tkinter.py:2124
+        #10  | 2.6 %|  __init__                  .../SCab2/Tkinter.py:1407
+21:17:34.01   ______
+        #1   | 8.0 %|  ChangeScale               ...2/PLineManager.py:45
+        #2   | 5.8 %|  _create                   .../SCab2/Tkinter.py:2148
+        #3   | 5.5 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #4   | 5.2 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #5   | 4.2 %|  TrueBBox                  ...2/PLineManager.py:61
+        #6   | 4.0 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #7   | 3.2 %|  Refresh                   .../PTrackManager.py:355
+        #8   | 3.1 %|  ScaleToFit                ...2/PLineManager.py:96
+        #9   | 2.9 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+        #10  | 2.8 %|  Bind                      ...3/SCab2/PTrack.py:109
+21:17:34.21   ______
+        #1   | 8.2 %|  ChangeScale               ...2/PLineManager.py:45
+        #2   | 8.2 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #3   | 7.9 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #4   | 6.3 %|  TrueBBox                  ...2/PLineManager.py:61
+        #5   | 5.2 %|  Refresh                   .../PTrackManager.py:355
+        #6   | 4.5 %|  _create                   .../SCab2/Tkinter.py:2148
+        #7   | 3.7 %|  ScaleToFit                ...2/PLineManager.py:96
+        #8   | 3.1 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #9   | 2.8 %|  IsPointEnd                ...s3/SCab2/PLine.py:276
+        #10  | 2.3 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+21:17:34.40  tag function: PLineManager.PLineManager.ChangeScale           %
+21:17:34.43   ______
+        #1   | 7.9 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #2   | 7.7 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #3   | 6.1 %|  TrueBBox                  ...2/PLineManager.py:61
+        #4   | 5.0 %|  Refresh                   .../PTrackManager.py:355
+        #5   | 4.4 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 3.9 %|  ScaleToFit                ...2/PLineManager.py:96
+        #7   | 3.1 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #8   | 2.8 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+        #9   | 2.7 %|  IsPointEnd                ...s3/SCab2/PLine.py:276
+        #10  | 2.1 %|  Bind                      ...3/SCab2/PTrack.py:109
+21:17:34.59   ______
+        #1   | 7.7 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #2   | 7.5 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #3   | 5.9 %|  TrueBBox                  ...2/PLineManager.py:61
+        #4   | 4.9 %|  Refresh                   .../PTrackManager.py:355
+        #5   | 4.3 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 4.1 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+        #7   | 3.8 %|  ScaleToFit                ...2/PLineManager.py:96
+        #8   | 3.0 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #9   | 2.6 %|  IsPointEnd                ...s3/SCab2/PLine.py:276
+        #10  | 2.1 %|  Bind                      ...3/SCab2/PTrack.py:109
+21:17:34.74  unsupported ** argument in call to after_idle               % %
+21:17:34.79   ______
+        #1   | 7.4 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #2   | 7.2 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #3   | 5.7 %|  TrueBBox                  ...2/PLineManager.py:61
+        #4   | 5.2 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+        #5   | 4.7 %|  Refresh                   .../PTrackManager.py:355
+        #6   | 4.1 %|  _create                   .../SCab2/Tkinter.py:2148
+        #7   | 3.9 %|  ScaleToFit                ...2/PLineManager.py:96
+        #8   | 2.9 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #9   | 2.5 %|  IsPointEnd                ...s3/SCab2/PLine.py:276
+        #10  | 2.0 %|  Bind                      ...3/SCab2/PTrack.py:109
+21:17:34.94  tag function: PLineManager.PLineManager.TrueBBox              %
+21:17:35.00   ______
+        #1   | 6.8 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #2   | 6.6 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #3   | 5.0 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+        #4   | 4.3 %|  ScaleToFit                ...2/PLineManager.py:96
+        #5   | 4.3 %|  Refresh                   .../PTrackManager.py:355
+        #6   | 3.9 %|  _create                   .../SCab2/Tkinter.py:2148
+        #7   | 2.6 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #8   | 2.3 %|  IsPointEnd                ...s3/SCab2/PLine.py:276
+        #9   | 1.8 %|  Bind                      ...3/SCab2/PTrack.py:109
+        #10  | 1.7 %|  TellCoord                 ...3/SCab2/PPoint.py:91
+21:17:35.21   ______
+        #1   | 7.2 %|  itemconfigure             .../SCab2/Tkinter.py:2249
+        #2   | 6.5 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #3   | 6.3 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #4   | 4.3 %|  ScaleToFit                ...2/PLineManager.py:96
+        #5   | 4.1 %|  Refresh                   .../PTrackManager.py:355
+        #6   | 3.8 %|  _create                   .../SCab2/Tkinter.py:2148
+        #7   | 2.5 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #8   | 2.2 %|  IsPointEnd                ...s3/SCab2/PLine.py:276
+        #9   | 2.0 %|  _configure                .../SCab2/Tkinter.py:1186
+        #10  | 1.8 %|  Bind                      ...3/SCab2/PTrack.py:109
+21:17:35.39  tag function: Tkinter.Canvas.itemconfigure                    %
+21:17:35.42   ______
+        #1   | 6.1 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #2   | 5.9 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #3   | 4.3 %|  ScaleToFit                ...2/PLineManager.py:96
+        #4   | 3.9 %|  Refresh                   .../PTrackManager.py:355
+        #5   | 3.5 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 2.6 %|  ChangeScale               ...2/PLineManager.py:45
+        #7   | 2.5 %|  _configure                .../SCab2/Tkinter.py:1186
+        #8   | 2.4 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #9   | 2.1 %|  IsPointEnd                ...s3/SCab2/PLine.py:276
+        #10  | 1.9 %|  dumpcharges               ...s/psyco/logger.py:62
+21:17:35.63   ______
+        #1   | 5.9 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #2   | 5.8 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #3   | 4.2 %|  ScaleToFit                ...2/PLineManager.py:96
+        #4   | 3.8 %|  Refresh                   .../PTrackManager.py:355
+        #5   | 3.4 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 2.8 %|  ChangeScale               ...2/PLineManager.py:45
+        #7   | 2.5 %|  _configure                .../SCab2/Tkinter.py:1186
+        #8   | 2.3 %|  dumpcharges               ...s/psyco/logger.py:62
+        #9   | 2.3 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+        #10  | 2.0 %|  IsPointEnd                ...s3/SCab2/PLine.py:276
+21:17:35.78   ______
+        #1   | 5.7 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #2   | 5.5 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #3   | 4.0 %|  ScaleToFit                ...2/PLineManager.py:96
+        #4   | 3.6 %|  Refresh                   .../PTrackManager.py:355
+        #5   | 3.3 %|  _create                   .../SCab2/Tkinter.py:2148
+        #6   | 2.8 %|  dumpcharges               ...s/psyco/logger.py:62
+        #7   | 2.7 %|  ChangeScale               ...2/PLineManager.py:45
+        #8   | 2.4 %|  _configure                .../SCab2/Tkinter.py:1186
+        #9   | 2.2 %|  do_profile                ...psyco/profiler.py:314
+        #10  | 2.2 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+21:17:35.99   ______
+        #1   | 5.5 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #2   | 5.3 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #3   | 3.8 %|  ScaleToFit                ...2/PLineManager.py:96
+        #4   | 3.5 %|  dumpcharges               ...s/psyco/logger.py:62
+        #5   | 3.5 %|  Refresh                   .../PTrackManager.py:355
+        #6   | 3.2 %|  _create                   .../SCab2/Tkinter.py:2148
+        #7   | 2.6 %|  ChangeScale               ...2/PLineManager.py:45
+        #8   | 2.3 %|  _configure                .../SCab2/Tkinter.py:1186
+        #9   | 2.1 %|  do_profile                ...psyco/profiler.py:314
+        #10  | 2.1 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+21:17:36.20   ______
+        #1   | 5.2 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #2   | 5.0 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #3   | 4.2 %|  dumpcharges               ...s/psyco/logger.py:62
+        #4   | 3.6 %|  ScaleToFit                ...2/PLineManager.py:96
+        #5   | 3.3 %|  Refresh                   .../PTrackManager.py:355
+        #6   | 3.0 %|  _create                   .../SCab2/Tkinter.py:2148
+        #7   | 3.0 %|  do_profile                ...psyco/profiler.py:314
+        #8   | 2.5 %|  ChangeScale               ...2/PLineManager.py:45
+        #9   | 2.2 %|  _configure                .../SCab2/Tkinter.py:1186
+        #10  | 2.0 %|  UpdateScale               ...s3/SCab2/PLine.py:195
+21:17:36.41   ______
+        #1   | 5.8 %|  dumpcharges               ...s/psyco/logger.py:62
+        #2   | 4.9 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #3   | 4.8 %|  do_profile                ...psyco/profiler.py:314
+        #4   | 4.7 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #5   | 3.4 %|  ScaleToFit                ...2/PLineManager.py:96
+        #6   | 3.1 %|  Refresh                   .../PTrackManager.py:355
+        #7   | 2.8 %|  _create                   .../SCab2/Tkinter.py:2148
+        #8   | 2.5 %|  QueueRead                            Picker.py:491
+        #9   | 2.3 %|  ChangeScale               ...2/PLineManager.py:45
+        #10  | 2.0 %|  _configure                .../SCab2/Tkinter.py:1186
+21:17:36.62   ______
+        #1   | 6.1 %|  dumpcharges               ...s/psyco/logger.py:62
+        #2   | 5.6 %|  do_profile                ...psyco/profiler.py:314
+        #3   | 4.6 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #4   | 4.4 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #5   | 3.3 %|  QueueRead                            Picker.py:491
+        #6   | 3.2 %|  ScaleToFit                ...2/PLineManager.py:96
+        #7   | 2.9 %|  Refresh                   .../PTrackManager.py:355
+        #8   | 2.6 %|  _create                   .../SCab2/Tkinter.py:2148
+        #9   | 2.3 %|  __init__                  .../SCab2/Tkinter.py:1407
+        #10  | 2.2 %|  ChangeScale               ...2/PLineManager.py:45
+21:17:36.77  tag function: psyco.logger.dumpcharges                        %
+21:17:36.83   ______
+        #1   | 8.0 %|  do_profile                ...psyco/profiler.py:314
+        #2   | 4.0 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #3   | 3.9 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #4   | 2.9 %|  QueueRead                            Picker.py:491
+        #5   | 2.8 %|  ScaleToFit                ...2/PLineManager.py:96
+        #6   | 2.5 %|  Refresh                   .../PTrackManager.py:355
+        #7   | 2.4 %|  deletecommand             .../SCab2/Tkinter.py:359
+21:17:36.98   ______
+        #1   | 7.6 %|  do_profile                ...psyco/profiler.py:314
+        #2   | 4.6 %|  callit                    .../SCab2/Tkinter.py:499
+        #3   | 3.8 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #4   | 3.7 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #5   | 3.4 %|  deletecommand             .../SCab2/Tkinter.py:359
+21:17:37.19   ______
+        #1   | 7.0 %|  do_profile                ...psyco/profiler.py:314
+        #2   | 5.7 %|  get                       ...ython2.5/Queue.py:147
+        #3   | 4.4 %|  callit                    .../SCab2/Tkinter.py:499
+        #4   | 3.5 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #5   | 3.4 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #6   | 3.1 %|  deletecommand             .../SCab2/Tkinter.py:359
+21:17:37.30  tag function: psyco.profiler.PassiveProfiler.do_profile       %
+21:17:37.40   ______
+        #1   | 5.2 %|  get                       ...ython2.5/Queue.py:147
+        #2   | 4.3 %|  QueueRead                            Picker.py:491
+        #3   | 4.0 %|  callit                    .../SCab2/Tkinter.py:499
+        #4   | 3.5 %|  __init__                  .../SCab2/Tkinter.py:1407
+        #5   | 3.2 %|  IsStubEnd                 ...b2/PTrackPoint.py:21
+        #6   | 3.1 %|  UpdateTrackPoint          ...b2/PTrackPoint.py:88
+        #7   | 2.8 %|  deletecommand             .../SCab2/Tkinter.py:359
+21:17:37.61   ______
+        #1   | 4.8 %|  get                       ...ython2.5/Queue.py:147
+        #2   | 4.8 %|  deletecommand             .../SCab2/Tkinter.py:359
+21:17:37.81   ______
+        #1   | 6.9 %|  get                       ...ython2.5/Queue.py:147
+        #2   | 6.7 %|  callit                    .../SCab2/Tkinter.py:499
+        #3   | 6.0 %|  QueueRead                            Picker.py:491
+        #4   | 4.2 %|  deletecommand             .../SCab2/Tkinter.py:359
+21:17:37.83  tag function: Queue.Queue.get                                 %
+21:17:37.83  tag function: Queue.Queue._empty                              %
+21:17:38.02   ______
+        #1   | 5.1 %|  callit                    .../SCab2/Tkinter.py:499
+        #2   | 4.5 %|  QueueRead                            Picker.py:491
+        #3   | 4.1 %|  read                      ...ab2/SockReader.py:73
+        #4   | 3.2 %|  deletecommand             .../SCab2/Tkinter.py:359
+21:17:38.04  tag function: Tkinter.BaseWidget.destroy                      %
+21:17:38.07  tag function: Tkinter.Misc.destroy                            %
+21:17:38.23   ______
+        #1   | 2.2 %|  UpdateStatus              ...3/SCab2/PBlock.py:42
+        #2   | 2.0 %|  callit                    .../SCab2/Tkinter.py:499
+        #3   | 1.8 %|  QueueRead                            Picker.py:491
+        #4   | 1.6 %|  Delete                    ...ys3/SCab2/SCab.py:340
+        #5   | 1.6 %|  read                      ...ab2/SockReader.py:73
+        #6   | 1.2 %|  deletecommand             .../SCab2/Tkinter.py:359
+21:17:38.28  memory usage: 1993+ kb                                        %
+21:17:38.28  program exit, 05/23/09                     %%%%%%%%%%%%%%%%%%%%

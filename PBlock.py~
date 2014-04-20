@@ -1,0 +1,157 @@
+from PLine import *
+from PPoint import *
+from PTrack import *
+
+NONE='none'
+FIRST='first'
+LAST='last'
+
+class PBlock:
+    def __init__(self, master, owner):
+        self.PM=master
+        self.cv=self.PM.cv
+        self.Type='PBlock'
+        self.Block=owner
+        self.Arrow=None
+        self.Name=self.Block.name
+        self.DName=self.Block.DName
+        self.Lines={}
+        self.Block.AddDisplayObject(self)
+        self.SignalColor0='White'
+        self.SignalColor1='White'
+        self.UpdateStatus()
+
+    def AddLine(self, line):
+        self.Lines[line.Number]=line
+        line.SetOwner(self)
+        line.SetLabelText(self.DName)
+        self.SetMode()
+
+    def DeleteInstance(self, line):
+        self.PM.DeleteLine(line)
+        del self.Lines[line.Number]
+        if len(self.Lines.keys())==0:
+            self.PM.DeleteObject(self)
+
+    def DeleteAllInstances(self):
+        self.Block.DelDisplayObject(self)
+        for linenum in self.Lines.keys():
+            self.PM.DeleteLine(self.Lines[linenum])
+            del self.Lines[linenum]
+
+    def UpdateStatus(self):
+        if self.PM.Mode=='Run':
+            color=self.Block.FindColor()
+            for linenum in self.Lines.keys():
+                self.Lines[linenum].SetLineColor(color)
+#                self.Lines[linenum].UpdateSignals()
+            color0=self.SignalColor(0)
+            if color0!=self.SignalColor0:
+                self.SignalColor0=color0
+                self.cv.itemconfig(self.Name+'Signal0', fill=color0)
+            color1=self.SignalColor(1)
+            if color1!=self.SignalColor1:
+                self.SignalColor1=color1
+                self.cv.itemconfig(self.Name+'Signal1', fill=color1)
+
+            if self.Block.Train==None:
+                labeltext=self.Block.DName
+            else:
+                labeltext=self.Block.DName+'\n'+self.Block.Train.Name[:5]
+
+            if self.Block.HeadBlock:
+                if self.Block.HeadEnd==0:
+                    arrow=FIRST
+                elif self.Block.HeadEnd==1:
+                    arrow=LAST
+                else:
+                    arrow=NONE
+            else:
+                arrow=NONE
+
+            for linenum in self.Lines.keys():
+                self.Lines[linenum].SetLabelText(labeltext)
+                self.Lines[linenum].UpdateArrow(arrow)
+            
+        elif self.PM.Mode=='Edit':
+            for linenum in self.Lines.keys():
+                self.Lines[linenum].SetLineColor('White')
+
+    def SetMode(self, mode=None):
+        self.UpdateStatus()
+        for linenum in self.Lines.keys():
+            self.Lines[linenum].Bind()
+
+    def SetDName(self, dname=None):
+        if dname!=None:
+            self.DName=dname
+        for linenum in self.Lines.keys():
+            self.Lines[linenum].SetLabelText(self.DName)
+
+    def OutOfService(self, event=None):
+        self.Block.OutOfService(event)
+
+    def Clicked(self, event=None):
+        self.Block.NewSCabWindow(event)
+
+    def DebugInfo(self, event=None):
+        self.Block.DebugInfo()
+
+    def NextObject(self, end, line):
+        object=self.Block.Cons[end].Object
+        if object==None:
+            con=0
+        else:
+            con=self.Block.Cons[end].ObjCon
+        return object, con
+
+    def IsGap(self, end, line):
+        isgap=self.Block.IsGap(end)
+        return isgap
+
+    def SignalColor(self, end, line=None):
+        return self.Block.SignalColor(end)
+
+    def TrueEnd(self, end, line):
+        return end
+
+    def Connects(self, events=None):
+        objname0=self.Block.Cons[0].Object
+        objcon0=self.Block.Cons[0].ObjCon
+        objname1=self.Block.Cons[1].Object
+        objcon1=self.Block.Cons[1].ObjCon
+        print self.Block.name, '0:', objname0, objcon0, '1:', objname1, objcon1        
+
+    def Connection(self, connection):
+        object=self.Block.Cons[connection].Object
+        objcon=self.Block.Cons[connection].ObjCon
+        return object, objcon
+
+    def TellPoints(self, connection):
+        points=[]
+        for line in self.Lines.keys():
+            points+=[self.Lines[line].TellEndPoint(connection)]
+        return points
+
+    def TellLines(self):
+        return self.Lines.keys()
+
+    def ShowDebugInfo(self, debugtext):
+        self.cv.delete('debug-info')
+        for line in self.Lines.values():
+            if line.LabelDrawn:
+                dcoord=line.TellLabelDCoord()
+                self.cv.create_text(dcoord,
+                              text=debugtext,
+                              fill='White',
+                              font=('Arial', 10),
+                              tags=('debug-info', 'debug-text'))
+                tbbox=self.cv.bbox('debug-info')
+                bbox=(tbbox[0]-2, tbbox[1]-2, tbbox[2]+2, tbbox[3]+2)
+                self.cv.create_rectangle(bbox,
+                                           fill='Black',
+                                           outline='White',
+                                           width=1,
+                                           tags=('debug-info', 'debug-box'))
+                self.cv.lift('debug-text')
+                self.cv.tag_bind('debug-info', '<Leave>', lambda *args, **kw: self.cv.delete('debug-info'))
