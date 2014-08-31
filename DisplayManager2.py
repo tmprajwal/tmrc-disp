@@ -12,7 +12,7 @@ canvasopts={'bg':'Black',
             'relief':FLAT}
             
 class DualPane:
-    """Class to define display windows.  Two of them.
+    """Class to define display window.
 
     This class is used to define functions related to keeping two separate and
     unequal display windows happy.  Or unhappy, as the situation may call for."""
